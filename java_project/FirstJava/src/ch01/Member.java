@@ -1,8 +1,8 @@
-package test;
+package ch01;
 
 public class Member {
 	public static void main(String[] args) {
-		System.out.println("±èÀº¼±");
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	}
 }
