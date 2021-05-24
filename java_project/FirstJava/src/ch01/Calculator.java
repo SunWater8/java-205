@@ -1,15 +1,18 @@
 package ch01;
-class Calculator{
-	int add(int a, int b) {
-		return a+b;
+public class Calculator{
+	
+	//Method -> function (재료>처리>반환)
+	//반환타입 메소드이름(매개변수들) {처리구문}
+	void plus(int a, int b) {
+		System.out.println(a+b);
 	}
-	int subtract(int a, int b) {
-		return a-b;
+	void minus(int a, int b) {
+		System.out.println(a-b);
 	}
-	int multiply(int a, int b) {
-		return a*b;
+	void multi(int a, int b) {
+		System.out.println(a*b);
 	}
-	int divide(int a, int b) {
-		return a/b;
+	void div(int a, int b) {
+		System.out.println(a/b);
 	}
 }
