@@ -17,10 +17,6 @@ public class Calculator{
 	}
 	
 	
-	//인스턴스 생성 instance = 주소 값 생성: 메모리에 남아 있는 것들(class)을 활용해서 메모리에 저장(reference variable 이용해서)하는 것.- 객체의 또 다른 시선
-	// 인스턴스를 생성하기 위해서는 클래스의 정의가 필요하다. (필요한 변수와 필요한 메소드를 정의) 
-	//참조타입 참조변수 
-	
 	public static void main(String[] args) {
 		Calculator cal = new Calculator();//메모리에 메소드 코드를 저장하는 과정. //참조변수 cal에는 주소 값만 저장되어 있음..(윈도우의 바로가기 아이콘과 비슷) 인스턴스가 생성되자마자 해당되는 메소드는 메모리에 올라옴.
 		cal.add(10, 20);
