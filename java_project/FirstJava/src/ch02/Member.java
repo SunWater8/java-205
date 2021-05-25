@@ -8,10 +8,10 @@ public class Member {
 		double height = 130.5;
 		boolean hasBook = true;
 		
-		System.out.println(name);
-		System.out.println(age);
-		System.out.println(height);
-		System.out.println(hasBook);
+		System.out.println("My name is "+name);
+		System.out.println("She is "+age+"years old");
+		System.out.println("Her height is "+height);
+		System.out.println("Having a Java Book : "+ hasBook);
 		
 	}
 
