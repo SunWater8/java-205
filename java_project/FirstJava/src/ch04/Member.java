@@ -1,21 +1,27 @@
 package ch04;
+import java.util.Calendar;
 import java.util.Scanner;
 
 public class Member {
-	int age;
+	
 	int thisYear = 2021;
 	
 	void vaccine (int birthYear) {
-		age = thisYear-birthYear;
-		if(!(15>age && 65<=age) ){
+		int age = ageCal(birthYear);
+		if(!(15<=age && 65>age) ){
 			System.out.println("무료예방접종이 가능합니다.");
 		}else {
 			System.out.println("무료접종 대상이 아닙니다.");
 		}
 	}
 
+	int ageCal(int year) {
+//		int currentYear =Calendar.getInstance().get(Calendar.YEAR); //현재 연도 반환
+		return Calendar.getInstance().get(Calendar.YEAR)-year-1;//만나이 계산
+	}
+
 	void exam(int birthYear) {
-		age = thisYear-birthYear;
+		int age = ageCal(birthYear);
 		if((20<=age) && (age%2==0)) {
 			System.out.println("당신은 올 해 건강검진 대상입니다.");
 			if(40<=age) {
