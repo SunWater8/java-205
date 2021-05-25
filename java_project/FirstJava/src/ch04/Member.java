@@ -18,7 +18,7 @@ public class Member {
 		age = thisYear-birthYear;
 		if((20<=age) && (age%2==0)) {
 			System.out.println("당신은 올 해 건강검진 대상입니다.");
-			if(40>=age) {
+			if(40<=age) {
 				System.out.println("그리고 암 검사는 무료입니다.");
 			}
 		}else {
@@ -26,14 +26,6 @@ public class Member {
 		}
 	}
 	public static void main(String[] args) {
-//		String name = "Jamie";
-//		int age = 10;
-//		double height = 130.5;
-//		boolean hasBook = true;
-//		System.out.println("My name is "+name);
-//		System.out.println("She is "+age+"years old");
-//		System.out.println("Her height is "+height);
-//		System.out.println("Having a Java Book : "+ hasBook);
 
 		Member m = new Member();
 		
