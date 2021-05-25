@@ -3,28 +3,27 @@ package ch03;
 import java.util.Scanner;
 
 public class Calculator {
-	 int add(int a, int  b) {
-		return a+b;
+	 long add(int a, int  b) {
+		return (long)a+b;
 	}
-	 int sub(int a, int  b) {
-		return a-b;
+	 long sub(int a, int  b) {
+		return (long)a-b;
 	}
-	 int mul(int a, int  b) {
-		return a*b;
+	 long mul(int a, int  b) {
+		return (long)a*b;
 	}
-	 int div(int a, int  b) {
-		return a/b;
-	}
-	
-	
-	 double circleRound(double a) {
-		double pi = Math.PI;
-		return 2*pi*a;
+	float div(int a, int  b) {
+		return (float)a/b;
 	}
 	
-	 double circleArea(double a) {
-		double pi = Math.PI;
-		return pi*a*a;
+	final float PI = 3.14f;
+	
+	 float circleRound(float a) {
+		return 2*PI*a;
+	}
+	
+	 float circleArea(float a) {
+		return PI*a*a;
 	}
 	
 	 void result(int a, int b) {
@@ -33,7 +32,7 @@ public class Calculator {
 		System.out.println("두 수를 곱하면 "+mul(a,b)+"입니다.");
 		System.out.println("두 수를 나누면 "+div(a,b)+"입니다.");
 	}
-	 void circleResult(double a) {
+	 void circleResult(float a) {
 		System.out.println("반지름이 "+a+"인 원의 둘레는"+circleRound(a)+"입니다.");
 		System.out.println("반지름이 "+a+"인 원의 넓이는"+circleArea(a)+"입니다.");
 	}
