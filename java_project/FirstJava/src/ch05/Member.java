@@ -1,14 +1,20 @@
 package ch05;
 
 public class Member {
-	String name;
-	String phoneNum;
-	String major;
-	int level;
-	String email;
-	String birthday;
-	String address;
+	private String name;
+	private String phoneNum;
+	private String major;
+	private int level; // grade
+	private String email;
+	private String birthday; // 2020-1010이런 형태로 저장하고 싶을 때.
+	private String address;
 	
+	public void setName(String name) {
+		this.name = name;
+	}
+	public String getName() {
+		return name;
+	}
 	Member(String name,	String phoneNum, String major, int level, String email, 
 			String birthday, String address){
 		this.name=name;
@@ -25,6 +31,10 @@ public class Member {
 		this.major=major;
 		this.level=level;
 		this.email=email;
+	}
+	
+	Member(String name,	String phoneNum, String major, int level){
+		this(name, phoneNum, major, level, null);
 	}
 	void print() {
 		System.out.println("이름    : "+name);
