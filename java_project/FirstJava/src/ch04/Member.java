@@ -16,7 +16,6 @@ public class Member {
 	}
 
 	int ageCal(int year) {
-//		int currentYear =Calendar.getInstance().get(Calendar.YEAR); //현재 연도 반환
 		return Calendar.getInstance().get(Calendar.YEAR)-year-1;//만나이 계산
 	}
 
