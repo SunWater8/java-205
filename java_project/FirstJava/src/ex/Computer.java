@@ -10,5 +10,4 @@ public class Computer extends Product{
 	public String toString() {
 		return "Computer [PRICE=" + price + ", bonusPoint=" + bonusPoint + "]";
 	}
-	
 }
