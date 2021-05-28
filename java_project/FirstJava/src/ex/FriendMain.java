@@ -1,3 +1,4 @@
+//java_10_객체지향_상속_65p
 package ex;
 
 public class FriendMain {
