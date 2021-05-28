@@ -1,3 +1,5 @@
+//java_10_객체지향_상속_60p 문제2번
+
 package ex;
 
 public class InscanceOfMain {
