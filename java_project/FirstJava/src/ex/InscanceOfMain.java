@@ -4,13 +4,7 @@ public class InscanceOfMain {
 
 	public static void wrapBox(Box box) {
 		//형 변환 여부 확인하기
-		if(box instanceof GoldPaperBox) {
-			((GoldPaperBox)box).goldWrap();
-		}else if(box instanceof PaperBox) {
-			((PaperBox)box).paperWrap();
-		}else {
-			box.simpleWrap();
-		}
+		box.wrap(); //오버라이딩 되었으므로 이 공간의 코드가 더 이상 늘어나지 않는다.
 	}
 	
 	public static void main(String[] args) {
@@ -26,18 +20,18 @@ public class InscanceOfMain {
 }
 
 class Box{
-	public void simpleWrap() {
+	public void wrap() {
 		System.out.println("SimpleWrap");
 	}
 }
 class PaperBox extends Box{
-	public void paperWrap() {
+	public void wrap() {
 		System.out.println("PaperWrap");
 	}
 }
 
 class GoldPaperBox extends PaperBox{
-	public void goldWrap() {
+	public void wrap() {
 		System.out.println("GoldPaperWrap");
 	}
 }
