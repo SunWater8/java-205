@@ -1,6 +1,6 @@
 package ex;
 
-public class FrieldMain {
+public class FriendMain {
 	public static void main(String[] args) {
 		
 		Friend f1 = new Friend("손흥민");
