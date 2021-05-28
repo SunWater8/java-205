@@ -8,6 +8,7 @@ public class Computer extends Product{
 
 	@Override
 	public String toString() {
-		return "Computer [PRICE=" + price + ", bonusPoint=" + bonusPoint + "]";
+//		return "Computer [PRICE=" + price + ", bonusPoint=" + bonusPoint + "]";
+		return "Computer";
 	}
 }

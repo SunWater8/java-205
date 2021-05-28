@@ -31,7 +31,7 @@ public class Student {
 	public int getMathTest() {
 		return mathTest;
 	}
-	
+	Student(){}
 	
 	Student(String name, int korTest, int engTest, int mathTest){
 		this.name=name;
