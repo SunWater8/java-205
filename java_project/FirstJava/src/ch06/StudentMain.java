@@ -14,10 +14,7 @@ public class StudentMain {
 		students[6] = new Student("이순신",27,54,68);
 		students[7] = new Student("계백몬",85,95,87);
 		students[8] = new Student("이창준",95,84,45);
-//		students[9] = new Student("지수현",67,68,75);
-		students[9] = new Student();
-		
-
+		students[9] = new Student("지수현",67,68,75);
 		
 		System.out.println("이름 \t국어 \t영어 \t수학 \t총점 \t평균");
 		System.out.println("=================================================");
