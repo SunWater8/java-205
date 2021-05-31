@@ -1,7 +1,6 @@
 package ch08;
 
-public class CalculatorClass extends CalculatorAbsClass implements Calculator{
-
+public class CalculatorClass extends CalculatorAbsClass {
 	@Override
 	public long add(long n1, long n2) {
 		return n1+n2;
