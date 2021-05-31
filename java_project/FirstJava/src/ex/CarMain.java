@@ -15,7 +15,9 @@ class HybridCar extends Car{
 	HybridCar(int gas,int eg) {
 		super(gas);
 		this.electronicGauge=eg;
-		
+	}
+	HybridCar(int gas){
+		super(gas);
 	}
 }
 class HybridWaterCar extends HybridCar{
@@ -24,6 +26,12 @@ class HybridWaterCar extends HybridCar{
 	HybridWaterCar(int gas, int eg, int wg) {
 		super(gas, eg);
 		this.waterGauge=wg;
+	}
+	HybridWaterCar(int gas, int eg){
+		super(gas,eg);
+	}
+	HybridWaterCar(int gas){
+		super(gas);
 	}
 	public void showCurrentGauge() {
 		System.out.println("잔여 가솔린 : "+gasolinegauge);
