@@ -13,6 +13,12 @@ public class Member {
 		System.out.println("Her height is "+height);
 		System.out.println("Having a Java Book : "+ hasBook);
 		
+		if(hasBook) {
+			System.out.println("책 있어요");
+		}else {
+			System.out.println("책 없어요");
+		}
+		
 	}
 
 }
