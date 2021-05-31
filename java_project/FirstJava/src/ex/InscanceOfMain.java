@@ -22,18 +22,24 @@ public class InscanceOfMain {
 }
 
 class Box{
+	public void simpleWrap() {
+		System.out.println("SimpleWrap");
+	}
 	public void wrap() {
 		System.out.println("SimpleWrap");
 	}
 }
 class PaperBox extends Box{
-	public void wrap() {
+	public void paperwrap() {
 		System.out.println("PaperWrap");
 	}
 }
 
 class GoldPaperBox extends PaperBox{
 	public void wrap() {
+		System.out.println("GoldPaperWrap");
+	}
+	public void Wrap() {
 		System.out.println("GoldPaperWrap");
 	}
 }
