@@ -1,4 +1,4 @@
-package ex;
+package ex.객체배열product_0528;
 
 public class Computer extends Product{
 
