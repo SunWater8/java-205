@@ -5,6 +5,8 @@ public class ScoreManager {
 	public static void main(String[] args) {
 		
 		int[] korScore = new int[10]; 
+		int[] engScore = new int[10]; 
+		int[] mathScore = new int[10]; 
 		
 		korScore[0]=90;
 		korScore[1]=56;
@@ -19,9 +21,10 @@ public class ScoreManager {
 		
 		int sum=0;
 		for(int i=0; i<korScore.length;i++) {
-			System.out.println(korScore[i]);
+			System.out.println("korScore["+i+"]="+korScore[i]);
 			sum += korScore[i];
 		}
+		System.out.println();
 		System.out.println("총합 : "+sum);
 		System.out.println("평균 : "+(float)sum/korScore.length);
 		
