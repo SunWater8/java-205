@@ -1,7 +1,6 @@
 package ch07;
 
 class Female extends Person{
-//	super.name;
 	private String hairColor;
 	Female(){}
 	Female(String name, String personNum, String hairColor) {
