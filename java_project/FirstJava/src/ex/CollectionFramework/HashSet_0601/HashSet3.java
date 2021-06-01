@@ -1,6 +1,6 @@
 //인스턴스로 저장을 하면 중복되는 값을 무시하지 않고 출력 한다. 
 
-package ex.CollectionFramework_0601;
+package ex.CollectionFramework.HashSet_0601;
 
 import java.util.*;
 

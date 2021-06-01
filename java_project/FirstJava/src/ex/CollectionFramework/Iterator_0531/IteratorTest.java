@@ -1,4 +1,4 @@
-package ex.Iterator_0531;
+package ex.CollectionFramework.Iterator_0531;
 import java.util.*;
 
 public class IteratorTest {

@@ -1,6 +1,6 @@
 //Integer 타입의 hashSet
 
-package ex.CollectionFramework_0601;
+package ex.CollectionFramework.HashSet_0601;
 import java.util.*;
 
 public class HashSet2 {
