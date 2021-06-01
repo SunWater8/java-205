@@ -17,13 +17,13 @@ public class IteratorTest {
 			System.out.println(list.get(i));
 		}
 		
-		System.out.println("----------------");
-		
+		System.out.println("================\n");
+		System.out.println("[for 문으로 출력]");
 		for(String str : list) {
 			System.out.println((str));
 		}
 		System.out.println("----------------");
-		
+		System.out.println("[iterator 로 출력]");
 		Iterator<String> itr = list.iterator();
 		while(itr.hasNext()) {
 			String currentStr = itr.next();
