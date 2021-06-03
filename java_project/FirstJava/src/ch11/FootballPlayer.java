@@ -1,6 +1,6 @@
 //선생님과 함께 만들기
 
-package ch11.CollectionFramework;
+package ch11;
 import java.util.*;
 
 public class FootballPlayer implements Comparable<FootballPlayer>{

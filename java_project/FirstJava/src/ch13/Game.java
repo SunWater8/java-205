@@ -1,4 +1,4 @@
-package ch13_Thread;
+package ch13;
 
 
 import javax.swing.JOptionPane;

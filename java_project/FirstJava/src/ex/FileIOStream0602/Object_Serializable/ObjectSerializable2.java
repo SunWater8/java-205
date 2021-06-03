@@ -1,4 +1,4 @@
-package ex.FileIOStream0602.ObjectSerializable;
+package ex.FileIOStream0602.Object_Serializable;
 import java.io.*;
 import java.util.*;
 

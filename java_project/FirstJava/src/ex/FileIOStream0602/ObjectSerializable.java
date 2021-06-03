@@ -1,8 +1,6 @@
 package ex.FileIOStream0602;
 import java.io.*;
 
-import ex.FileIOStream0602.ObjectSerializable.Circle;
-
 class Circle implements Serializable{
 	//implements Serializable: 직렬화 대상임을 의미한다. 마킹.
 	int x;
