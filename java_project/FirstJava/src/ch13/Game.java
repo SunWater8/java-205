@@ -1,6 +1,4 @@
 package ch13;
-
-
 import javax.swing.JOptionPane;
 
 public class Game {
@@ -23,9 +21,9 @@ class Input extends Thread {
 			int number = Integer.parseInt(input);
 			if (number <= 100 && number > 0) {
 				if (gess < number) {
-					System.out.println("틀렸습니다. 더 작은 숫자를 입력하세요.");
+					System.out.println("더 작은 숫자 입니다.");
 				}else if(gess>number){
-					System.out.println("틀렸습니다. 더 큰 숫자 입니다.");
+					System.out.println("더 큰 숫자 입니다.");
 				}else{
 					Game.check=true;
 					System.out.println("정답입니다. 게임을 종료합니다.");
