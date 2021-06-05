@@ -1,16 +1,14 @@
 package test;
 
-class Ring extends Thread{
-	String word;
-	
-	Ring(String w){
-		word=w;
+class Sample extends Thread{
+	String say;
+	Sample(String say){
+		this.say=say;
 	}
-
 	@Override
 	public void run() {
 		for(int i=0;i<20;i++) {
-			System.out.println(word);
+			System.out.println(say);
 			try {
 				sleep(1000);
 			} catch (InterruptedException e) {
@@ -18,17 +16,17 @@ class Ring extends Thread{
 				e.printStackTrace();
 			}
 		}
+		
 	}
 	
 }
 
-public class ThreadTest1 {
+public class ThreadTest1{
 	public static void main(String[] args) {
-		Ring r = new Ring("hello");
-		Ring r2 = new Ring("      bye");
+		Sample s = new Sample("Hello");
+		Sample s2 = new Sample("     there");
 		
-		r.start();
-		r2.start();
-		
+		s.start();
+		s2.start();
 	}
 }

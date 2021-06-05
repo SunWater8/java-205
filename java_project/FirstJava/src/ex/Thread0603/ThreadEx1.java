@@ -1,4 +1,5 @@
 package ex.Thread0603;
+
 import javax.swing.JOptionPane;
 
 public class ThreadEx1 {
