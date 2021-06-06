@@ -38,7 +38,7 @@ class CountDownThread extends Thread {
 		for(int i = 9; i > 0; i--) {
 			/*7. chk가 true라면 return 해주자는 의미 (return : 이 run메소드를 종료해주자는 뜻). 
 			하지만 chk가 여전히 false라고 하면은 그냥 if문을 빠져나와서(if문 무시) 다음 문장을 실행하도록 한다.*/
-			if(Thread3.chk) {
+			if(Thread3Test.chk) {
 				return;
 			}
 			System.out.println(i);

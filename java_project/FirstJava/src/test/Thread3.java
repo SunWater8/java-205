@@ -1,40 +1,33 @@
 package test;
-
-//10초 안에 글자 입력하면 프로그램 종료
 import javax.swing.JOptionPane;
 
-//10초 세는 카운팅 클래스 필요-카운팅 하다가 멈추는 기능 넣기. 글자 입력 받는 클래스 필요-. 동작을 실행하는 메인 클래스 하나 필요.
-public class Thread3 {
-	public static boolean chk = false; // 왜 false이지.?
-
+public class Thread3{
+	public static boolean check = false;
+	
 	public static void main(String[] args) {
 		Counting ct = new Counting();
-		InputName in = new InputName();
+		Input in = new Input();
+		
 		ct.start();
 		in.start();
 	}
 }
 
-class InputName extends Thread {
-
+class Input extends Thread{
+	@Override
 	public void run() {
-
-		String name = JOptionPane.showInputDialog("이름을 입력하세요");
-		Thread3.chk = true;
-		System.out.println("Hello, " + name + "!");
-		/*
-		 * Scanner sc = new Scanner(System.in); String name = sc.nextLine(); if (name !=
-		 * null) { System.out.println("종료합니다."); } else { return; }
-		 */
+		String name = JOptionPane.showInputDialog("이름을 입력해 주세요");
+		Thread3.check=true;
+		System.out.println("안녕하세요. "+name+"님");
 	}
 }
 
-class Counting extends Thread {
+class Counting extends Thread{
 
 	@Override
 	public void run() {
-		for (int i = 10; i >= 0; i--) {
-			if (Thread3.chk) {
+		for(int i=10; i>=0;i--) {
+			if(Thread3.check) {
 				return;
 			}
 			System.out.println(i);
@@ -44,9 +37,9 @@ class Counting extends Thread {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-			
 		}
-		System.out.println("입력시간이 지나 프로그램을 종료합니다.");
-		System.exit(5);
+		System.out.println("입력 시간이 초과되었습니다. 프로그램을 종료합니다.");
+		System.exit(0);
+		
 	}
 }

@@ -20,6 +20,7 @@ public class ThreadsyncTest {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		System.out.println(inc.getNum());
 	}
 }
 
@@ -30,11 +31,8 @@ class IncThread extends Thread{
 	}
 	public void run() {
 		for(int i=0;i<10000; i++) {
-			for(int j=0;j<10000; j++) {
-				inc.increment();
-			}
+			inc.increment();
 		}
-		System.out.println(inc.getNum());
 	}
 }
 

@@ -15,7 +15,7 @@ public class ByteFileCopy {
 			int copyByte=0;
 			
 			//파일에서 읽어 올 바이트 데이터
-			int bData=-1;
+			int bData = -1;
 			
 			while(true) {//위에 정의 한 bData를 0으로 하고 while(false)라고 해도 됨.
 				bData=in.read();
@@ -34,12 +34,11 @@ public class ByteFileCopy {
 			out.close();
 			
 			//완료된 복사파일의 사이즈 출력하기
-			System.out.println("복사된 바이트 크기 : "+copyByte+"byte");
+			System.out.println("복사 완료!! 복사된 바이트 크기 : "+copyByte+"byte");
 			
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
