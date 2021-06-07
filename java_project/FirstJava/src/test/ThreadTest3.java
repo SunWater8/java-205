@@ -1,7 +1,7 @@
 package test;
 import javax.swing.JOptionPane;
 
-public class Thread3{
+public class ThreadTest3{
 	public static boolean check = false;
 	
 	public static void main(String[] args) {
@@ -17,7 +17,7 @@ class Input extends Thread{
 	@Override
 	public void run() {
 		String name = JOptionPane.showInputDialog("이름을 입력해 주세요");
-		Thread3.check=true;
+		ThreadTest3.check=true;
 		System.out.println("안녕하세요. "+name+"님");
 	}
 }
@@ -27,7 +27,7 @@ class Counting extends Thread{
 	@Override
 	public void run() {
 		for(int i=10; i>=0;i--) {
-			if(Thread3.check) {
+			if(ThreadTest3.check) {
 				return;
 			}
 			System.out.println(i);

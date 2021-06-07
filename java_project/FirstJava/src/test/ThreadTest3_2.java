@@ -1,7 +1,7 @@
 package test;
 import javax.swing.JOptionPane;
 
-public class Thread3Test {
+public class ThreadTest3_2 {
 	
 	/*6. 변수 하나를 만든다.countDown을 확인하려는 목적으로 만들었고 다른 Thread 의 스택영역에서 
 	공유되는 static 변수이다. 다행히 이 변수를 제어하는 Thread가 하나여서(InputThread 클래스에서 
@@ -27,7 +27,7 @@ class InputThread extends Thread {
 		/*8. 이 문장을 수행한다는 것은 위의 문장을 완료 했다는 것. 즉, 팝업창에 뭔가를 입력 했다는 의미. 
 		 이 때 chk를 true로 바꾸도록 하는 구문을 만들고 다음 문장을 출력하도록 한다. 
 		 입력을 하게 되면 더이상 카운트다운 하지 않게 된다.*/
-		Thread3Test.chk=true;
+		ThreadTest3_2.chk=true;
 		System.out.println("안녕하세요. " + name + "입니다.");
 	}
 }
@@ -38,7 +38,7 @@ class CountDownThread extends Thread {
 		for(int i = 9; i > 0; i--) {
 			/*7. chk가 true라면 return 해주자는 의미 (return : 이 run메소드를 종료해주자는 뜻). 
 			하지만 chk가 여전히 false라고 하면은 그냥 if문을 빠져나와서(if문 무시) 다음 문장을 실행하도록 한다.*/
-			if(Thread3Test.chk) {
+			if(ThreadTest3_2.chk) {
 				return;
 			}
 			System.out.println(i);
