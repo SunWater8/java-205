@@ -1,6 +1,3 @@
-﻿-- 이름: demo_madang.sql
--- 설명
--- madang 스키마를 생성하고 MADANG 서점 실습테이블과 데이터를 입력한다.
 
 CREATE TABLE Book (
   bookid      NUMBER(2) PRIMARY KEY,
@@ -55,3 +52,6 @@ INSERT INTO Orders VALUES (9, 2, 10, 7000, TO_DATE('2014-07-09','yyyy-mm-dd'));
 INSERT INTO Orders VALUES (10, 3, 8, 13000, TO_DATE('2014-07-10','yyyy-mm-dd'));
 
 COMMIT;
+
+select * from book;
+select * from customer;

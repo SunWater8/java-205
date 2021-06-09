@@ -12,7 +12,7 @@ public class StringReader {
 			//String의 str는 임시변수
 			String str = null;
 			while (true) {
-				str = in.readLine();
+				str = in.readLine(); //한 줄 씩 읽기
 				if (str == null) { //더 이상 불러올 개행이 없다면 참.
 					break;
 				}
