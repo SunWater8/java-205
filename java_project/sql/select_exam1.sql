@@ -18,11 +18,13 @@ from emp
 order by ysal desc
 ;
 
---3. 급여가 2000을 넘는 사원의 이름과 급여를 표현, 
---   급여가 많은 것부터 작은 순으로 출력하시오.
+--3. 급여가 2000을 넘는 사원의  - where
+--   이름과 급여를 표현,        - column
+--   급여가 많은 것부터 작은 순으로 출력하시오. -order
 select ename, sal
 from emp
-where sal >=2000
+--where sal >=2000     -- (이상/초과)조건이 명확하지 않으면 요구자에게 물어보기
+where sal >2000
 order by sal desc
 ;
 
@@ -51,7 +53,8 @@ where hiredate between '81/02/20' and '81/05/01'
 -- 이름을 기준(내림차순)으로 영문자순으로 출력하시오.
 select ename, empno
 from emp
-where deptno between 20 and 30
+--where deptno between 20 and 30  -- 20번과 30번을 부서를 식별하는 이름으로 봐야 하기에 between으로 안쓰는게 좋다.
+where deptno in(20,30)
 order by ename desc
 ;
 
@@ -70,18 +73,26 @@ select ename, hiredate
 from emp
 where hiredate like '81%'
 ;
+
+--9.2 9번 문제 응용.
+-- 1월에 입사한 사원의 이름과 입사일을 출력.
+select ename, hiredate
+from emp
+where hiredate like'%/01/%'
+;
+
 --10. 관리자가 없는 사원의 이름과 담당 업무를 출력하시오.
 select ename, job
 from emp
 where mgr is null
 ;
 
---11. 커미션을 받을 수 있는 자격이 되는 
--- 사원의 이름, 급여, 커미션을 출력하되 
--- 급여 및 커미션을 기준으로 내림차순 정렬하여 표시하시오.
+--11. 커미션을 받을 수 있는 자격이 되는  --where
+-- 사원의 이름, 급여, 커미션을 출력하되   --column
+-- 급여 및 커미션을 기준으로 내림차순 정렬하여 표시하시오.  --order
 select ename, sal, comm
 from emp
-where comm is not null
+where comm is not null or comm = 0   -- is null 뿐 아니라 comm=0 도 추가 해야 함.
 order by sal desc, comm desc
 ;
 --12. 이름의 세번째 문자가 R인 
@@ -103,7 +114,8 @@ where ename like '%A%' and ename like '%E%'
 --  사원의 이름, 담당업무, 급여를 출력하시오.
 select ename, job, sal
 from emp
-where job in('CLERK','SALESMAN') and sal not in(1600,950,1300)
+--where job in('CLERK','SALESMAN') and sal not in(1600,950,1300)  --밑 문장과 같은 의미.
+where (job='CLEARK' or job ='SALESMAN') and sal not in (1600,950,1300)
 ;
 --15. 커미션이 $500 이상인 
 -- 사원의 이름과 급여 및 커미션을 출력하시오.
