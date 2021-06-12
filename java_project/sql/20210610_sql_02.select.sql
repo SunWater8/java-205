@@ -27,18 +27,38 @@ from emp
 where hiredate = '96/11/17'
 ;
 
+--논리 연산자 : and, or, not
+--10번 부서의 관리자 (manager)를 찾아 출력
+select ename, job, deptno
+from emp
+where job='MANAGER'and deptno=10
+;
 
-
-
-
-
-
-
---1981년에 입사한 사원들의 리스트를 출력
+--10번 부서의 직원들과 관리자들의 리스트를 출력
 select *
 from emp
+where deptno=10 or job='MANAGER'
+;
+--10번 부서의 직원을 제외한 나머지 직원들을 출력
+select *
+from emp
+where not deptno=10
+;
+
+--범위의 연산을 할 때 -> 논리연산자 이용, between a and b
+--between a and b : a이상 ~ ㅠdlgk
+
+--2000이상 3000이하의 급여를 받는 직원의 리스트
+select ename, sal
+from emp
+where sal between 2000 and 3000
+;
+
+--between 연산자는 날짜의 연산도 가능
+-- 1981년에 입사한 사원들의 리스트를 출력
+select ename, hiredate
+from emp
 where hiredate between '81/01/01' and '81/12/31'
-order by hiredate
 ;
 
 --연산자 in -> 여러개의 or 연산자 사용시 대체 할 수 있다.
@@ -69,7 +89,7 @@ where ename like 'F%'
 select *
 from emp
 where ename like '_A%'
---where ename like '__A%' -- 세 번째 문자에 A가 들어간 사원의 이름 출력
+--where ename like '__A%'     -- 세 번째 문자에 A가 들어간 사원의 이름 출력
 --where ename not like '__A%' -- not like
 ;
 
@@ -102,13 +122,4 @@ from emp
 order by sal desc, ename asc
 ;
 select * from customer;
-
-
-
-
-
-
-
-
-
 
