@@ -107,22 +107,24 @@ group by deptno;
 --    별칭은 각 job, dno, 부서 10, 부서 20, 부서 30, 총액으로 지정하시오. 
 --( hint. Decode, group by )
 
-select job, deptno as dno,
-       nvl(decode(deptno,10,sum(sal),0) )as "10번 부서"
-
-from emp
-group by job, deptno
-;
-
-
 select job, deptno as dno, 
        decode(deptno, 10, avg(sal))as"부서10",
        decode(deptno, 20, avg(sal))as"부서20",
        decode(deptno, 30, avg(sal))as"부서30",
        sum(sal)as"총액"
 from emp
-group by deptno
+group by job, deptno
+order by deptno
 ;
 select * from emp;
 
-
+-- null을 0으로 표시하고 싶다면 nvl 이용
+select job, deptno as dno,
+       nvl(decode(deptno, 10, sum(sal)),0)as "부서10",
+       nvl(decode(deptno, 20, sum(sal)),0)as "부서20",
+       nvl(decode(deptno, 30, sum(sal)),0)as "부서30",
+       sum(sal) as"총액"
+from emp
+group by job, deptno
+order by  deptno
+;
