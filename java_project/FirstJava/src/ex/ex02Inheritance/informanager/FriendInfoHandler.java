@@ -1,4 +1,4 @@
-package ex.informanager;
+package ex.ex02Inheritance.informanager;
 
 import java.util.Scanner;
 

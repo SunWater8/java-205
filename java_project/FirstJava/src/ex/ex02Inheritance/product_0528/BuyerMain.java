@@ -1,4 +1,4 @@
-package ex.객체배열product_0528;
+package ex.ex02Inheritance.product_0528;
 
 public class BuyerMain {
 	public static void main(String[] args) {

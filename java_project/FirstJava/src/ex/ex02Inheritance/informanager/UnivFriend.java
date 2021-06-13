@@ -1,4 +1,4 @@
-package ex.informanager;
+package ex.ex02Inheritance.informanager;
 
 public class UnivFriend extends Friend{
 	// 전공 학과 추가

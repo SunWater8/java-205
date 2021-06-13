@@ -1,6 +1,6 @@
 //java_10_객체지향_상속_60p 문제2번
 
-package ex;
+package ex.ex02Inheritance;
 
 public class InscanceOfMain {
 

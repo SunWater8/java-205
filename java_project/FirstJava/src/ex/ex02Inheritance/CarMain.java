@@ -1,6 +1,6 @@
 //java_10_객체지향_상속_12p 문제1
 
-package ex;
+package ex.ex02Inheritance;
 
 class Car{
 	int gasolinegauge;

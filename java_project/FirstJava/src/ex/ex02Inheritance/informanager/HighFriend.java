@@ -1,4 +1,4 @@
-package ex.informanager;
+package ex.ex02Inheritance.informanager;
 
 public class HighFriend extends Friend{
 	//고교 친구는 직장 정보를 추가적으로 가진다.
