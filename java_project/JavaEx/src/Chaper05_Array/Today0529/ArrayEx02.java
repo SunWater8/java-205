@@ -12,7 +12,7 @@ public class ArrayEx02 {
 
 		System.out.println();
 		int[] arr2 = new int[10];
-		for (int i = 0; i < arr1.length; i++) {
+		for (int i = 0; i < arr2.length; i++) {
 			arr2[i]=(int)(Math.random()*10);
 			System.out.print(arr2[i] + ", ");
 		}
