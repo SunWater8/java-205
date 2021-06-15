@@ -29,12 +29,13 @@ where sal <= ALL(select sal from emp)
  ;
 --46. 평균급여가 가장 적은 직급의 
 --    직급 이름과 직급의 평균을 구하시오.
+--방식1
 select job, avg(sal)
 from emp
 group by job
 having avg(sal) <= ALL(select avg(sal) from emp group by job)
 ;
---인라인 뷰
+--방식2)인라인 뷰
 select min(avg)
 from (
     select avg(sal) as avg
@@ -43,7 +44,19 @@ from (
 )
 ;
 
---비교해서 구하기
+--방식3) 비교해서 구하기
+select job, avg(sal)
+from emp
+group by job
+having avg(sal) = (
+    select min(avg)
+from (
+    select avg(sal) as avg
+    from emp
+    group by job
+)
+)
+;
 select job, avg(sal)
 from emp
 group by job
@@ -157,24 +170,19 @@ where e.deptno = d.deptno and d.loc = 'DALLAS'
 --55. KING에게 보고하는 사원의 이름과 급여를 표시하시오.
 select ename, sal, job
 from emp
-where mgr = (select empno from emp )
-;
-select e.ename, e.sal
-from emp e, emp m
-where e.empno = m.mgr and m.ename = 'KING'
+where mgr = (select empno from emp where ename = 'KING') 
 ;
 
-select *
-from emp
-;
-select e.ename, e.sal
-from emp e
-where e.empno = m.mgr and m.mgr = (select m.mgr from emp m where m.ename = 'KING')
-;
 -- 56. RESEARCH 부서의 사원에 대한 부서번호, 사원이름 및 담당 업무를 표시하시오.
-select e.empno, e.ename, e.job
-from emp e
-where e.deptno = (select d.deptno from dept d where d.dname='RESEARCH')
+SELECT DEPTNO, ENAME, JOB
+FROM EMP
+WHERE DEPTNO=(SELECT DEPTNO FROM DEPT WHERE DNAME='RESEARCH')
+;
+
+SELECT E.DEPTNO, EMPNO, JOB
+FROM EMP E, DEPT D
+WHERE E.DEPTNO=D.DEPTNO
+AND DNAME='RESEARCH'
 ;
 
 --57. 평균 월급보다 많은 급여를 받고 
