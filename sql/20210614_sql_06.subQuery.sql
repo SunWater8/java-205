@@ -5,7 +5,8 @@
 --스칼라 부속질의 : SELECT 절 부분
 -- 단일 행, 단일 열 값이 사용된다.
 
---ORDERS 테이블의 CUSTID 에 맞춰서 CUSTOMER 의 고객 이름을 옆 칼럼에 대입하기. 고객번호와 고객 이름 출력하기
+-- 주문 번호 순으로 나열된 고객번호에 고객 이름을 대입하기.  고객번호와 고객이름 출력
+--ORDERS 테이블의 CUSTID 에 맞춰서 CUSTOMER 의 고객 이름을 옆 칼럼에 대입하기. 
 SELECT O.CUSTID, (SELECT C.NAME FROM CUSTOMER C WHERE O.CUSTID = C.CUSTID) AS NAME
 FROM ORDERS O
 ;
@@ -16,11 +17,11 @@ FROM EMP E
 ;
 --마당서점의 고객별 판매액을 출력(결과는 고객이름과 고객별 판매액을 출력)
 
---마당서점 관련 테이블들.
-SELECT * FROM BOOK;
+SELECT * FROM BOOK;     --마당서점 관련 테이블들.
 SELECT * FROM CUSTOMER;
 SELECT * FROM ORDERS;
 
+-- 스칼라 부속질의 사용하지 않은 방식
 SELECT C.CUSTID, C.NAME, SUM(O.SALEPRICE) AS " 판매액"
 FROM ORDERS O, CUSTOMER C
 WHERE O.CUSTID=C.CUSTID
@@ -41,8 +42,15 @@ GROUP BY CUSTID
 SELECT NAME, SUM(SALEPRICE)
 FROM (SELECT * 
 WHERE 
+GROUP BY NAME
+;
 --중첩질의
 -- 평균 급여보다 더 많은 급여를 받는 사원을 검색
+
+SELECT ENAME, SAL
+FROM EMP
+WHERE SAL < (SELECT AVG(SUM) FROM EMP )
+;
 
 --IN, NOT IN
 --대한민국에 거주하는 고객에게 판매한 도서의 총 판매액을 구하시오.
