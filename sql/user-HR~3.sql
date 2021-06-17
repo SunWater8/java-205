@@ -1,6 +1,6 @@
+--2021.06.11
+
 -- cross join
-
-
 -- cross join (56행 출력 = 14*4)
 select *
 from emp, dept
@@ -10,17 +10,15 @@ select *
 from emp cross join dept
 ;
 
-
-
 --equi join
--- 부서 번호를 기준으로 2 테이블 합치기 (14행 출력)
+-- 부서 번호를 기준으로 두 테이블 합치기 (14행 출력)
 select *
 from emp, dept
 where emp.deptno = dept.deptno
 ;
 
 --또 다른 equi join
--- customer, orders, book 이 3 테이블을 합치고 주문번호, 주문한 사람, 책이름을 출력하기
+-- customer, orders, book 이 세 테이블을 합치고 주문번호, 주문한 사람, 책이름을 출력하기
 select o.orderid, c.name, b.bookname
 from orders o, customer c, book b
 where o.custid = c.custid and o.bookid = b.bookid
@@ -39,7 +37,8 @@ on e.deptno = d.deptno
 ;
 
 
---equi join 은 ansi inner join과 결과가 같다.(2)
+
+-- equi join 은 ansi inner join과 결과가 같다.(2)
 -- 이름이 SCOTT인 사람의 부서명을 출력하기 . 출력해야 하는 컬럼을 가지는 테이블을 확인해보자.
 -- 이름 : emp, 부서명 : dept
 select e.ename, d.dname, d.deptno
@@ -83,7 +82,7 @@ from emp
 order by empno
 ;
 
---outer join
+-- outer join
 -- self join과 결과가 같음.
 -- [left || right || full]
 select e.empno, e.ename, e.mgr, m.ename as manager
@@ -91,6 +90,9 @@ from emp e left outer join emp m
 on e.mgr = m.empno
 order by empno
 ;
+
+--rght outer join
+-- 오른쪽에 붙을 테이블을 기준으로 값이 null 이어도 보이게 하기.
 select e.empno, e.ename, e.mgr, m.ename as manager
 from emp e right outer join emp m
 on e.mgr = m.empno
@@ -107,3 +109,5 @@ from emp e, emp m
 where e.mgr=m.empno(+)  
 order by empno
 ;
+
+
