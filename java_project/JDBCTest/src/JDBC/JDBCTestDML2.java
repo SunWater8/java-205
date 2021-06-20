@@ -33,40 +33,39 @@ public class JDBCTestDML2 {
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 			System.out.println("데이터 베이스 연결 성공!!");
 			
+			conn.setAutoCommit(false);
 			//3. sql 처리
 			//사용자에게 정보를 받아 데이터를 수정
 			//10 dev seoul ==> 공백을 포함한 문자열을 받아 업데이트 하기
 			
-			System.out.println("\n부서 데이터의 수정을 시작합니다.");
-			System.out.println("10 dev seoul 형식으로 데이터를 입력해 주세요.");
-			String input = sc.nextLine();
+			System.out.println("부서 정보의 삭제를 시작합니다.");
+			System.out.println("부서번호를 입력해주세요.");
+//			int deptno = sc.nextInt();
+			String deptno = sc.nextLine();
 			
-			//String타입의 배열 만들기
-			String[] inputs = input.split(" ");
-			
-//			for(String str : inputs) {    -- 업데이트 처리하는 방식 출력해보기
-//				System.out.println(str);
-//			}
-			
-			String sql ="update dept01 set dname=?, loc=? where deptno=?";
+			String sql = " delete from dept01 where deptno=?";
 			pstmt = conn.prepareStatement(sql);
-			pstmt.setString(1, inputs[0]);
-			pstmt.setString(2, inputs[1]);
-			pstmt.setInt(3, Integer.parseInt(inputs[2]));
+//			pstmt.setInt(1,deptno);
+			pstmt.setInt(1,Integer.parseInt(deptno));
 			
 			int result = pstmt.executeUpdate();
 			
-			if(result >0) {
-				System.out.println("수정되었습니다.");
+			if(result>0) {
+				System.out.println("delete data completly");
 			}else {
-				System.out.println("찾으시는 부서가 존재하지 않습니다.");
+				System.out.println("failure of deleting");
 			}
-			
-			
+			conn.commit();
 		} catch (ClassNotFoundException e) { //위의 주소 문장에서 내가 잘못 입력했을 경우 오류가 발생할 수 있다.
 			System.out.println("드라이버 클래스를 찾지 못함!!!");
 			e.printStackTrace();
 		} catch (SQLException e) {
+			try {
+				conn.rollback();
+			} catch (SQLException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			System.out.println("데이터 베이스 연결 실패!!");
 			e.printStackTrace();
 		
