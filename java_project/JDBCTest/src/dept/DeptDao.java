@@ -1,6 +1,6 @@
 package dept;
 
-import java.sql.*;
+//import java.sql.*;
 import java.util.ArrayList;
 
 public class DeptDao {
@@ -18,11 +18,6 @@ public class DeptDao {
 	public static DeptDao getInstance() {
 		return dao;
 	}
-	
-	
-	
-	
-	
 	
 	//1. 전체 데이터 검색 기능
 	//	반환 타입은 List<Dept>
