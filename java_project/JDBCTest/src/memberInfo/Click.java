@@ -2,7 +2,7 @@ package memberInfo;
 
 import java.util.Scanner;
 
-public class ChoiceAcc {
+public class Click {
 
 	public void showAccount() {
 		
@@ -18,18 +18,18 @@ public class ChoiceAcc {
 		System.out.println("---------------------------");
 		
 		int num = sc.nextInt();
-		switch(num) {
-		case 1:
+//		switch(num) {
+//		case 1:
 			System.out.println("아이디와 비밀번호를 입력해 주세요.");
-			System.out.print("아이디 : ");
+			System.out.println("아이디 : ");
 			String inputId = sc.nextLine();
-			System.out.print("아이디 : ");
+			System.out.print("비밀번호 : ");
 			String inputPw = sc.nextLine();
 			
 //			if(inputId == )
 			
 			
-		}
+//		}
 		
 	}
 

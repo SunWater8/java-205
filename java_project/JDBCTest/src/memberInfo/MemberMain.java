@@ -29,7 +29,7 @@ public class MemberMain {
 				
 				switch(num) {
 				case 1:
-					manager.memberList();
+					manager.selectData();
 					break;
 				case 2:
 					manager.editMember();

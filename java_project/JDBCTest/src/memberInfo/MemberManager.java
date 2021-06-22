@@ -50,8 +50,7 @@ public class MemberManager {
 	}
 	
 	//회원이 본인의 정보 조회
-	void selectData(Member member) {
-		
+	void selectData() {
 		
 		ResultSet rs = null;
 		Connection conn = null;
@@ -61,8 +60,9 @@ public class MemberManager {
 		try {
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 			
-			System.out.println("아이디를 입력해 주세요.");
+			System.out.println("소중한 정보를 조회하기 위해 아이디를 입력해 주세요.");
 			String id = sc.nextLine();
+			Member member = new Member(id);
 			
 			
 			

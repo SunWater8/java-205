@@ -38,6 +38,9 @@ public class Member {
 	}
 
 
+	public Member(String id) {
+		this.id=id;
+	}
 	public int getMemcode() {
 		return memcode;
 	}

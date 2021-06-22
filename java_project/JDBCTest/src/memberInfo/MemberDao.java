@@ -80,11 +80,10 @@ public class MemberDao {
 			conn = DriverManager.getConnection(jdbcUrl, user, pw);
 			
 			System.out.println("회원 정보 조회");
-			String sqlSelect = "select name, id, pw, address, phone, point from member where id = ? and pw = ?";
+			String sqlSelect = "select name, id, pw, address, phone, point from member where id = ? ";
 			pstmt = conn.prepareStatement(sqlSelect);
 			
 			pstmt.setString(1, member.getId());
-			pstmt.setString(2, member.getPw());
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -102,7 +101,6 @@ public class MemberDao {
 				System.out.print(member.getPoint()+"\t");
 			}
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
