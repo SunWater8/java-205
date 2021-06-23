@@ -8,7 +8,7 @@ import java.sql.SQLException;
 
 public class SaleDao {
 
-	public void selectSales(Connection conn, Sale sale) {
+	public void selectSales(Connection conn,Sale sale) {
 		ResultSet rs = null;
 		PreparedStatement pstmt = null;
 		String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
@@ -22,7 +22,7 @@ public class SaleDao {
 			String sqlSelect = "select sum(price) from sale where saledate like ? ";
 			pstmt = conn.prepareStatement(sqlSelect);
 			
-			pstmt.setString(1, sale.getSaledate()+"%");
+			pstmt.setString(1, sale.getSaledate().substring(1,8)+"%21/06/23%");
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()) {
@@ -33,7 +33,6 @@ public class SaleDao {
 			e.printStackTrace();
 		}
 	}
-	
 	
 	
 	
