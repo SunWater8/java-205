@@ -1,6 +1,6 @@
 package dept;
 
-//import java.sql.*;
+import java.sql.*;
 import java.util.ArrayList;
 
 public class DeptDao {

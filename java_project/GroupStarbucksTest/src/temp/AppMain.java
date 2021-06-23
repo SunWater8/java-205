@@ -29,10 +29,10 @@ public class AppMain {
 				break;
 			case 3 :
 				//관리자 모드로 들어갈 때 메소드
-				if(num == 3) {
+				if()	
 					aManager.showAdminMenu();
 					
-				}
+				
 			default :
 				System.out.println("잘못 눌렀습니다.");
 			}

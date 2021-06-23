@@ -2,8 +2,6 @@ package temp;
 
 import java.util.Scanner;
 
-import memberInfo.MemberDao;
-import memberInfo.MemberManager;
 
 public class AdminManager {
 	
@@ -15,7 +13,6 @@ public class AdminManager {
 	
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
 			
 			while(true) {
 			System.out.println("관리자 모드 메뉴");

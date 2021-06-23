@@ -22,6 +22,7 @@ public class MemberMain {
 			System.out.println("로그인 화면");
 			System.out.println("1. 회원가입");
 			System.out.println("2. 로그인");
+			System.out.println("2. 로그인");
 			int num = Integer.parseInt(sc.nextLine().trim());
 			switch (num) {
 			case 1:
