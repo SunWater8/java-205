@@ -33,9 +33,9 @@ public class AdminManager {
 				sManager.saleList();
 				break;
 				
-			case 3:
-				
-				break;
+//			case 3:
+//				
+//				break;
 			}
 			}
 		} catch (ClassNotFoundException e) {

@@ -23,17 +23,17 @@ public class AdminDao {
 		ResultSet rs = null;
 
 		try {
-			// sql¹®
+			// sqlï¿½ï¿½
 			String sql = "select * from admin ";
 			pstmt = con.prepareStatement(sql);
-			// °á°ú ¹Þ¾Æ¿À±â
+			// ï¿½ï¿½ï¿½ ï¿½Þ¾Æ¿ï¿½ï¿½ï¿½
 			rs = pstmt.executeQuery(sql);
 
 			list = new ArrayList<>();
 
-			// ¸®½ºÆ® ÀúÀå
+			// ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			while (rs.next()) {
-				Admin mem = new Admin(rs.getInt(1), rs.getString(2), rs.getString(3));
+				Admin mem = new Admin( rs.getString(1), rs.getString(2));
 				list.add(mem);
 			}
 		} catch (SQLException e) {

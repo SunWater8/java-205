@@ -1,19 +1,10 @@
 
 public class Admin {
-	private int idx;
 	private String id;
 	private String pw;
-	public Admin(int idx, String id, String pw) {
-		super();
-		this.idx = idx;
+	public Admin( String id, String pw) {
 		this.id = id;
 		this.pw = pw;
-	}
-	public int getIdx() {
-		return idx;
-	}
-	public void setIdx(int idx) {
-		this.idx = idx;
 	}
 	public String getId() {
 		return id;
@@ -29,7 +20,7 @@ public class Admin {
 	}
 	@Override
 	public String toString() {
-		return "Admin [idx=" + idx + ", id=" + id + ", pw=" + pw + "]";
+		return "Admin [id=" + id + ", pw=" + pw + "]";
 	}
 	
 	
