@@ -10,7 +10,7 @@ public class AppMain {
 	public static void main(String[] args) {
 		
 		Scanner sc = new Scanner(System.in);
-
+		AdminManager aManager = new AdminManager();
 		try {
 			// 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,6 +27,12 @@ public class AppMain {
 			case 2:			
 				memManager.chkLogin();
 				break;
+			case 3 :
+				//관리자 모드로 들어갈 때 메소드
+				if(num == 3) {
+					aManager.showAdminMenu();
+					
+				}
 			default :
 				System.out.println("잘못 눌렀습니다.");
 			}
