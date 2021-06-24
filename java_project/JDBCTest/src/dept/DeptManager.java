@@ -50,7 +50,7 @@ public class DeptManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+	}
 		//2. 연결
 		String jdbcUrl = "jdbc:oracle:this:@localhost:1521:xe";
 		String user = "hr";

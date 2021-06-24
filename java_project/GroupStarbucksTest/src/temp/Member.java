@@ -8,9 +8,9 @@ public class Member {
 	private String pw;
 	private String address;
 	private String phone;
-	private int point;
+	private double point;
 
-	public Member(int memcode, String name, String id, String pw, String address, String phone, int point) {
+	public Member(int memcode, String name, String id, String pw, String address, String phone, double point) {
 		super();
 		this.memcode = memcode;
 		this.name = name;
@@ -93,7 +93,7 @@ public class Member {
 		return point;
 	}
 
-	public void setPoint(int point) {
+	public void setPoint(double point) {
 		this.point = point;
 	}
 

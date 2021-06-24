@@ -1,5 +1,5 @@
 --커밋하기 전에 이전 테이블을 drop 해 주세요. 
-drop table member;
+drop table sale;
 drop sequence sale_sq;
 
 --sale테이블
@@ -26,4 +26,5 @@ insert into sale(salecode, sname, price, id) values(sale_sq.nextval, 'americano'
 insert into sale(salecode, sname, price, id) values (sale_sq.nextval, 'latte', 4600, 'c');
 insert into sale(salecode, sname, price, id) values (sale_sq.nextval, 'sandwich', 6200, 'a');
 
+select * from sale;
 commit;

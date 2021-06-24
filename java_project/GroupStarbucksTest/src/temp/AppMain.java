@@ -4,13 +4,19 @@ import java.util.Scanner;
 
 public class AppMain {
 	
+	
 	static MemberManager memManager = new MemberManager(MemberDao.getInstance());
-	static SaleManager saleManager = new SaleManager(SaleDao.getInstance());
+	static SaleManager_edit saleManager = new SaleManager_edit(SaleDao.getInstance());
+	static Point pManager = new Point();
+	
+	
 	
 	public static void main(String[] args) {
 		
+		
+		
 		Scanner sc = new Scanner(System.in);
-		AdminManager aManager = new AdminManager();
+
 		try {
 			// 드라이버 로드
 			Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -27,11 +33,13 @@ public class AppMain {
 			case 2:			
 				memManager.chkLogin();
 				break;
-			case 3 :
-				//관리자 모드로 들어갈 때 메소드
-					
-					aManager.showAdminMenu();
-					
+			case 3: 
+				System.out.println("관리자 모든 입니다.");
+				System.out.println("1. 전체 회원 보기");
+				System.out.println("2. 전체 회원 보기");
+				System.out.println("3. 전체 회원 보기");
+				
+				
 				
 			default :
 				System.out.println("잘못 눌렀습니다.");
@@ -45,10 +53,13 @@ public class AppMain {
 
 				switch (num) {
 				case 1:
-					saleManager.order(memManager.currentId); //주문하기 -> 예상결제금액, 예상 적립 포인트 보여주기
+					// saleManager.order() -> point 수정 한다. 
+					saleManager.order(memManager.currentId); 
+				
 					break;
 				case 2:
-					memManager.memPoint();
+					int havePoint = pManager.readPoint(memManager.currentId);
+					System.out.println("현재 사용가능한 포인트 : " +havePoint);//Point인스턴스에서 readPoint 사용하기
 					break;
 				case 3:
 					memManager.myInfo();

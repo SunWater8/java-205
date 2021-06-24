@@ -18,7 +18,7 @@ DROP VIEW EMP_VIEW30;
 
 --인라인 뷰를 이용한 TOP3 구하기 (한 페이지에 게시물 제목을 3개만 표시하고 싶을 때 활용 됨)
 --ROWNUM의 사용
-SELECT ROWNUM, ENAME  -- ROWNUM 의 정렬 순서는 입력 순서
+SELECT ROWNUM, ENAME  -- ROWNUM 의 기본 정렬 순서는 입력 순서
 FROM EMP
 ;
 SELECT ROWNUM, ENAME   
@@ -32,7 +32,7 @@ FROM (SELECT * FROM EMP ORDER BY HIREDATE)
 WHERE ROWNUM <6
 ;
 
-
+select * from sale;
 
 --입사일이 빠른 순으로 정리한 뷰 만들기
 SELECT * FROM EMP ORDER BY HIREDATE;

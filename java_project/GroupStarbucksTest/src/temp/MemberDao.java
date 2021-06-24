@@ -9,6 +9,9 @@ import java.util.ArrayList;
 
 public class MemberDao {
 	
+	
+	
+	
 	private MemberDao() {}
 	
 	static private MemberDao dao = new MemberDao();
@@ -149,7 +152,6 @@ public class MemberDao {
 			
 		} catch (SQLException e) {
 			e.printStackTrace();
-			
 		} finally {
 			if(pstmt != null) {
 				try {

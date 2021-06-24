@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Scanner;
 
 
-public class SaleManager {
+public class SaleManageEdit {
 
 
 
@@ -20,7 +20,7 @@ public class SaleManager {
 	Point pManager;
 
 
-	SaleManager(SaleDao dao){
+	SaleManageEdit(SaleDao dao){
 		this.dao = dao;
 		scanner= new Scanner(System.in);
 		this.currentId = currentId;
@@ -185,27 +185,48 @@ public class SaleManager {
 				// 포인트  4000 = 상품 금액 4000  -> 결제 = 0, 남은 포인트 = 0
 				// 포인트 0 ->  사용가능한 포인트 없습니다. -> 적립만 가능하도록
 				
+				int afterPoint;
 				
-				
-				
-				System.out.println("----------------------------------------");
-				
-				//point 사용 하기
-				pManager.usePoint(currentId, totalPrice);
-				
-				//가진 포인트 사용합니다.
-				System.out.println("포인트를 "+beforePoint+"점 사용하였습니다"); 
+				if(beforePoint >= totalPrice) {
+					// 포인트 10000 > 상품 금액 4000 -> 결제= 0, 남은 포인트 = 10000-4000
+					System.out.println("----------------------------------------");
+					
+					//point 사용 하기
+					pManager.usePoint(currentId, totalPrice);
+					
+					//상품 금액 만큼의 포인트 사용하기
+					System.out.println("포인트를 "+totalPrice+"점 사용하였습니다"); 
 
-				//포인트 사용할 경우  결제금액에서 마이너스 시킨다.
-				System.out.println("결제 금액은 "+(totalPrice - beforePoint)+"원 입니다.");
-				
-				// 포인트 사용후 사용가능한 포인트 확인
-				int afterPoint = pManager.readPoint(currentId);
-				System.out.println("현재 사용가능한 포인트 : " +afterPoint); 
-				
-				
+					//포인트 사용할 경우  결제금액에서 마이너스 시킨다.
+					System.out.println("결제 금액은  0원 입니다.");
+					
+					// 포인트 사용후 사용가능한 포인트 확인
+					// 남은 포인트 = 10000-4000
+					
+					afterPoint = pManager.readPoint(currentId);
+					System.out.println("결제 후 포인트 : " + afterPoint); 
+					
+					
 
-				System.out.println("----------------------------------------");
+					System.out.println("----------------------------------------");
+					
+					
+				} else if(beforePoint < totalPrice){
+					// 포인트 4000 < 상품 금액 10000 -> 결제하실 금액 10000-4000, 남은 포인트 = 0
+					
+					System.out.println("----------------------------------------");
+					
+					pManager.usePoint2(currentId);
+					
+					System.out.println("포인트를 "+beforePoint+"점 사용하였습니다"); 
+					
+					System.out.println("결제 금액은 " + (totalPrice-beforePoint)+ "입니다.");
+					
+					System.out.println("결제 후 포인트 : 0 점" ); 
+					
+					
+				} 
+				
 
 			}else {//포인트 사용하지 않고 그대로 적립하기
 				System.out.println("----------------------------------------");

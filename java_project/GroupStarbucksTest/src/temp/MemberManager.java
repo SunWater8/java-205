@@ -18,12 +18,12 @@ public class MemberManager {
 	public static String currentId;
 
 	// 객체 생성
-	Connection con = null;
+	private Connection con = null;
 
 	// 연결
-	String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
-	String user = "hr";
-	String pw = "tiger";
+	private String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
+	private String user = "hr";
+	private String pw = "tiger";
 
 	public MemberManager(MemberDao dao) {
 		this.dao = dao;
@@ -32,7 +32,7 @@ public class MemberManager {
 	}
 
 	// 전체 리스트 출력
-	public void memList() {
+	void memList() {
 
 		try {
 			con = DriverManager.getConnection(jdbcUrl, user, pw);
@@ -81,9 +81,9 @@ public class MemberManager {
 			// System.out.print("아이디를 입력하세요 > ");
 			// String id = sc.nextLine();
 
-			// 아이디 중복체크
+			// 아이디 중복체크		
 			String id = chKOverlap();
-
+			
 			System.out.print("비밀번호를 입력하세요 > ");
 			String password = sc.nextLine().trim();
 			System.out.print("이름를 입력하세요 > ");
@@ -158,6 +158,7 @@ public class MemberManager {
 			}
 
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -196,7 +197,7 @@ public class MemberManager {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
+		
 	}
 
 	// 아이디 중복
@@ -232,26 +233,28 @@ public class MemberManager {
 	void memPoint() {
 		try {
 			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			int havePoint = dao.readPoint(con, currentId);
-
+			int havePoint = dao.readPoint(con,currentId);
+						
 			System.out.println("현재 사용가능한 포인트: " + havePoint);
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-	}
-
-	void memPoint(String currentId) {
-		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			int havePoint = dao.readPoint(con, currentId);
-
-			System.out.println("현재 사용가능한 포인트: " + havePoint);
-
+			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
+	void memPoint(String currentId) {
+		try {
+			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			int havePoint = dao.readPoint(con,currentId);
+						
+			System.out.println("현재 사용가능한 포인트: " + havePoint);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
+	
 }

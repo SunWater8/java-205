@@ -1,17 +1,14 @@
-package temp;
+package bestMenu;
 
 public class Sale {
-	//메뉴 세팅하고 ->DB에 저장
-	
-	//new Sale( )
-	
-
 	
 	private int salecode;
 	private String sname;
 	private int price;
 	private String saledate;
-			
+	private int count; // 새로운 변수 추가 (판매 횟수를 카운트 함)
+	
+	
 	public Sale(int salecode, String sname, int price, String saledate) {
 		this. salecode = salecode;
 		this.sname = sname;
@@ -19,21 +16,24 @@ public class Sale {
 		this.saledate = saledate;
 	}
 	
-	//생성자 오버로딩
 	public Sale(int salecode, String sname, int price) {
 		this. salecode = salecode;
 		this.sname = sname;
 		this.price= price;
 	}
 	
-	//생성자 오버로딩 2
-	public Sale(String sname, int price) { 
+	public Sale( String sname, int price) { 
 		this.sname = sname;
 		this.price= price;
 	}
 	
 	
-	//Getter, Setter
+	//순위 매기기 위한 생성자
+	public Sale(   int count, String sname) {
+		this.sname = sname;
+		this.count = count;
+	}
+
 	public int getSalecode() {
 		return salecode;
 	}
@@ -65,7 +65,15 @@ public class Sale {
 	public void setSaledate(String saledate) {
 		this.saledate = saledate;
 	}
-	
+	//count 변수의 getter/setter
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
 	
 
 	

@@ -53,6 +53,7 @@ public class SaleDao {
 				list.add(new Sale(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
 
+
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
