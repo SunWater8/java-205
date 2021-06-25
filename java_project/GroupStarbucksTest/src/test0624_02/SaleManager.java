@@ -179,14 +179,14 @@ public class SaleManager {
 
 			System.out.println("주문하기");
 
-			System.out.println("메뉴 입니다.");
+			System.out.println("                  메뉴");
 			System.out.println("--------------------------------------------------");
-			System.out.println("1. Amerciano : 4100");
-			System.out.println("2. Latte : 4600");
-			System.out.println("3. Sandwich : 6200");
-			System.out.println("4. salad : 5000");
-			System.out.println("5. cake : 5500");
-			System.out.println("6. 주문 완료");
+			System.out.println("   1.  Amerciano  :  4100");
+			System.out.println("   2.  Latte      :  4600");
+			System.out.println("   3.  Sandwich   :  6200");
+			System.out.println("   4.  salad      :  5000");
+			System.out.println("   5.  cake       :  5500");
+			System.out.println("   6.  주문 완료");
 			System.out.println("--------------------------------------------------");
 
 			while(true) {

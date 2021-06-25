@@ -84,13 +84,13 @@ public class MemberManager {
 			// 아이디 중복체크		
 			String id = chKOverlap();
 			
-			System.out.print("비밀번호를 입력하세요 > ");
+			System.out.print(" 비밀번호를 입력하세요 > ");
 			String password = sc.nextLine().trim();
-			System.out.print("이름를 입력하세요 > ");
+			System.out.print(" 이름를 입력하세요    > ");
 			String cafename = sc.nextLine().trim();
-			System.out.print("주소를 입력하세요 > ");
+			System.out.print(" 주소를 입력하세요    > ");
 			String address = sc.nextLine().trim();
-			System.out.print("전화번호를 입력하세요 > ");
+			System.out.print(" 전화번호를 입력하세요 > ");
 			String phone = sc.nextLine().trim();
 
 			Member mem = new Member(cafename, id, password, address, phone);
@@ -239,10 +239,9 @@ public class MemberManager {
 				if (!rs.next()) {
 					break;
 				} else {
-					System.out.println("중복된 아이디입니다. 다시 입력하세요. ");
 					System.out.println("                   ●●●");
 					System.out.println("             중복된 아이디입니다. ");
-					System.out.println("              다시 입력하세요");
+					System.out.println("             다시 입력해 주세요.");
 					System.out.println("                   ●●●");
 				}
 			}
@@ -252,20 +251,20 @@ public class MemberManager {
 		return id;
 	}
 
-	// 내 포인트 확인하기
-//	void memPoint() {
-//		try {
-//			con = DriverManager.getConnection(jdbcUrl, user, pw);
-//			int havePoint = dao.readPoint(con,currentId);
-//						
-//			System.out.println("현재 사용가능한 포인트: " + havePoint);
-//			
-//			
-//		} catch (SQLException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//	}
+	 //내 포인트 확인하기
+	void memPoint() {
+		try {
+			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			int havePoint = dao.readPoint(con,currentId);
+						
+			System.out.println("현재 사용가능한 포인트: " + havePoint);
+			
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 	
 	
 	// 내 포인트 확인하기
