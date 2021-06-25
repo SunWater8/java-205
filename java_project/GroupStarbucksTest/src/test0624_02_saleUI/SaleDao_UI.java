@@ -1,4 +1,4 @@
-package test0624_02;
+package test0624_02_saleUI;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -6,11 +6,11 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 
+import SaleTest.Menu_test;
+import test0624_02.MenuSale;
 
-
-public class SaleDao {
+public class SaleDao_UI {
 	//sale을 조회, 관리한다. 
 
 
@@ -51,7 +51,7 @@ public class SaleDao {
 
 			//받아온 데이터를 sale 객체로 생성 ->list에 저장
 			while(rs.next()) {
-				list.add(new Sale(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4), rs.getString(5)));
+				list.add(new Sale(rs.getInt(1), rs.getString(2), rs.getInt(3), rs.getString(4)));
 			}
 
 
@@ -88,7 +88,7 @@ public class SaleDao {
 		int result = 0 ;
 
 
-		String sql = "insert into sale (salecode, sname, price,id) values(sale_sq.nextval, ?, ?, ?)";
+		String sql = "insert into sale (salecode, sname, price) values(sale_salecode_seq.nextval, ?, ?)";
 
 
 		try {
@@ -98,7 +98,6 @@ public class SaleDao {
 
 				pstmt.setString(1,list.get(i).getSname());
 				pstmt.setInt(2, list.get(i).getPrice());
-				pstmt.setString(3, list.get(i).getId());
 				result = pstmt.executeUpdate();
 			}
 		} catch (SQLException e) {
@@ -148,8 +147,8 @@ public class SaleDao {
 
 
 	// 4. Sale DB에서 메뉴당 판매수와 판매액을 가져온다. READ : select
-	ArrayList<Sale> getMenuSalePrice(Connection conn) {
-		ArrayList<Sale> list = null;
+	ArrayList<MenuSale> getMenuSalePrice(Connection conn) {
+		ArrayList<MenuSale> list = null;
 
 
 		try {
@@ -164,7 +163,7 @@ public class SaleDao {
 
 			//받아온 데이터를 sale 객체로 생성 ->list에 저장
 			while(rs.next()) {
-				list.add(new Sale(rs.getString(1), rs.getInt(2), rs.getInt(3)));
+				list.add(new MenuSale(rs.getString(1), rs.getInt(2), rs.getInt(3)));
 			}
 
 

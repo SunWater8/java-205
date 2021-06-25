@@ -15,7 +15,7 @@ public class MemberManager {
 
 	private MemberDao dao;
 	private Scanner sc;
-	public static String currentId;
+	
 
 	// 객체 생성
 	private Connection con = null;
@@ -23,44 +23,46 @@ public class MemberManager {
 	// 연결
 	private String jdbcUrl = "jdbc:oracle:thin:@localhost:1521:xe";
 	private String user = "hr";
-	private String pw = "tiger";
+	private String pw2 = "tiger";
 
 	public MemberManager(MemberDao dao) {
 		this.dao = dao;
 		sc = new Scanner(System.in);
-		this.currentId = currentId;
 	}
 
 	// 1.  전체 member 리스트 출력
 	void memList() {
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 
 			List<Member> list = dao.getList(con);
 
-			System.out.println("■■■■■■■■■■■■■■■■■■■■■ 고객 정보 리스트 ■■■■■■■■■■■■■■■■■■■■■■");
+			System.out.println("■■■■■■■■■■■■■■■■■■■■■■■ 고객 정보 리스트 ■■■■■■■■■■■■■■■■■■■■■■■■■");
 			System.out.println("멤버코드 \t 아이디 \t 비밀번호 \t 이름 \t 전화번호 \t\t 주소 \t 포인트");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 			for (Member mem : list) {
+				
 				System.out.printf("%d \t %s \t %s \t %s \t %s \t %s \t %d \n", mem.getMemcode(), mem.getId(),
 						mem.getPw(), mem.getName(), mem.getPhone(), mem.getAddress(), mem.getPoint());
 			}
-			System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+			System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 	}
 
 	// 2. 내 정보 출력 (아이디 값을 받아서 memberDB에서 가져온다)
-	void myInfo() {
+	void myInfo(String currentId) {
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 
 			List<Member> list = dao.getList(con, currentId);
 
 			System.out.println("■■■■■■■■■■■■■■■■■■■■■ 고객 정보 리스트 ■■■■■■■■■■■■■■■■■■■■■■");
 			System.out.println("아이디 \t 비밀번호 \t 이름 \t 전화번호 \t\t 주소 \t 포인트");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 			for (Member mem : list) {
 				System.out.printf("%s \t %s \t %s \t %s \t %s \t %d\n", mem.getId(), mem.getPw(), mem.getName(),
 						mem.getPhone(), mem.getAddress(), mem.getPoint());
@@ -70,13 +72,36 @@ public class MemberManager {
 			e.printStackTrace();
 		}
 	}
+	
+	
+	
+	// 관리자 정보 출력
+//	void adminInfo(String currentId) {
+//
+//		try {
+//			con = DriverManager.getConnection(jdbcUrl, user, pw2);
+//
+//			List<Member> list = dao.getList(con, currentId);
+//
+//			System.out.println("■■■■■■■■■■■■■■■■■■■■■ 관리자 정보 리스트 ■■■■■■■■■■■■■■■■■■■■■■");
+//			System.out.println("아이디 \t 비밀번호 \t 이름 \t 전화번호 \t\t 주소");
+//			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+//			for (Member mem : list) {
+//				System.out.printf("%s \t %s \t %s \t %s \t %s \n", mem.getId(), mem.getPw(), mem.getName(),
+//						mem.getPhone(), mem.getAddress());
+//			}
+//			System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
 
 	// 3. 데이터 입력 (회원가입 ->memberDB에 저장)
 	void memAdd() {
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			System.out.println("환영합니다");
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
+			System.out.println("   * 환영합니다 *");
 
 			// System.out.print("아이디를 입력하세요 > ");
 			// String id = sc.nextLine();
@@ -98,7 +123,8 @@ public class MemberManager {
 			int result = dao.insertMem(con, mem);
 
 			if (result > 0) {
-				System.out.println("가입되었습니다.");
+				System.out.println("\n       가입되었습니다.");
+				
 			} else {
 				System.out.println("                   \n●●●");
 				System.out.println("       오류가 발생하여 가입에 실패하였습니다.");
@@ -112,31 +138,31 @@ public class MemberManager {
 	}
 
 	// 4. 내 정보보기 -> 데이터 수정
-	void memEdit() {
+	void memEdit(String currentId) {
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 			System.out.println("       +------------------------+");
 			System.out.println("       |    회원 정보를 수정합니다.   |");
 			System.out.println("       +------------------------+");
 			
 			System.out.print(" 이름를 입력하세요    > ");
-			String cafename = sc.nextLine().trim();
+			String name = sc.nextLine().trim();
 			System.out.print(" 비밀번호를 입력하세요 > ");
-			String password = sc.nextLine().trim();
+			String pw = sc.nextLine().trim();
 			System.out.print(" 주소를 입력하세요    > ");
 			String address = sc.nextLine().trim();
 			System.out.print(" 전화번호를 입력하세요 > ");
 			String phone = sc.nextLine().trim();
 
-			Member mem = new Member(cafename, password, address, phone);
+			Member mem = new Member(name, pw, address, phone);
 
 			int result = dao.editMem(con, mem, currentId);
 
 			if (result > 0) {
-				System.out.println("정보가 수정되었습니다.");
+				System.out.println("  * 정보가 수정되었습니다.");
 			} else {
-				System.out.println("                   \n●●●");
+				System.out.println("                   ●●●");
 				System.out.println("       오류가 발생하여 수정에 실패하였습니다.");
 				System.out.println("                   ●●●");
 			}
@@ -146,21 +172,21 @@ public class MemberManager {
 	}
 
 	// 5. 내 정보 보기 -> 회원 탈퇴
-	void memDel() {
+	void memDel(String currentId) {
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 			System.out.println("     +-----------------------------+");
 			System.out.println("     |  탈퇴시 취소나 복구가 되지 않습니다.  |");
 			System.out.println("     |  탈퇴하시려면 '탈퇴'를 입력하세요.   |");
 			System.out.println("     +-----------------------------+");
-			System.out.print(" 입력 > ");
+			System.out.print("    입력 > ");
 			String yes = sc.nextLine().trim();
 
 			if (yes.equals("탈퇴")) {
 				int result = dao.deleteMem(con, currentId);
 				if (result > 0) {
-					System.out.println("탈퇴되었습니다.");
+					System.out.println("  * 탈퇴되었습니다.");
 				} else {
 					System.out.println("                   \n●●●");
 					System.out.println("       오류가 발생하여 탈퇴실패하였습니다.");
@@ -169,18 +195,17 @@ public class MemberManager {
 			}
 
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
 	// 로그인
-	void chkLogin() {
+	void chkLogin(String currentId) {
 		ArrayList<Member> mem = new ArrayList<>();
 		HashMap<String, String> map = new HashMap<>();
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 			mem = dao.getList(con);
 			for (int i = 0; i < mem.size(); i++) {
 				map.put(mem.get(i).getId(), mem.get(i).getPw());
@@ -208,7 +233,7 @@ public class MemberManager {
 						System.out.println("              다시 입력하세요");
 						System.out.println("                   ●●●");
 					} else {
-						System.out.println("로그인하셨습니다.");
+						System.out.println("  * 로그인하셨습니다.");
 						break;
 					}
 				}
@@ -227,11 +252,11 @@ public class MemberManager {
 		ResultSet rs = null;
 
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 			mem = dao.getList(con);
 
 			while (true) {
-				System.out.print(" 아이디를 입력하세요 > ");
+				System.out.print(" 아이디를 입력하세요  > ");
 				id = sc.nextLine().trim();
 				pstmt = con.prepareStatement("select id from member where id = ?");
 				pstmt.setString(1, id);
@@ -252,34 +277,96 @@ public class MemberManager {
 	}
 
 	 //내 포인트 확인하기
-	void memPoint() {
-		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			int havePoint = dao.readPoint(con,currentId);
-						
-			System.out.println("현재 사용가능한 포인트: " + havePoint);
-			
-			
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
-	
-	// 내 포인트 확인하기
 	void memPoint(String currentId) {
 		try {
-			con = DriverManager.getConnection(jdbcUrl, user, pw);
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
 			int havePoint = dao.readPoint(con,currentId);
 						
-			System.out.println("   ☞ 현재 사용가능한 포인트: " + havePoint);
-			
+			System.out.println("  ☞ 현재 사용가능한 포인트: " + havePoint);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 	
+//	====================================================================
+	//관리자 정보 조회
+	void myAdminInfo(String currentId) {
+
+		try {
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
+
+			List<Member> list = dao.getAdminList(con, currentId);
+
+			System.out.println("■■■■■■■■■■■■■ 점포 정보  ■■■■■■■■■■■■■■■■");
+			System.out.println("주소 \t\t 전화번호");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			for (Member mem : list) {
+				System.out.printf("%s \t\t\t %s", mem.getAddress(), mem.getPhone());
+			}
+			System.out.println("\n■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+	//관리자 비밀번호 재설정
+	void memAdminEdit(String currentId) {
+
+		try {
+			con = DriverManager.getConnection(jdbcUrl, user, pw2);
+			System.out.println("       +------------------------+");
+			System.out.println("       |    비밀번호를 재설정 합니다.  |");
+			System.out.println("       +------------------------+");
+			
+			System.out.print(" 새 비밀번호 > ");
+			String pw = sc.nextLine().trim();
+//			Member mem = new Member( pw);
+
+			int result = dao.editAdminMem(con, pw, currentId);
+
+			if (result > 0) {
+				System.out.println("  * 정보가 수정되었습니다.");
+			} else {
+				System.out.println("                   ●●●");
+				System.out.println("       오류가 발생하여 수정에 실패하였습니다.");
+				System.out.println("                   ●●●");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+//	void memEdit(String currentId) {
+//
+//		try {
+//			con = DriverManager.getConnection(jdbcUrl, user, pw2);
+//			System.out.println("       +------------------------+");
+//			System.out.println("       |    회원 정보를 수정합니다.   |");
+//			System.out.println("       +------------------------+");
+//			
+//			System.out.print(" 이름를 입력하세요    > ");
+//			String name = sc.nextLine().trim();
+//			System.out.print(" 비밀번호를 입력하세요 > ");
+//			String pw = sc.nextLine().trim();
+//			System.out.print(" 주소를 입력하세요    > ");
+//			String address = sc.nextLine().trim();
+//			System.out.print(" 전화번호를 입력하세요 > ");
+//			String phone = sc.nextLine().trim();
+//
+//			Member mem = new Member(name, pw, address, phone);
+//
+//			int result = dao.editMem(con, mem, currentId);
+//
+//			if (result > 0) {
+//				System.out.println("  * 정보가 수정되었습니다.");
+//			} else {
+//				System.out.println("                   ●●●");
+//				System.out.println("       오류가 발생하여 수정에 실패하였습니다.");
+//				System.out.println("                   ●●●");
+//			}
+//		} catch (SQLException e) {
+//			e.printStackTrace();
+//		}
+//	}
 }

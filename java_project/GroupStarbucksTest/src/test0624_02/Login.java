@@ -63,7 +63,7 @@ public class Login {
 						System.out.println("                  ●●●");
 					} else {
 //						System.out.println("---------------------------------------------------------");
-						System.out.println("로그인하셨습니다.");
+						System.out.println("  * 로그인하셨습니다.");
 						break;
 					}
 				}

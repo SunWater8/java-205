@@ -65,7 +65,7 @@ public class MenuManager {
 			int result = dao.insertMenu(con, menu);
 			
 			if(result > 0) {
-				System.out.println("추가되었습니다.");
+				System.out.println("  * 추가되었습니다.");
 			} else {
 				System.out.println("                   \n●●●");
 				System.out.println("       오류가 발생하여 추가되지 않았습니다.");
@@ -90,13 +90,13 @@ public class MenuManager {
 			System.out.println("    +---------------------------------+");
 			System.out.println("    | 수정하려는 다음의 해당 정보를 입력해 주세요.|");
 			System.out.println("    +---------------------------------+");
-			System.out.print("메뉴코드를 입력하세요 > ");
+			System.out.print(" 수정하실 메뉴코드를 입력하세요. > ");
 			int menuCode = Integer.parseInt(sc.nextLine().trim());
 
 			// 컬럼별 수정값 입력
-			System.out.print("메뉴이름을 입력하세요 > ");
+			System.out.print(" 메뉴이름을 입력하세요 > ");
 			String menuName = sc.nextLine().trim();
-			System.out.print("가격을 입력하세요    > ");
+			System.out.print(" 가격을 입력하세요    > ");
 			int price = Integer.parseInt(sc.nextLine());
 			
 			Menu menu = new Menu(menuCode, menuName, price);
@@ -104,7 +104,7 @@ public class MenuManager {
 			int result = dao.editMenu(con, menu);
 
 			if (result > 0) {
-				System.out.println("정보가 수정되었습니다.");
+				System.out.println("  * 정보가 수정되었습니다.");
 			} else {
 				System.out.println("                   \n●●●");
 				System.out.println("       오류가 발생하여 수정에 실패하였습니다.");
@@ -124,12 +124,12 @@ public class MenuManager {
 		
 		try {
 			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			System.out.print("삭제하려는 메뉴코드를 입력하세요 > ");
+			System.out.print(" 삭제하려는 메뉴코드를 입력하세요 > ");
 			int menuCode = Integer.parseInt(sc.nextLine());
 			
 			int result = dao.deleteMenu(con, menuCode);
 			if(result > 0) {
-				System.out.println("삭제되었습니다.");
+				System.out.println("  *삭제되었습니다.");
 			} else {
 				System.out.println("                   \n●●●");
 				System.out.println("       오류가 발생하여 삭제에 실패하였습니다..");

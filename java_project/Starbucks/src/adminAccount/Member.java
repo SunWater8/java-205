@@ -1,4 +1,4 @@
-package test0624_02;
+package adminAccount;
 
 public class Member {
 
@@ -34,11 +34,6 @@ public class Member {
 		this.pw = pw;
 		this.address = address;
 		this.phone = phone;
-	}
-	
-	public Member(String address, String phone) {
-		this.address = address;
-		this.phone=phone;
 	}
 	
 	public Member(String id) {

@@ -39,11 +39,14 @@ public class AppMain {
 				login.chkLogin();
 				break;
 			case 3: 
-				admin.calling();
+				login.chkLogin();
+				admin.mainOpen();
 				System.exit(0);
 				break;
 			default :
-				System.out.println("잘못 눌렀습니다.");
+				System.out.println("          ●●●");
+				System.out.println("       잘못 눌렀습니다.");
+				System.out.println("          ●●●");
 			}
 
 
@@ -72,10 +75,11 @@ public class AppMain {
 					break;
 				case 3:
 					// 내 정보 확인하기
-					memManager.myInfo();
-
-					System.out.println("1. 정보수정");
-					System.out.println("2. 회원탈퇴");
+					memManager.myInfo(login.currentId);
+					System.out.println("\n [수정 및 탈퇴]");
+					
+					System.out.println("  1. 정보수정");
+					System.out.println("  2. 회원탈퇴");
 
 					//사용자 선택
 					num = Integer.parseInt(sc.nextLine().trim());
@@ -83,11 +87,11 @@ public class AppMain {
 					switch (num) {
 					case 1:
 						// 1. 정보 수정
-						memManager.memEdit();
+						memManager.memEdit(login.currentId);
 						break;
 					case 2:
 						/// 2. 회원 탈퇴
-						memManager.memDel();
+						memManager.memDel(login.currentId);
 						return;				
 					}
 				}

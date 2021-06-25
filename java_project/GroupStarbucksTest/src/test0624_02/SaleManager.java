@@ -9,15 +9,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-import SaleTest.Menu_test;
-
 
 public class SaleManager {
 
 	private SaleDao dao;
-	Scanner scanner;
-	private String currentId;
-	Point point;
+	private Scanner scanner;
+	//private String currentId;
+	private Point point;
 
 	// Connection 객체 생성 
 	Connection conn = null;
@@ -31,7 +29,7 @@ public class SaleManager {
 		// 초기화
 		this.dao = dao;
 		scanner= new Scanner(System.in);
-		this.currentId = currentId;
+		//this.currentId = currentId;
 		point = new Point();
 
 	}
@@ -48,24 +46,20 @@ public class SaleManager {
 			System.out.println("-------------------------------------");
 			System.out.println("판매코드 \t 상품명  \t 가격  \t 판매 날짜");
 			System.out.println("-------------------------------------");
-			
-			
-			System.out.println("■■■■■■■■■■■■■■■ 판매 정보 리스트 ■■■■■■■■■■■■■■■");
-			System.out.println("판매코드 \t 상품명  \t 가격  \t 판매 날짜");
-			
+
 			for(Sale sale : list) {
-				System.out.printf("%d \t %s \t %d \t %s \n", 
-						sale.getSalecode(), sale.getSname(), sale.getPrice(), sale.getSaledate()
+				System.out.printf("%d \t %s \t %d \t %s %s \n", 
+						sale.getSalecode(), sale.getSname(), sale.getPrice(), sale.getSaledate(),sale.getId()
 						);
 			}
-			System.out.println("■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■■");	
+			System.out.println("-------------------------------------");
 
 
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
+
 
 	}
 
@@ -96,19 +90,19 @@ public class SaleManager {
 		try {
 			conn= DriverManager.getConnection(jdbcUrl, user, pw);
 
-			List<MenuSale> list = dao.getMenuSalePrice(conn);
+			ArrayList<Sale>list = dao.getMenuSalePrice(conn);
 
-			System.out.println("오늘 메뉴별 판매 된 갯수 와 판매액을 조회합니다.");
+			System.out.println("오늘 메뉴별  판매된 갯수 와 판매액을 조회합니다.");
 			System.out.println("------------------------------------------");
 			System.out.println("메뉴 \t              판매수 \t             판매액 ");
 
 
 
-			for(MenuSale menu : list) {
-				if(menu.getpName().equals("americano") || menu.getpName().equals("sandwich")) {
-					System.out.println(menu.getpName() + "\t" + menu.getpNumSales()+ "\t" + menu.getpSalePrice());
+			for(Sale sale : list) {
+				if(sale.getpName().equals("americano") || sale.getpName().equals("sandwich")) {
+					System.out.println(sale.getpName() + "\t" + sale.getpNumSales()+ "\t" + sale.getpSalePrice());
 				}else {
-					System.out.println(menu.getpName() + "\t\t" + menu.getpNumSales()+ "\t" + menu.getpSalePrice());
+					System.out.println(sale.getpName() + "\t\t" + sale.getpNumSales()+ "\t" + sale.getpSalePrice());
 				}
 			}
 			System.out.println("------------------------------------------");
@@ -179,14 +173,14 @@ public class SaleManager {
 
 			System.out.println("주문하기");
 
-			System.out.println("                  메뉴");
+			System.out.println("메뉴 입니다.");
 			System.out.println("--------------------------------------------------");
-			System.out.println("   1.  Amerciano  :  4100");
-			System.out.println("   2.  Latte      :  4600");
-			System.out.println("   3.  Sandwich   :  6200");
-			System.out.println("   4.  salad      :  5000");
-			System.out.println("   5.  cake       :  5500");
-			System.out.println("   6.  주문 완료");
+			System.out.println("1. Amerciano : 4100");
+			System.out.println("2. Latte : 4600");
+			System.out.println("3. Sandwich : 6200");
+			System.out.println("4. salad : 5000");
+			System.out.println("5. cake : 5500");
+			System.out.println("6. 주문 완료");
 			System.out.println("--------------------------------------------------");
 
 			while(true) {
@@ -201,24 +195,24 @@ public class SaleManager {
 				switch(inputDatas[0]) {
 
 				case "1":
-					list.add(new Sale("americano", Integer.parseInt(inputDatas[1])*americano));
-					System.out.println("americano"+ inputDatas[1]+"잔 주문");
+					list.add(new Sale("americano", Integer.parseInt(inputDatas[1])*americano,currentId));
+					System.out.println("americano "+ inputDatas[1]+"잔 주문");
 					break;
 				case "2":
-					list.add(new Sale("latte", Integer.parseInt(inputDatas[1])*latte));
-					System.out.println("latte"+ inputDatas[1]+"잔 주문");
+					list.add(new Sale("latte", Integer.parseInt(inputDatas[1])*latte,currentId));
+					System.out.println("latte "+ inputDatas[1]+"잔 주문");
 					break;
 				case "3":
-					list.add(new Sale("sandwich", Integer.parseInt(inputDatas[1])*sandwich));
-					System.out.println("sandwich"+ inputDatas[1]+"개 주문");
+					list.add(new Sale("sandwich", Integer.parseInt(inputDatas[1])*sandwich,currentId));
+					System.out.println("sandwich "+ inputDatas[1]+"개 주문");
 					break;
 				case "4":
-					list.add(new Sale("salad", Integer.parseInt(inputDatas[1])*salad));
-					System.out.println("salad"+ inputDatas[1]+"개 주문");
+					list.add(new Sale("salad", Integer.parseInt(inputDatas[1])*salad,currentId));
+					System.out.println("salad "+ inputDatas[1]+"개 주문");
 					break;
 				case "5": 
-					list.add(new Sale("cake", Integer.parseInt(inputDatas[1])*cake));
-					System.out.println("cake"+ inputDatas[1]+"개 주문");
+					list.add(new Sale("cake", Integer.parseInt(inputDatas[1])*cake,currentId));
+					System.out.println("cake "+ inputDatas[1]+"개 주문");
 					break;
 				case "6":
 					// 주문완료시에 Sale DB에 저장한다.
