@@ -1,5 +1,7 @@
+desc menu;
+select * from menu;
 --커밋하기 전에 이전 테이블을 drop 해 주세요. 
-drop table member;
+drop table menu;
 drop sequence menu_sq;
 
 -- 메뉴 DB

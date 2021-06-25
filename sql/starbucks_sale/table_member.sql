@@ -1,4 +1,5 @@
-
+desc member;
+select * from member;
 --커밋하기 전에 이전 테이블을 drop 해 주세요. 
 drop table member;
 drop sequence member_sq;

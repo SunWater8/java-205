@@ -1,3 +1,6 @@
+desc sale;
+select * from sale;
+
 --커밋하기 전에 이전 테이블을 drop 해 주세요. 
 drop table sale;
 drop sequence sale_sq;
