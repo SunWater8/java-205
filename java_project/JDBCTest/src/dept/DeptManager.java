@@ -50,11 +50,11 @@ public class DeptManager {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
+	
 		//2. 연결
 		String jdbcUrl = "jdbc:oracle:this:@localhost:1521:xe";
 		String user = "hr";
-		String 
+//		String 
 		
 		Dept dept = new Dept(0, deptdatap[0], deptdata[1]);
 		int result = dao.insertDept(conn,  dept);

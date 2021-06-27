@@ -1,12 +1,12 @@
 public class Menu {
 
-	private int menuCode;
-	private int rowNum;
-	private String mname;
-	private int price;
-	private String editName;
+	private int menuCode;		// 메뉴 고유번호
+	private int rowNum;			// 행번호
+	private String mname;		// 메뉴 이름
+	private int price;			// 가격
+	private String editName;	// 수정하려는 이름
 
-	// 매개변수 두번째 int rowNum
+	// 생성자 1 : 관리자가  메뉴 전체 테이블 조회하기 위한 생성자
 	public Menu(int menuCode, int rowNum, String mname, int price) {
 		this.menuCode = menuCode;
 		this.rowNum = rowNum;
@@ -14,23 +14,27 @@ public class Menu {
 		this.price = price;
 	}
 	
+	// 생성자 2  : 메뉴 출력 위한 생성자
 	public Menu(int rowNum, String mname, int price) {
 		this.rowNum = rowNum;
 		this.mname = mname;
 		this.price = price;
 	}
 	
-	public Menu(String mname, int price) {
-		this.mname = mname;
-		this.price = price;
-	}
-	
+	// 생성자 3 : 관리자가  메뉴 수정을 위한 생성자
 	public Menu(String mname, String editName, int price) {
 		this.mname = mname;
 		this.editName = editName;
 		this.price = price;
 	}
-		
+	
+	// 생성자 4 : 관리자가  메뉴 추가를 위한 생성자
+	public Menu(String mname, int price) {
+		this.mname = mname;
+		this.price = price;
+	}
+			
+	// 생성자 5 : 기본 생성자
 	public Menu() {}
 	
 

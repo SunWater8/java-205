@@ -1,4 +1,3 @@
-
 import java.util.Scanner;
 
 public class AdminPage {
@@ -11,16 +10,18 @@ public class AdminPage {
 
 	void mainOpen() {
 
-		System.out.println("관리자  모드 입니다.");
-
 		while (true) {
-			System.out.println("---------------------------------------");
-			System.out.println("1. 회원 정보 보기");
-			System.out.println("2. 판매 정보 보기");
-			System.out.println("3. 메뉴 관리 ");
-			System.out.println("4. 관리자 설정");
-			System.out.println("5. 관리자 모드 종료");
-			System.out.println("---------------------------------------");
+			System.out.println();
+			System.out.println("\t         관리자 모드");
+			System.out.println("\t***************  ");;
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println("\t1. 회원 정보 보기");
+			System.out.println("\t2. 판매 정보 보기");
+			System.out.println("\t3. 메뉴 관리 ");
+			System.out.println("\t4. 관리자 설정");
+			System.out.println("\t5. 관리자 모드 종료");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println();
 
 			int choice = Integer.parseInt(sc.nextLine());
 
@@ -40,6 +41,9 @@ public class AdminPage {
 			case 5:
 				login.logout();
 				System.exit(0);
+			default:
+				System.out.println("잘못 선택하셨습니다.");
+				break;
 			}
 		}
 	}
@@ -47,14 +51,17 @@ public class AdminPage {
 	// case 2: 판매 정보 보기
 	void two() {
 		while (true) {
-			System.out.println("판매 정보 보기");
-			System.out.println("---------------------------------------");
-			System.out.println("1. 판매 전체 리스트 보기");
-			System.out.println("2. 당일 총 판매액");
-			System.out.println("3. 당일 메뉴별 판매액");
-			System.out.println("4. 인기 상품 조회");
-			System.out.println("5. 이전 단계로 가기");
-			System.out.println("---------------------------------------");
+			System.out.println();
+			System.out.println("\t           판매 정보");
+			System.out.println("\t***************  ");;
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println("\t1. 판매 전체 리스트 보기");
+			System.out.println("\t2. 당일 총 판매액");
+			System.out.println("\t3. 당일 메뉴별 판매액");
+			System.out.println("\t4. 인기 상품 조회");
+			System.out.println("\t5. 이전 단계로 가기");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println();
 
 			int choice = Integer.parseInt(sc.nextLine());
 
@@ -74,6 +81,9 @@ public class AdminPage {
 				break;
 			case 5:
 				return;
+			default:
+				System.out.println("잘못 선택하셨습니다.");
+				break;
 			}
 		}
 
@@ -82,15 +92,18 @@ public class AdminPage {
 	// case 3: 메뉴 관리
 	void three() {
 		while (true) {
-			System.out.println("메뉴 관리");
-			System.out.println("---------------------------------------");
-			System.out.println("1. 현재 판매 중인 메뉴 보기");
-			System.out.println("2. 메뉴 추가");
-			System.out.println("3. 메뉴 수정 ");
-			System.out.println("4. 메뉴 삭제");
-			System.out.println("5. 이전 단계로 가기");
-			System.out.println("---------------------------------------");
-
+			System.out.println();
+			System.out.println("\t        메뉴 관리");
+			System.out.println("\t***************");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println("\t1. 현재 판매 중인 메뉴 보기");
+			System.out.println("\t2. 메뉴 추가");
+			System.out.println("\t3. 메뉴 수정 ");
+			System.out.println("\t4. 메뉴 삭제");
+			System.out.println("\t5. 이전 단계로 가기");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println();
+			
 			int choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
 			case 1:
@@ -107,6 +120,9 @@ public class AdminPage {
 				break;
 			case 5:
 				return;
+			default:
+				System.out.println("잘못 선택하셨습니다.");
+				break;
 			}
 		}
 	}
@@ -114,13 +130,15 @@ public class AdminPage {
 	// case 4: 관리자 설정
 	void four() {
 		while(true) {
-			System.out.println("\n     〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
-			System.out.println("              관리자 설정");
-			System.out.println("           ***************  ");
-			System.out.println("            1. 점포 정보 조회 "); // 현재 판매 중인 메뉴 보기
-			System.out.println("            2. 비밀번호 재설정");
-			System.out.println("            3. 이전 단계로 가기");
-			System.out.println("     〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓\n");
+			System.out.println();
+			System.out.println("\t        관리자 설정");
+			System.out.println("\t***************  ");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println("\t1. 점포 정보 조회 "); // 현재 판매 중인 메뉴 보기
+			System.out.println("\t2. 비밀번호 재설정");
+			System.out.println("\t3. 이전 단계로 가기");
+			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
+			System.out.println();
 
 			int choice = Integer.parseInt(sc.nextLine());
 			switch (choice) {
@@ -132,8 +150,10 @@ public class AdminPage {
 				break;
 			case 3:
 				return;
+			default:
+				System.out.println("잘못 선택하셨습니다.");
+				break;
 			}
 		}
 	}
-
 }

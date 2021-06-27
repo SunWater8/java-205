@@ -7,6 +7,14 @@ import java.util.Scanner;
 
 public class Login {
 
+/*
+	MemberManager 클래스 정의 (메소드기능 - Dao)
+	1. 로그인시 아이디, 비밀번호 확인 - MemberDao.getList
+	2. 로그아웃 - static
+	3. ** public static String currentId
+*/
+	
+	
 	private MemberDao dao;
 	private Scanner sc;
 	public static String currentId;
@@ -16,8 +24,10 @@ public class Login {
 		sc = new Scanner(System.in);
 	}
 
-	// 로그인시 아이디, 비밀번호 확인
-	void chkLogin() {
+	// 1. 로그인시 아이디, 비밀번호 확인
+	boolean chkLogin() {
+		
+		boolean result = false;
 		
 		// 객체 생성
 		Connection con = null;
@@ -33,7 +43,7 @@ public class Login {
 
 		try {
 			con = DriverManager.getConnection(jdbcUrl, user, pw);
-			// ArrayList mem으로  회원정보 대입 
+			// ArrayList mem으로  회원정보 저장
 			mem = dao.getList(con);
 			// mem의 크기만큼 반복 후 map에 아이디를 키값으로 비밀번호를 밸류값으로 저장
 			for (int i = 0; i < mem.size(); i++) {
@@ -48,9 +58,12 @@ public class Login {
 				if (cnt == 0) {
 					System.out.println("아이디와 비밀번호를 확인해주세요.");
 					logout();
-					System.exit(0);
+					return result;
 				}
-				System.out.println("아이디와 비밀번호를 입력합니다. (입력횟수 " + cnt +"회)");
+				System.out.println();
+				System.out.println("\t            로그인          (입력횟수 " + cnt + "회)");
+				System.out.println("\t***************  ");
+				System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 				System.out.print("아이디를 입력하세요 > ");
 				currentId = sc.nextLine().trim();
 				System.out.print("비밀번호를 입력하세요 > ");
@@ -69,6 +82,7 @@ public class Login {
 						cnt--;
 					} else {
 						System.out.println("로그인하셨습니다.");
+						result = true;
 						break;
 					}
 				}
@@ -76,10 +90,11 @@ public class Login {
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return result;
 	}	
 	
-	// 로그아웃시 스태틱 currntId = null;
+	// 2. 로그아웃시  currntId = null;
 	static void logout() {
 		currentId = null;
 	}
-}
+}	
