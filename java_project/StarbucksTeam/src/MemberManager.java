@@ -276,7 +276,7 @@ public class MemberManager {
 			System.out.println();
 			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 			System.out.println("\t+------------------------+");
-			System.out.println("\t|    비밀번호를 재설정 합니다          |");
+			System.out.println("\t|    비밀번호를 재설정 합니다    |");
 			System.out.println("\t+------------------------+");
 			System.out.println("〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓〓");
 			System.out.println();

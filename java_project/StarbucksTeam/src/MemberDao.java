@@ -250,7 +250,7 @@ public class MemberDao {
 		return result;
 	}
 
-	// 8. pstmt close
+	// 9. pstmt close
 	void close() {
 		if (pstmt != null) {
 			try {
