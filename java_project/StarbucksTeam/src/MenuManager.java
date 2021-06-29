@@ -10,8 +10,8 @@ public class MenuManager {
 	MenuManager 클래스 정의 (메소드기능 - Dao)
  	1. 전체 메뉴리스트 출력 (회원, 관리자 공용) - MenuDao.getList
  	2. 메뉴 데이터 추가 (관리자용) - MenuDao.insertMenu
-  	3. 내 정보 수정 (회원용) -	MenuDao.editMenu				
-	4. 회원 탈퇴 (회원용) - MenuDao.deleteMenu	 
+  	3. 메뉴 정보 수정 (관리자용) -	MenuDao.editMenu				
+	4. 판매 매뉴 삭제 (관리자용) - MenuDao.deleteMenu	 
  */
 	
 	private MenuDao dao;
