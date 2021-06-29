@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html>
+<!-- head : 웹 문서의 추가적인 속성들을 정의해 준다 -->
+hj hu
+<head>
+    <!-- 문서의 제목 -->
+    <title>HTML5 기본 태그</title>
+    <!-- 문서의 추가적인 속성 -->
+    <meta charset="UTF-8">
+    <!--웹 문서의 문자 set 설정-->
+    <style>
+        div {
+            background-color: grey;
+            margin-top: 10px;
+            height: 50px;
+        }
+
+        span {
+            background-color: yellow;
+            margin-top: 10px;
+            width: 100px;
+            height: 100px;
+        }
+    </style>
+    <script>
+    </script>
+</head>
+
+<body>
+
+    <form action="#" method="get">
+        <fieldset>
+            <legend>회원가입 폼</legend>
+            <table>
+                <tr>
+                    <th><label for="userid">아이디</label></th>
+                    <td>
+                        <input type="text" id="userid" name="userid">
+                    </td>
+                </tr>
+                <tr>
+                    <th><label for="pw">비밀번호</label></th>
+                    <td>
+                        <input type="password" id="pw" name="pw">
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td>
+                        <input type="submit" value="로그인">
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </form>
+
+
+    <hr>
+
+
+    <form action="#" method="get">
+        type=text : <input type="text" name="username" value="tester"> <br>
+        type=password : <input type="password" name="pw"> <br>
+        type=checkbox : <input type="checkbox" name="chk" value="ok1">
+        <input type="checkbox" name="chk" value="ok2"><br>
+        type=radio : A<input type="radio" name="choice" value="A">
+        B<input type="radio" name="choice" value="B">
+        C<input type="radio" name="choice" value="C">
+        D<input type="radio" name="choice" value="D">
+        F<input type="radio" name="choice" value="F"> <br>
+        type=color : <input type="color" name="color"> <br>
+        type=datetime-local : <input type="datetime-local" name="localDatetime"><br>
+        type=date : <input type="date" name="date"><br>
+        type=time : <input type="time" name="time"><br>
+        type=month : <input type="month"><br>
+        type=week : <input type="week"> <br>
+        type=email : <input type="email" name="email"><br>
+        type=file : <input type="file" name="userPhoto"><br>
+        type=hidden : 화면에는 표현되지 않는다.
+        <input type="hidden" name="idx" value="1"> <br>
+        type=image : <input type="image" src="town.jpg" height="50"><br>
+        type=number : <input type="number" name="num"> <br>
+        type=range : <input type="range" name="age" min="0" , max="150"> <br>
+        type= tel : <input type="tel"> <br>
+        type=url : <input type="url" name="url"><br> <br> <br>
+        <input type="submit"> <input type="reset">
+
+        <select name="year">
+            <option value="2021">2021</option>
+            <option value="2020">2020</option>
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+        </select>
+    </form>
+
+
+
+    <hr>
+    <video src="media/trailer.mp4" controls preload="auto" poster="image/stNicholas.jpg" loop autoplay width="400"
+        height="300">
+
+    </video>
+
+    <audio src="media/old_pop.mp3" controls autoplay preload="auto"></audio>
+
+    <div>div - 1</div>
+    <!--div에서는 폭과 높이를 지정할 수 있다.-->
+    <div>div - 2</div>
+    <div>div - 3</div>
+
+    <span>span - 1</span>
+    <!--span에서는 폭과 높이가 지정되지 않는다.-->
+    <span>span - 2</span>
+    <span>span - 3</span>
+    <hr>
+    <!-- 이미지태그 -->
+
+    <img src="parkstreet.jpg" height="300">
+    <img src="town.jpg" width="300">
+    <!--width와 height 둘 다 지정을 하면 비율이 강제적으로 바뀜-->
+    <img src="image/stNicholas.jpg" height="300" alt="st니콜라스 market 이미지">
+    <!--이 html 파일의 경로와 같은 곳에 있지 않은 이미지-->
+
+    <img src="https://t1.daumcdn.net/daumtop_chanel/op/20200723055344399.png"><!-- 다른 도메인에 있는 이미지도 입력할 수 있다. -->
+    <img src="http://placehold.it/300x200">
+    <!--내가 표현하고 싶은 이미지 영역을 확인할 수 있따.-->
+
+    <hr>
+    <!-- 테이블 병합 -->
+    <table border="1">
+        <tr>
+            <td colspan="2">cell</td>
+            <!-- <td>cell</td> -->
+        </tr>
+        <tr>
+            <td rowspan="3">cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <!-- <td>cell</td> -->
+            <td>cell</td>
+        </tr>
+        <tr>
+            <!-- <td>cell</td> -->
+            <td>cell</td>
+        </tr>
+        <tr>
+            <td rowspan="4">cell</td>
+            <td>cell</td>
+        </tr>
+        <tr>
+            <!-- <td>cell</td> -->
+            <td>cell</td>
+        </tr>
+        <tr>
+            <!-- <td>cell</td> -->
+            <td>cell</td>
+        </tr>
+        <tr>
+            <!-- <td>cell</td> -->
+            <td>cell</td>
+        </tr>
+    </table>
+    <hr>
+
+    <table border="1">
+        <thead>
+            <tr>
+                <td>thead 1</td>
+                <td>thead 2</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tbody 1 - 1</td>
+                <td>tbody 1 - 2</td>
+            </tr>
+            <tr>
+                <td>tbody 2 - 1</td>
+                <td>tbody 2 - 2</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>222</td>
+                <td>333</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>tfoot 1</td>
+                <td>tfoot 2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+
+    <!-- 태그를 지워도 테이블 모양은 똑같다. : 코드의 가독성을 위한 태그 -->
+    <table border="1">
+        <!-- <thead> -->
+        <tr>
+            <!-- td를 th로 바꿔봄 - th : bold, 가운데 정렬 -->
+            <th>thead 1</th>
+            <th>thead 2</th>
+        </tr>
+        <!-- </thead> -->
+        <!-- <tbody> -->
+        <tr>
+            <td>tbody 1 - 1</td>
+            <td>tbody 1 - 2</td>
+        </tr>
+        <tr>
+            <td>tbody 2 - 1</td>
+            <td>tbody 2 - 2</td>
+        </tr>
+        <tr>
+            <td>111</td>
+            <td>222</td>
+            <td>333</td>
+        </tr>
+        <!-- </tbody> -->
+        <!-- <tfoot> -->
+        <tr>
+            <td>tfoot 1</td>
+            <td>tfoot 2</td>
+        </tr>
+        <!-- </tfoot> -->
+    </table>
+
+    <ul>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>수박</li>
+    </ul>
+
+    <ol>
+        <li>사과</li>
+        <li>바나나</li>
+        <li>수박</li>
+    </ol>
+
+    <a href="http://www.bitcamp.co.kr">비트캠프</a>
+    <a href="http://www.naver.com">네이버</a>
+    <a href="http://www.daum.net">다음</a>
+
+    <a href="#c-1">홍차</a>
+    <a href="#c-2"> href </a>
+    <a href="#c-3"> header Tag</a>
+
+    <hr>
+
+    <h1 id="c-1"> 홍차 </h1>
+    <hr>
+    <h3>정의</h3>
+
+    <p>
+        홍차는 우롱차보다 더 많이 발효된 차의 일종이다.
+    </p>
+    <p>
+
+    <h3 id>등급</h3>
+    <p>
+        홍차는 여러 가지로 등급이 매겨진다.
+    </p>
+
+    -브로큰 페코<br><br>
+    -브로큰 페코 수숑<br><br>
+    -브로큰 오렌지 페코 수숑
+
+    <hr>
+
+    <h1 id="c-2"> href stands for</h1>
+    <p>(Hypertext REFerence) The HTML code used to <br>create a link to another page. The HREF is an attribute of the
+        anchor tag, which is also used to identify sections within a document. The HREF contains two components: the
+        URL, which is the actual link, and the clickable text that appears on the page, called the "anchor text."</p>
+    <p>However, if EXAMPLES.HTML were on a different website, the full URL with an HTTP:// prefix has to be used, as in
+        the second example.</p>
+
+
+    <!-- &는 태그의 시작으로 인식 -->
+    <!-- &lt : A is less than B  - A<B -->
+    <h1 id="c-3">a &lt b b &gt c</h1>
+
+    <!-- h1~h6 : 제목을 표현하는 태그. 글자를 굵게 표현하고 태그에 따라 크기를 다르게 표현 -->
+    <h1>Header - h1</h1>
+    <h2>Header - h2</h2>
+    <!--spacebar를 아무리 띄어도 띄어지지 않는다.-->
+    <h3>Header - &nbsp&nbsp&nbsp h3</h3>
+    <!--강제로 띄어쓰는 방법-->
+    <h4>Header - h4</h4>
+    <h5>Header - h5</h5>
+    <h6>Header - h6</h6>
+
+</body>
+
+</html>
+
+<!-- 
+&nbsp : no break --spacebar
+&lt   : less than
+&gt   : greater than
+&amp  : ampersand (and 기호) -->
