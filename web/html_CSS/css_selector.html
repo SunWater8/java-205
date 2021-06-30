@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <style>
+        /* 여러개의 선택자를 지정해서 css 하기 */
+        body,
+        h1,
+        p {
+            margin: 0;
+            padding: 0;
+            /*텍스트와의 간격*/
+        }
+
+        /* 전체선택자 */
+        * {
+            /* color: red; */
+        }
+
+        /* 태그선택자 */
+        h1 {
+            /* background-color: yellow;
+                margin-top: 30px;
+                margin-left:30px; */
+        }
+
+        p {
+            background-color: greenyellow;
+        }
+
+        /* 아이디 선택자 */
+        #title {
+            /* font-size: 16px;  */
+        }
+
+        /* 클래스 선택자 */
+        .font_a {
+            font-style: italic;
+        }
+
+        .font_b {
+            font-weight: 100;
+        }
+
+        #header {
+            background-color: red;
+            color: white;
+            width: 400px;
+            /*div의 영역은 끝까지이기 때문에 width를 지정하면 가로 길이를 제한할 수 있다. */
+            /* margin : 상하간격 좌우간격 */
+            margin: 10px auto;
+        }
+
+        #aside {
+            background-color: blue;
+            color: white;
+            width: 50%;
+            /*화면 전체에서 반정도 차지함*/
+        }
+
+        #content {
+            background-color: green;
+            color: white;
+            width: 200px;
+        }
+
+        .font_color_blue {
+            color: blue;
+        }
+
+        li.back_color_green {
+            background-color: green;
+        }
+
+        h1.back_color_green {
+            background-color: green;
+        }
+
+        /* 속성 선택자 */
+        input[type] {
+            width: 150px;
+            height: 50px;
+            font-size: 150%;
+            /* 기본사이즈인 16px의 1.5배 크기이다. - 24px*/
+        }
+
+        input[type=text] {
+            background-color: yellow;
+        }
+
+        input[type=password] {
+            background-color: springgreen;
+        }
+
+        .img {
+            width: 200px;
+            height: 250px;
+        }
+
+        img[src$=jpg] {
+            border: 3px solid red;
+        }
+
+        img[src$=png] {
+            border: 5px solid blue;
+        }
+
+        img[src$=gif] {
+            border: 5px solid black;
+        }
+
+        /* 후손선택자
+        부모선택 (공백) 선택자 */
+        #header1 h1 {
+            color: red;
+        }
+
+        #section h1 {
+            color: orange;
+        }
+
+        /* 자손선택자
+        부모선택>선택자 */
+        #header1>h1 {
+            background-color: palegoldenrod;
+        }
+
+        #section>h1 {
+            background-color: rosybrown;
+        }
+
+        #nav>h1 {
+            /* 내가 응용함 */
+            color: snow;
+            background-color: slateblue;
+        }
+
+        /* 동위 선택자
+        기준 선택요소 뒤에 오는 요소를 선택
+        1. 바로 뒤에 위치하는 요소 선택
+        2. 뒤에 존재하는 요소를 선택 */
+        /* h1+h2{
+            color:red;
+        } */
+
+        /* 바로 뒤에 위치하는 요소를 선택 : + */
+        #title1+h2 {
+            /* title1 이 기준이 됨. */
+            background-color: rebeccapurple;
+        }
+
+        #title1~h2 {
+            /* header2-7은 기준 선택자와 다른 레벨에 있기 때문에 적용되지 않음. */
+            background-color: skyblue;
+        }
+        /* [반응선택자] 선택영역에 마우스 커서가 위치하는 경우 -> :hover */
+        #btn00:hover{
+            background-color: salmon;
+            color:white;
+        }
+        #btn00:active{
+            background-color: yellow;
+            color:thistle;
+        }
+
+        h1>a:hover{
+            color:mediumvioletred;
+        }
+
+        /* 입력양식 태그의 상태로 선택할 수 있다. */
+        input:disabled{
+            background-color: black;
+            color:mintcream;
+        }
+        /*
+         input:enabled{  먼저 만들었던 버튼 양식에도 똑같이 적용됨. 
+            width: 200px;
+            height: 135px;
+            font-size: 1.2em;
+        }
+         */
+        input:focus{
+            border: 5px solid red;
+        }
+        div.box{ /*enabled 주석처리 해야 보임*/
+            width: 500px;
+            height: 150px;
+            border: 1px solid black;
+        }
+
+        #chk{
+            display: none;
+        }
+        input[type=checkbox]:checked{ /* 클릭하면 체크표시 나옴. */
+            width:50px;
+            height:50px;
+        }
+        /* input[type=checkbox]:checked+div{ <!-- 클릭한 후 체크표시 나올 때 스타일이 반영됨.  -->
+            background-color: blanchedalmond;
+        } */
+        
+        /* <!-- 클릭하면 div부분 안보이게 하기--> */
+        input[type=checkbox]:checked+div{  
+            
+            height:0px;
+            overflow:hidden;
+        }
+        input[type=checkbox]:checked+div{  
+            display:none;
+        }
+
+
+        label{
+            font-size: 200%;
+            font-weight: bold;
+        }
+
+        ol{
+            overflow:hidden;
+            list-style: none;
+        }
+        ol>li{
+            float:left;
+            /* width:100px; */
+            padding: 5px 30px;
+
+        }
+
+
+        ol>li:nth-child(2n){
+            background-color: greenyellow;
+        }
+        ol>li:nth-child(2n+1){
+            background-color: yellow;
+        }
+        /* 각진 모서리 둥글게 만들기 */
+        ol>li:first-child{
+            border-radius: 10px 0 0 10px;
+        }
+        ol>li:last-child{
+            border-radius: 0 10px 10px 0;
+        }
+        ol>li:hover {
+            background-color: darkcyan;
+            color: white;
+            font-weight:bold;
+        }
+    </style>
+</head>
+
+<body>
+
+    <ol>
+        <li> <a href="http://www.naver.com"> First</a></li>
+        <li>Second</li>
+        <li>Third</li>
+        <li>Fourth</li>
+        <li>Fifth</li>
+        <li>sixth</li>
+        <li>Seventh</li>
+    </ol>
+    
+
+    <hr>
+
+    <label for = "chk"> check </label>
+    <input type="checkbox">
+    <div class="box">
+        <h1>개인 정보 보호 정책</h1>
+        <p>
+            개인 정보를 활용합니다.
+        </p>
+    </div>
+
+
+    <hr>
+    <input>
+    <input disabled value="test"> <!-- 사용자에게 보여주기위한 목적. 회원가입 할 때 입력하지 못하는 값 -->
+    
+<hr>
+
+    <h1><a href="#">click</a></h1> <!-- #은 자기 자신의 페이지를 의미함.#c-1에서 사용해봤음. -->
+    <h1 id="btn00">Button</h1>
+
+    <hr>
+
+    <h2>header2-0</h2>
+    <h1 id="title1">header1</h1>
+    <h2>header2-1</h2>
+    <h2>header2-2</h2>
+    <h2>header2-3</h2>
+    <h2>header2-4</h2>
+    <h2>header2-5</h2>
+
+    <hr>
+
+    <h2>header2-6</h2>
+    <div id="header1">
+        <h1 class="title">Lorem ipsum</h1>
+        <div id="nav">
+            <h1>Navigation</h1>
+            <h2>header2-7</h2> <!-- 같은 레벨 안에 있지 않아 배경색이 적용되지 않음. -->
+        </div>
+    </div>
+    <div id="section">
+        <h1 class="title">Lorem ipsum</h1>
+        <p>Lorem ipsum dolor sit amet, conse
+            ctetur adipiscing elit.</p>
+    </div>
+
+
+    <hr>
+
+    <img src="a.jpg" alt="a.jpg" class="img">
+    <img src="b.png" alt="b.png" class="img">
+    <img src="c.gif" alt="c.gif" class="img">
+
+    <hr>
+
+    <input type="text"> <input type="password">
+    <ul>
+        <li class="font_color_blue">사과</li>
+        <li class="back_color_green">바나나</li>
+        <li class="font_color_blue">오렌지</li>
+        <li>레몬</li>
+    </ul>
+
+
+    <hr>
+
+    <div id="header">
+        <h1>header</h1>
+    </div>
+    <div id="wrap">
+        <div id="aside">
+            <h1>aside</h1>
+        </div>
+        <div id="content">
+            <h1>content</h1>
+        </div>
+    </div>
+    <hr>
+
+    <h1 id="title" class="font_a back_color_green">일론 머스크 "1년 내 스타링크 가입자 50만 명 확보"</h1>
+    <p class="font_a font_b">
+
+        일론 머스크 테슬라 최고경영자(CEO)가 향후 1년 내에 스타링크 인터넷 서비스 사용자 50만 명을 확보할 수 있을 것이라고 밝혔다고 더버지 등 외신들이 보도했다.
+
+    </p>
+</body>
+
+</html>
