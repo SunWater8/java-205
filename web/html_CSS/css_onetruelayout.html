@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 3. 전체 설정 */
+        *{
+            margin:0;
+            padding:0;
+        }
+        /* 15. */
+        body{
+            padding-top: 30px;
+        }
+        /* 4. border 공통적인 설정 */
+        .border{
+            border: 1px solid #aaa;
+        }
+        .text_center{
+            text-align:center;
+        }
+        .font_size_200p{
+            font-size:200%;
+        }
+        /* 13. */
+        .div_align_center{
+            margin:0 auto;
+        }
+
+        /* 2. header 설정 */
+        header{
+            width:798px;
+            height:80px;
+            /* 3. 세부사항 설정 */
+            /* border: 1px solid #aaa; */
+            /* text-align: center; */
+            line-height: 80px;
+            margin-top: 30px;
+        }
+        /* 6. nav 설정 */
+        nav{
+            width:798px;
+            height:30px;
+            line-height:30px;
+        }
+        /* 8.  */
+        section{
+            width:598px;
+            height:400px;
+            float:left;
+
+        }
+        /* 9. */
+        aside{
+            float:right;
+            width:198px;
+            height:200px;
+        }
+        /* 10. footer는 아래에 붙이기 */
+        #wrap{
+            /* 11. 부모의 영역 안쪽으로 들여놓기 */
+            width:800px;
+            overflow:hidden;
+        }
+        /* 12. */
+        footer{
+            width:798px;
+            height:100px;
+            line-height:100px;
+
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 구조 만들기 -->
+    <!-- 5. class 영역 넣기 -->
+    <header class="border text_center font_size_200p div_align_center">header</header>
+    <nav class="border text_center font_size_200p div_align_center">메뉴 영역</nav>
+    <!-- 7. div의 id 값 주기 -->
+    <!-- 14. div와 footer에 div_align_center 추가하기 -->
+    <div id="wrap" class="div_align_center">
+        <section class="border text_center font_size_200p">
+            <article>내용</article>
+        </section>
+        <aside class="border text_center font_size_200p">서브 메뉴 영역</aside>
+    </div>
+    <footer class="border text_center font_size_200p div_align_center">footer</footer>
+    
+</body>
+
+<!-- 기본적인 body 구조
+<body>
+    <header></header>
+    <nav></nav>
+    <div>
+        <section>
+            <article></article>
+        </section>
+        <aside></aside>
+    </div>
+    <footer></footer>
+</body> -->
+</html>

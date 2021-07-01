@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 1. 세 박스 연속으로 나오게 하기 */
+        div.box {
+            width: 100px;
+            height: 100px;
+
+            /* 2. 파란색 박스 하나로 모으기 */
+            position: absolute;
+        }
+
+        #b1 {
+            background-color: red;
+            /* 3. 떨어트리기 기준은 화면에서 left와 top이 됨.*/
+            left: 50px;
+            top: 50px;
+
+            /* 큰 숫자가 제일 위에 올라옴 - 팝업창 같은거? */
+            z-index: 1000;
+        }
+
+        #b2 {
+            background-color: green;
+            /* 3. 떨어트리기 */
+            left: 100px;
+            top: 100px;
+
+            z-index: 1001;
+        }
+
+        #b3 {
+            background-color: blue;
+            /* 3. 떨어트리기 */
+            left: 150px;
+            top: 150px;
+
+            z-index: 999;
+        }
+
+        header {
+            font-size: 2.0em;
+            border: 1px solid #ddd;
+        }
+
+        footer {
+            border: 1px solid #ddd;
+        }
+        #wrap{
+            height:100px;
+            width:500px;
+            border: 1px solid #ddd;
+
+            /* wrap에서 시작됨 */
+            position: relative;
+
+            /* wrap영역에서만 사각형들을 보이게 하고 싶다면-overflow의 hidden 또는 scroll 속성 주기(별도의 레이아웃이 생김) */
+            overflow: auto;
+            /* overflow:hidden; */
+            /* overflow:scroll; */
+
+            /* overflow-x: auto; */
+
+        }
+    </style>
+</head>
+<body>
+    
+    
+    <hr>
+    <header>헤더 영역 입니다.</header>
+
+    <div id="wrap">
+        <div id="b1" class="box"></div>
+        <div id="b2" class="box"></div>
+        <div id="b3" class="box"></div>
+    </div>
+
+    <footer>푸터 영역 입니다.</footer>
+</body>
+
+</html>

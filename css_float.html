@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* 2. 붙이는 효과 주기 */
+        div.box{
+            width:100px;
+            height: 100px;
+            background-color: pink;
+            text-align:center;
+            line-height:100px;
+
+            border:3px solid #ddd;
+
+            /* 왼쪽으로 붙여 나간다 */
+            float:left;
+
+            /* 오른쪽부터 붙어 들어간다 */
+            /* float:right; */
+        }
+
+        /* 4. wrap 박스 내부를 벗어나는 것은 나란히 두지 않는다. */
+        #wrap{
+            /* overflow: hidden; */
+        }
+
+        /* 5. div 의 footer에 id 값을 footer 준 후에 효과 주기 - float 영향 받지 않음 */
+        #footer{
+            clear:both;
+        }
+    </style>
+</head>
+<body>
+    <!-- 1. 세 개의 박스 만들기 -->
+    <div id="wrap">
+        <div class="box">1</div>
+        <div class="box">2</div>
+        <div class="box">3</div>
+    </div>
+
+    <!-- 3. footer 추가하기 -->
+    <div id="footer">
+        footer
+    </div>
+    
+</body>
+</html>
