@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1 {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+
+            border: 20px solid black;
+            padding: 20px;
+            padding-left: 50px;
+            margin-top:50px;
+            margin-left:300px;
+        }
+
+        body{
+            padding:100px;
+        }
+        hr{
+            margin:100px;
+        }
+        #box2{
+            width:200px;
+            height:100px;
+            border-radius: 50px 10px  ;
+            border: 5px solid #DDD;
+        }
+
+        /* radius 응용 - 인스타 프로필 만들기 */
+        #circle{
+            border: 1px solid grey;
+            width:200px;
+            height:200px;
+            margin-bottom:50px;
+
+            border-radius: 50%;
+            background-image: url(../town.jpg);
+            background-size: 100%;
+        }
+        #box3{
+            /* display:none; */
+            display: inline-block;
+            background-color:indianred;
+        }
+
+        /* a태그를 block으로 display하면 이 영역 아무데나 누르면 링크를 탈 수 있따. inlie이면 텍스트만 클릭이 가능*/
+        a{
+            /* inline은 width와 height 가 적용 안됨 */
+            width:300px;
+            height:300px;
+            /* display:block; */
+            display: inline-block;
+            background-color:lightgreen;
+
+            /* body의 background 설정 후 해보기 */
+            /* 이미지 링크 만들기 */
+            background-image: url(../image/stNicholas.jpg);
+            background-size:100%;
+
+        }
+        
+        /* 뒷 배경 지정 -엄밀히 말하면 문서 전체가 아니라 body 안에만 들어가게 됨.*/
+        body{
+            background-image: 
+            url(../town1.jpg),
+            url(../parkstreet.jpg);
+
+            /* 콤마 있고 없고에 따라 비율 적용이 달라. 요즘엔 100% 달랑 하나만 쓰기도 함. */
+            background-size: 100px  200px ;
+                        /* width  height */
+
+            /* 외국사이트에서는 cover나 contain을 많이 씀 */
+            /* background-size: cover;  */
+            /* background-size: contain;    */
+
+            /* 이미지 반복해서 바둑판 형식으로 하지 않기 */
+            background-repeat: no-repeat;       
+            /* 수평방향으로만 반복 */
+            /* background-repeat: repeat-x ; */
+            /* background-repeat: repeat-y; */
+
+            /* 스크롤을 내려도 이미지가 가만히 있게 하기 */
+            background-attachment: fixed;
+
+            /* 배경의 위치 지정해주기 */
+            background-position: 10px 100px;
+            background-position: bottom;
+        }
+
+        /* 블록으로 되어 있는 a 태그에 배경사진 넣어줄 수 있다. */
+
+    </style>
+</head>
+
+<body>
+
+    <span>text s-1</span>
+    <div id="box3">text div</div>
+    <a href="#">text - a</a>
+    <span>text s-2</span>
+    <hr>
+
+    <div id="circle"></div>
+    <hr>
+    <div id="box2">
+        <h1> Lorem ipsum dolor amet</h1>
+    </div>
+    
+    <hr>
+    <div id="box1">text</div>
+    <hr>
+</body>
+
+</html>
