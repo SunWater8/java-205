@@ -1,3 +1,7 @@
+/* 글꼴 소스 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
 *{
     margin:0;
     padding:0;
@@ -11,8 +15,8 @@ body{
     margin:20px auto;
 }
 
-.div_align_center{
-    margin:0 auto;
+.font_NanumPenScript{
+    font-family:'Nanum Pen Script';
 }
 
 /* 블로그 이름이 쓰여 있는 head 부분*/
@@ -37,13 +41,16 @@ nav{
 li{
     list-style:none;
 }
+
+/*  링크에 공통적으로 밑줄 제거*/
 a{
     text-decoration:none;
 }
+/* 메뉴 글자 색 */
 li>a{
     color:peru;
-    font-weight: ;
 }
+/* 메뉴 글자에 마우스로 갖다 댔을 때 색 변화 */
 li>a:hover{
     color: lightseagreen;
     font-weight:bold;
@@ -63,6 +70,7 @@ nav>li{
     border:1px solid black;
     
 }
+
 /* 블로그의 본문을 화면의 왼쪽에 진열 */
 section{
     padding-top:20px;
@@ -103,42 +111,60 @@ article>p>a{
     color:royalblue;
     
 }
-/* 본문과 우측 작은 메뉴를 아우르는 부분의 크기 정하기 + 하단의footer가 float하지 않게 하기 */
+/* 본문과 사이드 메뉴를 아우르는 부분의 크기 정하기 + 하단의footer가 float하지 않게 하기 */
 #wrap{
     width: 900px;;
     overflow:hidden;
 }
-/* 우측 작은박스 목록의 글(작은메뉴) 스타일 지정 */
+/* 우측 사이드 메뉴 목록의 글자 스타일 지정 */
 aside{
     width:150px;
     float:right;
     padding-top:20px;
     
 }
-/* 우측 작은박스 나누기 */
+/* 우측 사이드메뉴에서 카테고리와 최근 글 공간 분리하기 */
 .smallmenu{
     /* text-align: center; */
     line-height:150%;
     margin-bottom:30px;
 }
-#prifile{
-    /* margin-bottom:20px; 적용이 안됨. */
+#profile{
+    /* margin-bottom:20px;  적용 안됨*/
 }
+
+/* 프로필 사진 설정 */
 #picture{
     margin:0 auto;
     width:150px;
     height:150px;
-    background-image: url("../town.jpg");
+    background-image: url("https://g-grafolio.pstatic.net/20210630_128/1625014027072hNsDe_JPEG/210629.jpg");
     background-size: 100%;
 }
+/* 블로그 아이디 설정 - 적용이 안됨. */
 #nickname{
     /* font-size: 10px; 적용이 안됨.*/
     /* line-height: 180%; */
     /* font-weight:bold; */
 }
+/* 이웃 추가 버튼 설정 */
+#profile>a{
+    color:  black;
+    margin-top:10px;
+    text-align:center;
+    line-height:40px;
+    width:150px;
+    height:40px;
+    display: inline-block;
+    background-color:powderblue;
+    border-radius: 20px;
+    font-size: 25px;
+}
+/* 사이드 메뉴의 큰 제목 */
 .smallmenu>h3{
     text-align: center;
 }
+/* 사이드 메뉴의 작은 제목 */
 .smallmenu>li>a{
     color:slategrey;
     text-align:left;
@@ -146,7 +172,6 @@ aside{
 }
 /* 하단 footer 크기 지정 */
 footer{
-    /* width:1000px; */
     height:40px;
     line-height:40px;
 }
