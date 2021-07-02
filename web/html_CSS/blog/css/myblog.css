@@ -1,0 +1,191 @@
+@charset "utf-8";
+
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Nanum+Gothic:wght@700&family=Stylish&display=swap');
+
+/* 나눔고딕, 주아, 스타일리쉬(한글폰트 사용)
+font-family: 'Jua', sans-serif;
+font-family: 'Nanum Gothic', sans-serif;
+font-family: 'Stylish', sans-serif; 
+*/
+
+*{
+  margin: 0;
+  padding:0;  
+}
+
+/* 기본 설정 하기 */
+html, body, div, h1, h2, h3, h4, h5, h6, table, input, header, nav, aside, section, article, p{
+    font-size: 16px;
+    font-family: '돋움체',Arial, Helvetica, sans-serif;
+} 
+
+body{
+    background-color: rgb(194, 219, 137);
+}
+
+/* 전체 요소를 감싸는 블록 */
+#main_wrap{
+    width:776px;  /*800px로 맞춰야 한다면-10 -10 -1 -1 -2 총-24 해줘야 한다.*/
+    border: 1px solid #ddd;
+    background-color: #FFF;
+    border-radius: 5px;
+    /* 화면 가운데로 오게 하기 */
+    margin: 10px auto;
+    box-shadow:2px 2px 3px #AAA; /* 그림자 효과*/
+    padding: 10px;
+}
+
+/* header영역 */
+/* ------------------------------------------------------------------------------- */
+header{
+    padding: 20px;
+}
+
+/* id는 무분별하게 사용하지 않기. 자손을 이용한다 */
+header>h1{
+    font-size: 2.0em;
+    font-weight:300;
+}
+header>h4{
+    font-weight:200;
+}
+
+
+/* navigation 영역 시작 */
+/* ------------------------------------------------------------------------------- */
+
+
+nav{
+    border-top:1px solid #AAA;
+    border-bottom:1px solid #AAA;
+    height:35px;
+    overflow: hidden;
+    line-height: 35px;
+}
+
+nav>ul{
+    float:left;
+}
+nav>ul>li{
+    float:left;
+    overflow: hidden;
+    /* margin-left:20px;  밑에 있는 padding과 뭔 차이인지 모르겠음.*/
+    /* padding:0 20px; a태그에 줌*/
+    list-style:none;/* 리스트 스타일 없애기 */
+    /* line-height: 35px;; */
+}
+
+/* a태그의 영역을 block으로 바꾸어서 좀 더 크기를 넓힘. */
+nav>ul>li>a{
+    display:block;
+    border:1px solid green;
+    padding:0 20px; /*nav>ul>li 에 설정했던 거 가져오면 block 의 클릭 영역이 더 넓어짐.*/
+}
+nav>div{
+    float:right;
+}
+
+/* 검색버튼 */
+nav>div>input[type=text]{
+    width:100px;
+    height:24px;
+    /* margin-top:4px; */
+    border-radius: 12px 0 0 12px;
+    padding: 0 5px;
+    border : 1px solid #ddd;
+}
+nav>div>input[type=submit]{
+    height:26px;
+    /* margin-top:4px; */
+    margin-left:-10px;
+    margin-right:5px;
+    border-radius: 0 13px 13px 0;
+    padding:0 15px;
+    border : 1px solid #ddd;
+}
+
+/* 컨텐츠 영역 시작 */
+/* -------------------------------------------------------------------------- */
+
+#content_wrap{
+    overflow:hidden;
+    margin-top: 20px;;
+}
+section{
+    float:left;
+    width:550px;
+    padding: 5px;;
+}
+/* aside 영역 시작 */
+/* ---------------------------------------------------------------------- */
+
+aside{
+    float:right;
+    width:170px;
+}
+
+aside>h3{
+    font-size: 1.2em;
+    margin-top:20px;
+    font-family: 'Nanum Gothic', sans-serif;
+}
+aside>ul{
+    list-style: none;
+}
+aside>ul>li{
+    line-height: 180%;
+    font-family: 'Nanum Gothic', sans-serif;
+    padding-left:10px;
+}
+a{
+    color:#666;
+    text-decoration: none;
+}
+a:hover{
+    color:hotpink;
+    /* text-decoration: underline; */
+}
+footer{
+    color:blue;
+    font-size: 12px;
+    height:30px;
+    text-align:center;
+    line-height:30px;
+}
+
+
+/* --------------------------------------------------------------------- */
+
+/* 공통으로 사용할 클래스  */
+.font_jua{
+    font-family: 'Jua', sans-serif;
+}
+
+
+.title{
+    font-size:1.5em;
+    font-weight:bold;
+    margin:5px 0;
+    font-family: 'Stylish', sans-serif; ;
+}
+.date{
+
+    font-weight: 600;
+    font-style:italic;
+}
+.post_img{
+    margin: 10px 5px;
+    border:0;
+    width:300px;
+}
+.postcontent{
+    line-height:180%;
+    font-family: 'Nanum Gothic', sans-serif;
+    margin-bottom:15px;
+}
+.border_bottom_a{
+    border-bottom:1px solid #aaa;
+}
+.margin_bottom_20{
+    margin-bottom:20px;
+}

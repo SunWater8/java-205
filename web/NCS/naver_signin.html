@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="naver_signin.css">
+</head>
+
+<body>
+    <div id="wrap">
+        <header>
+            <h1>NAVER</h1>
+        </header>
+        <section>
+            <form>
+                <div>
+                    <label for="id">아이디</label>
+                    <input class="onebox" type="text" id="id">
+
+                </div>
+                <div>
+                    <label for="pw">비밀번호</label>
+                    <input class="onebox" type="password" id="pw">
+                </div>
+                <div>
+                    <label for="pw2">비밀번호 재확인</label>
+                    <input class="onebox" type="password"id="pw2">
+                </div>
+                <div>
+                    <label for="name">이름</label>
+                    <input class="onebox" type="text"id="name">
+                </div>
+                <div>
+                    <label for="year">생년월일</label>
+                    <div id="birth">
+                        <input type="text" id="year">
+                        <select>
+                            <option>월</option>
+                            <option>1</option>
+                            <option>2</option>
+                            <option>3</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                        </select>
+
+                        <input type="text">
+                    </div>
+                </div>
+                <div>
+                    <label for="gender">성별</label>
+                    <select class="onebox_select" id="gender">
+                        <option>성별</option>
+                        <option>남자</option>
+                        <option>여자</option>
+                        <option>선택안함</option>
+                    </select>
+                </div>
+                <div>
+                    <label for="email">본인 확인 이메일(선택)</label>
+                    <input class="onebox" type="email" id="email">
+                </div>
+                <div>
+                    <label for="phone">휴대전화</label>
+                    <select class="onebox_select" id="phone">
+                        <option>대한민국 +82</option>
+                        <option>영국 +44</option>
+                    </select>
+                </div>
+                <div id="phone">
+                    <input type="tel">
+                    <input type="button" value="인증번호 받기">
+                    <input type="text" disable value="인증번호 입력하세요.">
+                </div>
+                <input type="submit" value="가입하기">
+            </form>
+        </section>
+        <footer>
+            <ul>
+                <li>이용약관 |</li>
+                <li><b>개인정보처리방침</b> |</li>
+                <li>책임의 한계와 법적고지 |</li>
+                <li>회원정보 고객센터</li>
+            </ul>
+            <p>NAVER Corp</p>
+        </footer>
+    </div>
+
+
+</body>
+
+</html>
