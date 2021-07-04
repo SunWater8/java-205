@@ -2,15 +2,11 @@
     margin:0;
     padding:0;
 }
-
-/* 전체 영역 */
 a{
     text-decoration: none;
     color:#aaa;
-    /* color: black; */
 }
-
-/* 본문 영역 --------------------------------------------------*/
+/* 본문 영역 */
 #main_wrap{
     width:900px;
     height: 330px;
@@ -18,7 +14,11 @@ a{
     padding:200px 0;
     margin: 0 auto;
 }
-/* 제목, 소개 영역---------------------------------------------- */
+/* header, section */
+.background_grey{
+    background-color: #eee;
+}
+/* 제목, 소개 영역 */
 header{
     width:480px;
     float:left;
@@ -31,20 +31,16 @@ header{
     font-weight: 400;
     margin:0 20px;
 }
-/* 로그인박스 영역--------------------------------------------- */
+/* 로그인박스 영역*/
 section{
     margin:20px ;
     float:right;
     width:360px;
     height:330px;
-
 }
 #loginbox{
-    /* width:360px;
-    height:330px; */
     padding:10px;
     margin:0 auto;
-
     border:1px solid #ddd;
     background-color: #fff;
     box-shadow: 2px 3px 3px #ddd;
@@ -55,44 +51,51 @@ section>p{
     font-size:14px;
     text-align: center;
 }
-/* section>a{  ---------------적용이 안됨.
-    text-decoration: none;
-    color:#000;
-} */
-#loginbox>input{
+/* form 시작 */
+#loginbox input[type]{
     height:50px;
     border-radius: 10px;
     margin:5px 0;
     padding:0 10px;
 }
+/* id, pw */
 .blankbox{
     width:318px;
     border:1px solid #ddd;
-    /* color:#ccc; */
     font-size:1em;
     margin-left:auto;
     margin-right:auto;
 }
-#loginbox>input[type=button]{
+/* 로그인 버튼 */
+#loginbox input[type=button]{
     font-size:1em;
     margin:5px 0 auto ;
     font-weight:700;
 }
-
+.width_350{
+    width:340px;
+} 
+.background_blue{
+    background-color:rgb(31, 103, 197) ;
+    border:0;
+}
+.font_white{
+    color:#fff;
+}
 #loginbox>p{
     color:rgb(66, 138, 233);
     font-size: 14px;
     margin:15px 0;
     text-align: center;
 }
+/* 새_계정_만들기 버튼 */
 .account{
     width:150px;
     height:50px;
     background-color:rgb(10, 180, 10);
     border:0;
     border-radius: 10px;
-    margin-left:auto;
-    margin-right:auto;
+    margin: 20px auto 10px auto;
 }
 .account_text{
     font-weight:700;
@@ -101,65 +104,40 @@ section>p{
     line-height: 50px;
     text-align:center;
     margin-left:20px;
-
 }
-
-.background_grey{
-    background-color: #eee;
-}
-.width_350{
-    width:340px;
-}
-.background_blue{
-    background-color:rgb(31, 103, 197) ;
-    border:0;
-}
-.font_white{
-    color:#fff;
-}
-.width_150{
-    width:150px;
-}
+/* 구분선*/
 .border{
     border-top:1px solid #ddd;
-    margin-bottom:10px;
+    margin:10px 0;
     height:1px;
 }
 .border2{
     width:880px;
     border-top:1px solid #ddd;
     margin: 10px auto;
-    /* height:1px; */
 }
+/* 폰트 설정 */
 .font_blue{
     color:blue;
 }
 .font_black{
     color:black;
 }
-
-/* footer 영역-------------------------------------------------- */
+/* footer 영역 */
 footer{
     max-width:900px;
     height:100px;
     padding:30px 0;
     margin:auto;
-    /* background-color: rgba(64, 224, 208, 0.397); */
     font-size:0.73em;
     color:silver;
 }
-/* #foot_wrap>a{
-    color:grey;
-} */
 #foot_wrap{
     overflow: hidden;
 }
 ul{
-    /* height:50px; */
-    /* background-color:burlywood ; */
     margin:10px;
     padding:8px 0;
-    
 }
 ul>li{
     color:#ccc;
@@ -167,24 +145,14 @@ ul>li{
     padding-right:15px;
     list-style: none;
     text-align: center;
-    /* border:1px solid salmon; */
 }
-#foot_wrap>input[type=button]{
+#foot_wrap input[type=button]{
     float:left;
-}
-/* .float_left{
-    float:left;
-} */
-.overflow_hidden{
-    overflow:hidden;
-}
-.box_size{
     height:18px;
     width:30px;
-    
 }
-.border_bottom{
-    border-bottom: 1px solid #ccc;
+.overflow_hidden{
+    overflow:hidden;
 }
 footer>p{
     clear:left;

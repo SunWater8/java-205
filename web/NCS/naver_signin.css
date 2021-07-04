@@ -1,54 +1,88 @@
-@import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@900&display=swap');
-
-/* font-family: 'Gothic A1', sans-serif; */
-
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+/* 전체 설정 */
 *{
   margin:0;
   padding:0;
 }
-
+/* 전체 배경 색 */
 #wrap{
-  /* width:100%; */
   background-color: rgb(241, 241, 241);
 }
-
+/* header */
 header{
-  width:768px;
   height:44px;
   margin:0 auto;
-  padding:60px 0 54px;
-  font-family: 'Gothic A1', sans-serif;
-  font-size:1.5em;
-  font-weight:bold;
-  text-align: center;
-  color:rgb(50, 175, 50);
+  padding:40px 0;
 }
-
-section{
+h1{
+  font-family: 'Roboto', sans-serif;
+  font-size:4em;
+  font-weight:900;
+  text-align: center;
+  color:rgb(70, 170, 70);
+  margin: auto;
+  width: 250px;
+  
+}
+/* form 영역 */
+form{
   width:460px;
   text-align: center;
   margin:0 auto;
   padding:20px;
 }
-input{
-  /* width:450px;
-  height:30px;
-  padding:10px 10px 10px 10px;
-  margin:8px; */
-}
+/* label 설정 */
 label{
-  /* border:1px solid olive; */
   display:block;
   margin:15px 20px 5px 20px;
   text-align: left;
   font-family:  sans-serif;
   font-weight:bold;
 }
-/* #birth{
-  width:420px;
+/* 긴 입력박스 스타일 */
+.onebox{
+  width:400px;
   height:30px;
-  margin:0 20px;
-} */
+  padding:10px 10px;
+  margin:5px 20px;
+  border:1px solid #ddd;
+}
+/* 긴 선택박스 스타일 */
+.onebox_select{
+  width:420px;
+  height:53px;
+  padding:10px 10px;
+  margin:px 20px;
+  border:1px solid #ddd;
+}
+/* id */
+#id_box{
+  background-color: white;
+  position: relative;
+}
+#id{
+  position : absolute;
+  top:10px;
+  left: 10px;
+  font-size: 16px;
+  border:none;
+  height:30px;
+  width:200px;
+}
+.hold{
+  position :absolute;
+  top:16px;
+  right:13px;
+  line-height:15px;
+  color:#aaa;
+}
+/* email*/
+/* label의 글자 스타일 */
+.dif_font{
+  font-size: 13px;
+  color:rgb(155, 155, 155);
+}
+/* 생년월일 */
 #birth>input[type=text]{
   width:110px;
   height:30px;
@@ -60,21 +94,16 @@ label{
   width:130px;
   height:53px;
   padding:10px 10px;
-  /* margin:8px; */
   border:1px solid #ddd;
-
-
 }
-
+/* 전화 */
 #phone>input[type=tel]{
   width:250px;
   height:30px;
   padding:10px;
   margin:8px;
   border:1px solid #ddd;
-
 }
-
 #phone>input[type=button]{
   width:125px;
   height:48px;
@@ -91,8 +120,8 @@ label{
   margin:5px 20px;
   background-color: rgb(241, 241, 241);
   border:1px solid #ddd;
-
 }
+/* 가입하기 버튼 */
 input[type=submit]{
   width:424px;
   height:53px;
@@ -103,13 +132,12 @@ input[type=submit]{
   color:white;
   font-size: 1.15em;
 }
-
+/* footer 영역 */
 footer{
   margin:0 auto;
   width:460px;
   padding:30px;
   text-align: center;
-  
 }
 ul{
   overflow:hidden;
@@ -124,43 +152,4 @@ footer>p{
   font-size: 0.7em;
   margin-top:10px;
 }
-/* 클래스 설정 */
-/* ------------------------------------------------------------- */
-/* .extend_padding{
-  width:400px;
-  height:30px;
-  padding:10px 10px;
-  margin:8px 20px;
-  text-align: right;
-  color:#aaa;
-  background-color: white;
-  border:1px solid greenyellow;
-}
-.onebox_small{
-  width:350px;
-  height:30px;
-  /* padding:10px 10px; */
-  /* margin:8px 90px 8px 0; */
-/*} */
 
-.onebox{
-  width:400px;
-  height:30px;
-  padding:10px 10px;
-  margin:5px 20px;
-  border:1px solid #ddd;
-
-  /* border:1px solid orange; */
-}
-
-/* 성별, 휴대전화 국가선택 공통사항 */
-.onebox_select{
-  width:420px;
-  height:53px;
-  padding:10px 10px;
-  margin:px 20px;
-  border:1px solid #ddd;
-
-  /* border:1px solid purple; */
-
-}

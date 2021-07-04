@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@900&display=swap');
+
+/* 전체 설정 */
 *{
     margin:0;
     padding:0;
@@ -10,35 +13,38 @@ body{
     margin:0 auto;
     padding:50px 0;
 }
+/* header */
 header{
     height:150px;
+}
+h1{
     text-align: center;
     line-height: 150px;
-    font-size: 2em;
-    font-weight:bold;
+    font-size: 4em;
     color:rgb(64, 190, 64);
+    font-family: 'Roboto', sans-serif;
 }
-section>input{
+/* form */
+input[type]{
     height:50px;
     margin:5px 20px;
 }
-section>input[type=text]{
+/* id */
+input[type=text]{
     width:427px;
     border:1px solid #bbb;
     color:#bbb;
     padding:0 15px;
 }
-section>input[type=text]:focus{
-    border: 3px solid rgb(64, 190, 64);
-}
-section>input[type=password]{
+/* pw */
+input[type=password]{
     width:427px;
     border:1px solid #bbb;
     color:#bbb;
     padding:0 15px;
 }
-
-section>input[type=submit]{
+/* 로그인 버튼 */
+input[type=submit]{
     border:1px solid rgb(64, 190, 64);
     background-color: rgb(64, 190, 64);
     color:white;
