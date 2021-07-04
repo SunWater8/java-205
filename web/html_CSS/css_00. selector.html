@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,7 +9,14 @@
     <link rel="stylesheet" href="css_00. selector.css">
 
 </head>
+
+
+
 <body>
+    <!-- 11. 문자 선택자---------------------------------------------- -->
+    
+    <!-- 10. 구조 선택자 ------------------------------------------------------------------>
+    <h1> 10. 구조 선택자</h1>
     <ol>
         <li> <a href="http://www.naver.com"> First</a></li>
         <li>Second</li>
@@ -18,12 +26,14 @@
         <li>sixth</li>
         <li>Seventh</li>
     </ol>
-    
+
 
     <hr>
+    <!-- 09. 상태 선택자(2) - 체크 후 숨기기--------------------------------------------- -->
+    <h1>09. 상태 선택자(2) - 체크 후 숨기기</h1>
 
-    <label for = "chk"> check </label>
-    <input type="checkbox">
+    <label for="chk"> check </label>
+    <input type="checkbox" id="chk">
     <div class="box">
         <h1>개인 정보 보호 정책</h1>
         <p>
@@ -33,16 +43,20 @@
 
 
     <hr>
+    <!-- 08. 상태 선택자------------------------------------------------------- -->
+    <h1 >08. 상태 선택자</h1>
     <input>
     <input disabled value="test"> <!-- 사용자에게 보여주기위한 목적. 회원가입 할 때 입력하지 못하는 값 -->
-    
-<hr>
 
+    <hr>
+<!-- 07. 반응 선택자----------------------------------------------- -->
+    <h1 >07. 반응 선택자</h1>
     <h1><a href="#">click</a></h1> <!-- #은 자기 자신의 페이지를 의미함.#c-1에서 사용해봤음. -->
     <h1 id="btn00">Button</h1>
 
     <hr>
-
+<!-- 06. 동위 선택자-------------------------------------------------- -->
+<h1> 06. 동위 선택자</h1>
     <h2>header2-0</h2>
     <h1 id="title1">header1</h1>
     <h2>header2-1</h2>
@@ -52,12 +66,13 @@
     <h2>header2-5</h2>
 
     <hr>
-
+<!-- 후손-자손 선택자------------------------------------------------------ -->
+    <h1>05. 후손/자손 선택자</h1>
     <h2>header2-6</h2>
     <div id="header1">
         <h1 class="title">Lorem ipsum</h1>
         <div id="nav">
-            <h1>Navigation</h1>
+            <h2>Navigation</h2>
             <h2>header2-7</h2> <!-- 같은 레벨 안에 있지 않아 배경색이 적용되지 않음. -->
         </div>
     </div>
@@ -66,17 +81,21 @@
         <p>Lorem ipsum dolor sit amet, conse
             ctetur adipiscing elit.</p>
     </div>
-
+<!--  04. 속성 선택자 -------------------------------------------------------- -->
+    <h1> 04. 속성 선택자</h1>
 
     <hr>
 
     <img src="a.jpg" alt="a.jpg" class="img">
     <img src="b.png" alt="b.png" class="img">
     <img src="c.gif" alt="c.gif" class="img">
-
+    <!-- alt 속성을 넣어주었기 때문에 스타일에서 지정한 크기에 영향받지 않는다. -->
+    
     <hr>
-
     <input type="text"> <input type="password">
+
+<!-- 03. 기본 선택자 - 클래스-------------------------------------------- -->
+    <h1>03. 기본 선택자 - 클래스</h1>
     <ul>
         <li class="font_color_blue">사과</li>
         <li class="back_color_green">바나나</li>
@@ -86,6 +105,8 @@
 
 
     <hr>
+    <!--기본 선택자 -  아이디 -------------------------------------------------------- -->
+    <h1>02. 아이디 선택자</h1>
 
     <div id="header">
         <h1>header</h1>
@@ -98,8 +119,10 @@
             <h1>content</h1>
         </div>
     </div>
-    <hr>
 
+    <hr>
+    <!-- 기본 선택자   -->
+    <h1> 01. 클래스 선택자</h1>
     <h1 id="title" class="font_a back_color_green">일론 머스크 "1년 내 스타링크 가입자 50만 명 확보"</h1>
     <p class="font_a font_b">
 
@@ -107,4 +130,5 @@
 
     </p>
 </body>
+
 </html>

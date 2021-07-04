@@ -1,17 +1,19 @@
-/* 여러개의 선택자를 지정해서 css 하기 */
-body,
-h1,
-p {
+/* ---------------------------------------------------- */
+/* 여러개의 선택자를 지정 - 기본 설정 */
+body, h1, p {
     margin: 0;
     padding: 0;
-    /*텍스트와의 간격*/
-}
 
+}
 
 /* 전체선택자 */
 * {
     /* color: red; */
 }
+
+
+/* 기본 선택자 유형 */
+/* --------------------------------------------------- */
 
 /* 태그선택자 */
 h1 {
@@ -20,16 +22,24 @@ h1 {
         margin-left:30px; */
 }
 
+
+
+hr{
+   margin: 50px 0;
+}
+
 p {
     background-color: greenyellow;
 }
 
 /* 아이디 선택자 */
 #title {
+    /* h1의 기본 사이즈 설정 값은 32px이다. */
     /* font-size: 16px;  */
 }
 
-/* 클래스 선택자 */
+/* 클래스 선택자
+   조립을 위해 사용. 공통된 것을 쉽게 수정할 수 있다.*/
 .font_a {
     font-style: italic;
 }
@@ -38,6 +48,10 @@ p {
     font-weight: 100;
 }
 
+p{
+    background-color: greenyellow;
+}
+/* 02. 기본 선택자 -  아이디------------------------------------------------- */
 #header {
     background-color: red;
     color: white;
@@ -59,7 +73,7 @@ p {
     color: white;
     width: 200px;
 }
-
+/* 03. 기본 선택자 - 클래스------------------------------------------------- */
 .font_color_blue {
     color: blue;
 }
@@ -72,12 +86,12 @@ h1.back_color_green {
     background-color: green;
 }
 
-/* 속성 선택자 */
+/* 04. 속성 선택자 ---------------------------------------------------------*/
 input[type] {
     width: 150px;
     height: 50px;
     font-size: 150%;
-    /* 기본사이즈인 16px의 1.5배 크기이다. - 24px*/
+    /* 기본사이즈인 16px의 1.5배 크기이다. = 24px*/
 }
 
 input[type=text] {
@@ -93,6 +107,7 @@ input[type=password] {
     height: 250px;
 }
 
+/* $는 각각 끝나는 것을 대상으로 한다. */
 img[src$=jpg] {
     border: 3px solid red;
 }
@@ -104,6 +119,7 @@ img[src$=png] {
 img[src$=gif] {
     border: 5px solid black;
 }
+/* 05. 후손/자손 선택자---------------------------------------------- */
 
 /* 후손선택자
 부모선택 (공백) 선택자 */
@@ -121,23 +137,22 @@ img[src$=gif] {
     background-color: palegoldenrod;
 }
 
-#section>h1 {
-    background-color: rosybrown;
-}
-
 #nav>h1 {
-    /* 내가 응용함 */
     color: snow;
     background-color: slateblue;
 }
 
-/* 동위 선택자
+#section>h1 {
+    background-color: rosybrown;
+}
+
+
+/* 06. 동위 선택자-------------------------------------------------------------
+
 기준 선택요소 뒤에 오는 요소를 선택
 1. 바로 뒤에 위치하는 요소 선택
 2. 뒤에 존재하는 요소를 선택 */
-/* h1+h2{
-    color:red;
-} */
+
 
 /* 바로 뒤에 위치하는 요소를 선택 : + */
 #title1+h2 {
@@ -145,15 +160,23 @@ img[src$=gif] {
     background-color: rebeccapurple;
 }
 
+
+/* 기준 요소 뒤로 존재하는 요소를 선택 : ~ */
 #title1~h2 {
-    /* header2-7은 기준 선택자와 다른 레벨에 있기 때문에 적용되지 않음. */
+    /* header2-7은 기준 선택자 (id="title1")와 다른 레벨에 있기 때문에 적용되지 않음. */
     background-color: skyblue;
 }
-/* [반응선택자] 선택영역에 마우스 커서가 위치하는 경우 -> :hover */
+
+
+/* 07. 반응 선택자------------------------------------------------------- */
+
+/* 선택영역에 마우스 커서가 위치하는 경우 -> :hover */
 #btn00:hover{
     background-color: salmon;
     color:white;
-}
+} /* h1 자체의 폭이 100%이므로 옆으로 길게 되어 있기 때문에 그 영역 안에 커서를 갖다 대기만 해도 색이 바뀌어 버림. */
+
+
 #btn00:active{
     background-color: yellow;
     color:thistle;
@@ -163,6 +186,7 @@ h1>a:hover{
     color:mediumvioletred;
 }
 
+/* 08. 상태 선택자--------------------------------------------------------- */
 /* 입력양식 태그의 상태로 선택할 수 있다. */
 input:disabled{
     background-color: black;
@@ -172,21 +196,23 @@ input:disabled{
  input:enabled{  먼저 만들었던 버튼 양식에도 똑같이 적용됨. 
     width: 200px;
     height: 135px;
-    font-size: 1.2em;
+    font-size: 1.2em;     1.2em:기본 16px의 120% 크기임
 }
+div.box 선택자 스타일을 적용시키기 위해 주석처리 함.
  */
 input:focus{
     border: 5px solid red;
 }
+
+
+
+/* 09. 상태 선택자(2) - 체크 후 숨기기 ------------------------------------------*/
 div.box{ /*enabled 주석처리 해야 보임*/
     width: 500px;
     height: 150px;
     border: 1px solid black;
 }
 
-#chk{
-    display: none;
-}
 input[type=checkbox]:checked{ /* 클릭하면 체크표시 나옴. */
     width:50px;
     height:50px;
@@ -197,38 +223,58 @@ input[type=checkbox]:checked{ /* 클릭하면 체크표시 나옴. */
 
 /* <!-- 클릭하면 div부분 안보이게 하기--> */
 input[type=checkbox]:checked+div{  
-    
+    /* background-color: cornflowerblue; */
     height:0px;
     overflow:hidden;
 }
+
+/* 클릭하면 div부분 안보이게 하기(2) */
 input[type=checkbox]:checked+div{  
-    display:none;
+    display:none; 
 }
 
 
+
+/* hr태그에 margin 설정하기(위에 해 놓음) */
+
+
+
+/* 체크박스가 사라지고 라벨만 눌러도 체크 값이 바뀜. */
+/* #chk{
+    display: none;
+}  */
+
+
+/* 라벨의 폰트 설정 */
 label{
     font-size: 200%;
     font-weight: bold;
 }
 
+
+/* 10. 구조 선택자---------------------------------------------------------------- */
+
+
+
 ol{
-    overflow:hidden;
+    overflow:hidden; /* li의 float left 가 반영되는 범위를 부모인 ol 안으로 한정 시킴 */
     list-style: none;
 }
 ol>li{
     float:left;
-    /* width:100px; */
+    /* width:100px;     width 대신 padding 사용함*/
     padding: 5px 30px;
-
 }
 
-
+/* 홀수, 짝수에 각기 다른 색 설정하기 */
 ol>li:nth-child(2n){
     background-color: greenyellow;
 }
 ol>li:nth-child(2n+1){
     background-color: yellow;
 }
+
+
 /* 각진 모서리 둥글게 만들기 */
 ol>li:first-child{
     border-radius: 10px 0 0 10px;
@@ -236,20 +282,37 @@ ol>li:first-child{
 ol>li:last-child{
     border-radius: 0 10px 10px 0;
 }
+
+
+
 ol>li:hover {
     background-color: darkcyan;
     color: white;
     font-weight:bold;
 }
 
-a{
-    text-decoration: none;
-    color:sandybrown;
-}
-a:visited{
-    color:sandybrown; /*링크 색 통일*/
+
+
+
+
+
+
+/* 11. 문자 선택자------------------------------------------------- */
+
+
+/* 텍스트를 드랙엔드랍 했을 때 보여지는 모습 설정 */
+h1::selection, p::selection{
+    background-color: goldenrod;
+    color:rgb(107, 40, 85);
 }
 
-a:hover{
-    text-decoration: underline;
+/* 링크 걸린 글자의 밑줄 없애기 */
+a{
+    text-decoration: none;
+    color:rgb(60, 167, 65);
+}
+
+/* 방문했던 페이지의 글자 색 설정. 색 유지 가능 */
+a:visited{
+    color:rgb(60, 167, 65); /* 방문 하지 않은 링크 색과 통일*/
 }
