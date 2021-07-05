@@ -76,7 +76,6 @@ section{
     padding-top:20px;
     width:658px;
     float:left;
-    /* border:1px solid #ddd; */
 }
 /* 한 개의 포스트 아래에 구분선 넣기 */
 article{
@@ -92,7 +91,6 @@ article>h1{
 /* 날짜 스타일 */
 article>h4{
     line-height:200%;
-    /* margin-bottom:20px; */
 }
 /* 글 안에 넣는 사진의 크기 규격 정하기 */
 img{
@@ -105,10 +103,11 @@ img{
 article>p{
     line-height:180%;
 }
-article>p>a{
+article a{
     text-decoration: none;
     /* text-align: right; 적용안됨 */
     color:royalblue;
+    border:1px solid black;
     
 }
 /* 본문과 사이드 메뉴를 아우르는 부분의 크기 정하기 + 하단의footer가 float하지 않게 하기 */
