@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+
+    <!-- 01. 익명함수와 선언함수------------------호이스팅 개념 강조------------------------------------------------- -->
+    <!-- <script>
+
+        /*함수는 필요한 데이터를 받아 처리하고, 결과를 반환하는 기능을 정의한 코드의 집합이다.
+        function 키워들 이용해서 정의를 한다.
+         1. 익명함수 : 이름을 정의하지 않은 함수. 식별자(변수)를 통해서 정의할 때 사용.
+         2. 명시적 선언함수 */
+
+
+        //fn1(); 익명함수 앞에서는 호출이 되지 않는다.
+
+        // 변수의 호이스팅 특징으로 변수는 미리 만들어진다.
+        console.log('check', fn1);
+
+        //익명함수를 사용하는 예
+        var fn1 = function(){
+            alert('익명함수 호출!');
+        };
+        // 함수의 호출
+        // fn1();
+
+
+
+        //함수의 호이스팅으로 함수는 미리 만들어져 저장되어 있고 함수보다 앞에서 호출이 가능
+        //함수의 명시적 정의 (세미콜론 입력 안함.)
+        function fn2 (){
+            alert('명시적 선언함수 호출');
+        }
+        //함수의 호출 
+        
+        fn2();
+
+        /* (선언함수 선언보다 위에 입력해도 호출이 된다. 
+        왜냐면 호출하는 문장을 실행하기 전에 정의된 함수가 
+        먼저 메모리에 올라가기 때문이다. 
+        하지만 fn1 함수는 익명함수 선언하는 문장 위에 입력하면 함수호출이 되지 않는다.
+        함수 정의가 변수 형태로 되어 있기 때문이다. 
+        명시적 함수와 마찬가지로 메모리에 변수선언된 것만 먼저 올라가기 때문인데
+        이 때 대입되는 익명함수는 나중에 적용이 되므로
+        함수호출은 항상 익명함수 선언보다 아래에 있어야 적용이 된다.) */
+
+    </script> -->
+
+    <!-- 02. 함수 재정의하기 ------------------------------------------------------------------ -->
+    <!-- <script>
+        //익명함수
+        var fn1 = function(){
+            alert('익명함수 호출!');
+        };
+        //재정의
+        var fn1 = function(){
+            alert('재정의된 함수 호출!!')
+        }
+
+        fn1();
+
+
+
+        //명시적 선언함수
+        function fn2 (){
+            alert('명시적 선언함수 호출');
+        }
+        //재정의
+        function fn2 (){
+            alert('재정의 된 명시적 함수 호출!!');
+        }
+        fn2();
+    </script> -->
+
+
+    <!-- 03. 매개변수와 리턴값 --------------------------------------------------------------------------->
+    <!-- <script>
+        //매개변수와 반환값이 있는 함수 정의
+        //매개변수 선언시에 var 생략
+         function add(num1, num2){
+            return num1+ num2;
+         }
+         alert(add(2,3));
+
+
+         var hello=function (name){
+             alert(name+'님 반갑습니다.');
+         }
+         hello('soren');
+
+
+    </script> -->
+
+
+    <!-- 04. 가변 인자 함수------------------------------------------------------------------------------>
+    <!-- <script>
+    var hello=function (name){
+        alert(name+'님 반갑습니다.');
+    }
+    hello('king',10,20); //arguments를 배열로 저장. (객체처럼)---뭔말인지 모르겄소.
+
+
+    //가변 매개변수의 활용 (1~10까지의 합 구하는 함수 만들기)
+    function sumAll(){ //매개변수를 따로 정의하지 않는다.
+        var sum = 0;
+        for(var i=0;i<arguments.length;i++){
+            sum += arguments[i];
+        }
+        return sum;
+    }
+    console.log('1~10 까지의 합 :', sumAll(1,2,3,4,5,6,7,8,9,10));
+
+    //내가 곱셈으로 응용해 봄.
+    function multiplyAll(){
+        var mul=1;
+        for(var i=0; i<arguments.length;i++){
+            mul *= arguments[i];
+        }
+        return mul;
+    }
+    console.log('1~3 까지의 곱(1*2*3) :', multiplyAll(1,2,3));
+    </script> -->
+
+
+    <!-- 05. 리턴 -->
+    <!-- <script>
+        /* 함수에서 사용되는 return
+         1. 함수의 종료
+         2. 값을 반환 */
+
+         function returnFunc(){
+             alert('AAA');
+             return;
+             alert('BBB');
+         }
+         returnFunc();
+         //AAA만 호출되고 종료 됨. 여기서 return 값은 종료의 역할
+
+         //반환 값이 없는 경우 어떻게 되는지 확인하기.
+         var value = returnFunc();
+         console.log(typeof value, value) 
+         //콘솔에 undefined 라고 표시만 됨.
+
+
+    </script> -->
+
+    <!-- 06. call back 함수 ----------------------------------------------------------------------->
+    <!-- <script>
+        /* 콜백함수란? 매개변수로 전달 받은 함수. 
+        jquery에서 click 이 되었을 때 처리되는 핸들러 함수로 사용됨. 
+        
+        매개변수로 전달받은 함수를 10번 실행하는 함수를 정의하기 */
+        
+        // alert으로 출력
+        function callTenTimes(callback){
+            for(var i=0; i<10; i++){
+                callback();
+            }
+        }
+        var callback = function(){ //식별자 가지고 만든 함수.
+            alert('함수 호출');
+        };
+        callTenTimes(callback);
+
+
+        //console로 출력
+        function callTenTimes(callBackFn){
+            //데이터 처리 하는 공간
+            for(var i=0 ; i<10; i++){
+                callBackFn();
+            }
+        }
+        function callBack(){ //식별자 없이 만든 함수.
+            console.log('callBack Function call');
+        }
+        callTenTimes(callBack);
+    </script> -->
+
+    <!-- 07. 내장 함수 (1) - setInterval, setTimeout -->
+    <!-- <script>
+        //교재에 있던 내용
+        var intervalID = setInterval (function (){
+                alert('<p>' + new Date() + '</p>');
+            }, 1000);
+
+        setTimeout(function () {
+            clearInterval(intervalID);
+        }, 10000);
+
+
+        //수업에 배운 내용
+
+        // 1초마다 시간을 출력하기
+        var id = setInterval(function (){
+            var html = '<h3>'+ new Date() +'</h3>'
+            document.body.innerHTML=html;
+            // 한줄로 입력 : docment.body.innerHTML = '<h3>'+ new Date() +'</h3>'
+        }, 1000);
+
+        //10초 후에 인터벌 함수를 종료
+        setTimeout(function(){
+            clearInterval(id);
+        },10000);
+    </script> -->
+
+    <!-- 08.  내장 함수 (2) - Eval ------------------->
+    <!-- <script>
+        //javascript의 문자열을 생성.
+
+        var jsStr = '';
+        jsStr += 'var num11 = 10;';
+        jsStr += 'alert(num11);';
+
+        //문자열을 javascript 코드로 실행
+        eval(jsStr);
+
+    </script> -->
+
+    <!-- 09. 내장 함수 (3) - parseInt(string), parseFloat(string)------------------------------------ -->
+    <!-- <script>
+        //
+        var won = '1000원';
+        var dollar = '1.5$';
+
+        console.log(Number(won));
+        console.log(Number(dollar));
+        // 둘 다 NaN가 나옴.
+
+        //숫자로 변경하는 함수를 사용하여 정상적으로 출력이 됨.
+        console.log(parseInt(won));
+        console.log(parseFloat(dollar));
+        console.log(parseInt(dollar)); //정수 값만 표현됨.
+
+        //2,8,16진수의 정수 표현
+        console.log(parseInt('0x273')); //16진수가 정수로 표현 = 627
+        console.log(parseInt('273',16)); //8진수가 정수로 표현 = 627
+
+        //console.log(parseInt('00273')); //8진수 표현인데 제대로 출력 안됨. 
+        console.log(parseInt('273',8)); //8진수가 정수로 표현 = 187
+
+        console.log(parseInt('1000',2)); //2진수가 정수로 표현 = 8
+
+    </script> -->
+
+    <!-- 10.객체 -->
+    <script>
+
+
+
+
+    </script>
+    <!-- 11 -->
+
+
+
+
+
+
+
+</head>
+
+<body>
+
+</body>
+
+</html>
