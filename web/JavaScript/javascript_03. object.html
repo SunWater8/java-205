@@ -6,11 +6,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>javascript_object</title>
 
 
     <!-- 01. 객체 정의 ------------------------------------------------------------------------------->
-    <!-- <script>
+    <script>
         // 객체 정의는 { } 중괄호를 사용한다.
         var obj = {
             //속성의 정의 -> 속성 이름 : 데이터(숫자, 문자, bool, 함수, 객체, undefined)
@@ -28,7 +28,7 @@
         //타입 확인하고 결과를 출력해보기.
         console.log('obj type :', typeof obj, obj);
 
-    </script> -->
+    </script>
 
     <!-- 02. this 이용해보기 -->
     <!-- <script>
@@ -68,12 +68,6 @@
         player.play(); //객체 안의 함수 호출
 
     </script> -->
-
-
-
-
-
-
 
 
 
@@ -569,7 +563,7 @@
     </script> -->
 
     <!-- 13. Number 객체 -->
-    <script>
+    <!-- <script>
         var number = 273.123456;
         console.log(typeof number);
         var objNumber = new Number(number);
@@ -577,7 +571,67 @@
         console.log(objNumber.toFixed()); //부동 소수점 형식으로 표현
         console.log(objNumber.toPrecision()); //표현할 수 있는 범위까지 나옴.
 
-    </script>
+    </script> -->
+
+    <!-- 14.  String 객체-->
+    <!-- <script>
+        var str = 'hello';
+        var objStr = new String(str);
+
+        console.log(typeof str, str);
+        console.log(typeof objStr, objStr);
+        console.log('str == objStr ->', str==objStr);
+        console.log(str.length);
+        console.log(objStr.length);
+    </script> -->
+
+    <!-- 15. Array 객체 -->
+    <!-- <script>
+        var arr = [2,5,8,9,3,4,7,6];
+
+        arr.sort(function(left, right){
+            return right-left; // 반대로 정렬 하려면 left-right 하면 됨.
+        });
+        arr.forEach(function(element){
+            console.log(element);
+        });
+
+
+        //sorting 정렬 하기
+
+       /*  var Students = [];
+            Students.push(new Student('AAA', 100, 80, 90));
+            Students.push(new Student('BBB', 85, 80, 90));
+            Students.push(new Student('CCC', 100, 80, 90));
+            Students.push(new Student('DDD', 100, 80, 52));
+            Students.push(new Student('EEE', 100, 80, 90));
+            Students.push(new Student('FFF', 100, 80, 75));
+            Students.push(new Student('GGG', 96, 80, 90));
+            Students.push(new Student('HHH', 100, 93, 90));
+            Students.push(new Student('III', 100, 75, 90));
+            Students.push(new Student('JJJ', 42, 80, 90));
+            Students.push(new Student('KKK', 100, 80, 75));
+            
+            //평균점수로 내림차순 정렬하기
+            Students.sort(function(left, right){
+                return right.getSum() - left.getSum();
+            });
+            //10명 중에서 상위 5명 까지만 출력하기.
+            students = students. slice(0,5); */
+
+
+        //높은 숫자 3개만 가지는 배열 생성
+        arr = arr.slice(0,3);
+        console.log(arr);
+    </script> -->
+
+
+
+
+
+
+
+
 </body>
 
 </html>
