@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+    <!-- 01. onclick -->
+    <style>
+        h1{
+            background-color: burlywood;
+        }
+        /* 02. 다른 onclick */
+        h2{
+            background-color: chartreuse;
+        }
+        /* 07.  */
+        *{
+            padding:0;
+            margin:0;
+        }
+        
+    </style> 
+
+    <script>
+        //고전방식...지금도 많이 쓰임.
+        window.onload = function(){
+            //이벤트 적용 : 캐스팅 -> 이벤트 속성에 핸들러를 할당
+            //h1 태그를 먼저 캐스팅하기
+            var header = document.getElementById('btm');
+
+            //이벤트 속성에 핸들러 할당 - 이벤트 적용
+            header.onclick=function(){
+                alert('h1태그에 마우스 클릭!')
+            };
+            header.addEventListener
+
+            //03.이벤트 삭제
+        }
+    </script> -->
+
+    <!-- 02. 다른 onclick -->
+    <!-- <script>
+        function mClick(){
+            alert('클릭했어요.')
+        }
+    </script> -->
+
+
+    <!-- 04. this 키워드 -->
+    <!-- <script>
+        //글씨 클릭하면 스타일 바뀌게 하기.
+        window.onload = function(){
+            document.getElementById('btn1').onclick = function(){
+               //this는 이벤트가 발생한 객체를 가리킨다.
+                this.style.backgroundColor='black';
+                this.style.color='white';
+            };
+        }
+    </script> -->
+
+    <!-- 05. 이벤트 강제 실행 -->
+    <script>
+        window.onload = function(){
+            //버튼A와 버튼 B를 클릭 할 때 클릭횟수를 화면에서 출력해보기
+            //버튼과 출력 영역을 캐스팅
+            var btnA = document.getElementById('btnA');
+            var btnB = document.getElementById('btnB');
+
+            //캐스팅하기
+            var cntA = document.getElementById('cntA');
+            var cntB = document.getElementById('cntB');
+
+            //버튼에 클릭이벤트 연결
+            btnA.onclick = function(){
+                //카운트를 증가시키고 화면을 갱신
+                var cnt = Number(cntA.innerText)+1;
+                cntA.innerText = cnt;
+            }
+            btnB.onclick = function(){
+                //카운트를 증가시키고 화면을 갱신
+                cntB.innerText = Number(cntB.innerText)+1;
+
+                //이벤트 강제 발생 - 다른 button도 같이 카운트 됨.
+                btnA.onclick();
+                
+            }
+            // 06. form태그 캐스팅
+             var form = document.getElementById('myForm');
+             form.onsubmit = function(){
+                 console.log('submit 이벤트');
+
+                var id = document.getElementById('userID').value;
+
+                console.log(typeof id, id);
+                if(id.length<1){
+                    alert('아이디를 입력해 주세요.');
+                    return false; //아이디가 있으면 보내고, 없으면 submit하지 않는다.
+                }
+
+                 return false; //실제 action에서 가야하는 것을 표시하지 않는다.
+
+             }
+
+            //  07. 이벤트 전달을 막는 방법 - 이벤트 버블링 막기
+             var p1 = document.getElementById('p1');
+             p1.onclick = function(e){
+                var event = e || window.event;
+                alert('p Click'); 
+
+                //IE 일 때 
+                event.cancelBubble = true;
+                //IE 이외의 브라우저 일 때
+                if(event.stopPropagation)
+                event.stopPropagation();
+             }
+        }
+    </script>
+</head>
+<body>
+    <!-- 01. -->
+    <!-- <h1 id=btm>Click</h1> -->
+
+    <!-- 02. -->
+    <!-- <h2 onclick="alert('인라인방식의 이벤트 출력')">클릭!</h2> -->
+    <!-- <h2 onclick="mClick()">클릭!</h2> -->
+
+    <!-- 04 -->
+    <!-- <h1 id = "btn1"> 클릭하세요</h1> -->
+
+    <!-- 05. -->
+
+    <button id="btnA">ButtonA</button>
+    <input id="btnB" type="button" value="ButtonB"> <!-- 위의 문장과 같은 기능 -->
+
+    <h3>Button A - <span id="cntA">0</span></h3>
+    <h3>Button B - <span id="cntB">0</span></h3>
+
+
+    <!-- 06 form -->
+    <form id="myForm" action ="http://www.naver.com" method="post">
+        id <input type = "text" name="userID"><br>
+        password <input type = "password" name="userPW"><br>
+        login <input type = "submit" value="로그인"     >
+        <!-- get방식: 로그인 버튼 누르면 네이버로 화면이 전환되면서 주소창에 https://www.naver.com/?userID=dfdf&userPW=dfdf  라고 쓰여짐 -->
+        <!-- post방식: 로그인 버튼 누르면 로그인 정보가 주소창에 붙지 않는다. -->
+    </form>
+
+    <!-- 07 -->
+
+    <div  style="border:1px solid red" onclick="alert('div1')">
+        <div  style="border:1px solid green" onclick="alert('div2')">
+            <h1  style="border:1px solid blue" onclick="alert('h1')">
+                <!-- <p id="p1" style="border:1px solid black; width:50%" onclick="alert('p')">클릭하세요.</p>  -->
+                <p id="p1" style="border:1px solid black; width:50%" >클릭하세요.</p> 
+            </h1>
+        </div>
+    </div>
+</body>
+</html>

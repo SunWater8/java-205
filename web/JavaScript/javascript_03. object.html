@@ -9,7 +9,7 @@
     <title>javascript_object</title>
 
 
-    <!-- 01. 객체 정의 ------------------------------------------------------------------------------->
+    <!-- 01. 객체 정의 -------------------------------------------------------------------------------------------->
     <script>
         // 객체 정의는 { } 중괄호를 사용한다.
         var obj = {
@@ -30,8 +30,8 @@
 
     </script>
 
-    <!-- 02. this 이용해보기 -->
-    <!-- <script>
+    <!-- 02. this 이용해보기------------------------------------------------------------------------------------ -->
+    <script>
         var obj = {
             name:'손흥민', 
             age: 30,
@@ -43,10 +43,10 @@
 
         //객체를 참조하는 방법.
         console.log('이름 :', obj.name);
-    </script> -->
+    </script>
 
-    <!-- 03. 속성 추가-->
-    <!-- <script>
+    <!-- 03. 속성 추가--------------------------------------------------------------------------------------------->
+    <script>
         //객체의 속성을 동적으로 추가하기
         var player = {};
         console.log(player);
@@ -67,18 +67,15 @@
         console.log(player); //추가 되었는지 확인
         player.play(); //객체 안의 함수 호출
 
-    </script> -->
-
-
+    </script>
 
 </head>
 
 <body>
     <!-- 04. 배열(객체) (1)-->
-    <!-- <script>
-        /*         학생들의 과목점수를 저장하는 배열
-        학생들의 과목 점수들은 객체로 생성하고, 
-        배열로 객체를 저장할 것이다. */
+    <script>
+        /* 학생들의 과목점수를 저장하는 배열.
+        학생들의 과목 점수들은 객체로 생성하고, 배열로 객체를 저장할 것이다. */
         
         
         window.onload = function () {
@@ -130,19 +127,12 @@
         }
 
 
-    </script> -->
+    </script>
 
     <!-- 05. 배열(객체) (2) -  -->
-    <!-- <script>
-        /*         학생들의 과목점수를 저장하는 배열
-                학생들의 과목 점수들은 객체로 생성하고, 
-                배열로 객체를 저장할 것이다. */
-
+    <script>
         window.onload = function () {
-
             var students = [];
-
-            // 배열(객체)에 요소를 추가하는 메소드
             students.push({ name: 'AAA', kor: '90', eng: '95', math: '91' });
             students.push({ name: 'BBB', kor: '91', eng: '98', math: '50' });
             students.push({ name: 'CCC', kor: '78', eng: '90', math: '98' });
@@ -154,17 +144,48 @@
             students.push({ name: 'III', kor: '95', eng: '70', math: '50' });
             students.push({ name: 'JJJ', kor: '76', eng: '97', math: '91' });
 
-            /* 각 요소 객체에 메소드를 추가
-            -합을 구해서 반환하는 메소드
-            -평균 값을 구해서 반환하는 메소드 */
+            for (var i = 0; i < students.length; i++) {
+                students[i].getSum = function () {
+                    return this.kor + this.eng + this.math;
+                }
 
-            //반복을 통해 메소드의 속성을 추가함.
+                students[i].getAvg = function () {
+                    return this.getSum() / 3;
+                }
+                students[i].print = function () {
+                    return this.name + ' : ' + this.getSum() + ' : ' + this.getAvg();
+                }
+            }
+            var html = '<h3> 이름 : 총점 : 평균</h3>';
+            for (var i = 0; i < students.length; i++) {
+                //body 태그에 요소들을 추가하기
+                html += '<h3>' + students[i].print() + '</h3>';
+            }
+            document.body.innerHTML += html;
+        }
+
+    </script>
+
+    <!-- 06. 배열(객체) (3) - 테이블로 만들기----------------------------------------------------------------------->
+    <script>
+        window.onload = function () {
+            var students = [];
+            students.push({ name: 'AAA', kor: '90', eng: '95', math: '91' });
+            students.push({ name: 'BBB', kor: '91', eng: '98', math: '50' });
+            students.push({ name: 'CCC', kor: '78', eng: '90', math: '98' });
+            students.push({ name: 'DDD', kor: '90', eng: '76', math: '95' });
+            students.push({ name: 'EEE', kor: '90', eng: '70', math: '97' });
+            students.push({ name: 'FFF', kor: '91', eng: '95', math: '60' });
+            students.push({ name: 'GGG', kor: '80', eng: '97', math: '70' });
+            students.push({ name: 'HHH', kor: '90', eng: '60', math: '90' });
+            students.push({ name: 'III', kor: '95', eng: '70', math: '50' });
+            students.push({ name: 'JJJ', kor: '76', eng: '97', math: '91' });
+
             for (var i = 0; i < students.length; i++) {
                 //합을 구하는 메소드
                 students[i].getSum = function () {
                     return this.kor + this.eng + this.math;
                 }
-
                 //평균 값을 구하는 메소드
                 students[i].getAvg = function () {
                     return this.getSum() / 3;
@@ -177,88 +198,31 @@
 
             //이제 print만 따로 해주면 구하려는 값이 나옴.
 
-            var html = '<h3> 이름 : 총점 : 평균</h3>';
-            for (var i = 0; i < students.length; i++) {
-
-                html += '<h3>' + students[i].print() + '</h3>';
-            }
-            //body 태그에 요소들을 추가하기
-            document.body.innerHTML += html;
-        }
-
-
-    </script> -->
-
-    <!-- 06. 배열(객체) (3) - 테이블로 만들기-->
-    <!-- <script>
-    /*         학생들의 과목점수를 저장하는 배열
-            학생들의 과목 점수들은 객체로 생성하고, 
-            배열로 객체를 저장할 것이다. */
-
-    window.onload = function () {
-
-        var students = [];
-
-        // 배열(객체)에 요소를 추가하는 메소드
-        students.push({ name: 'AAA', kor: '90', eng: '95', math: '91' });
-        students.push({ name: 'BBB', kor: '91', eng: '98', math: '50' });
-        students.push({ name: 'CCC', kor: '78', eng: '90', math: '98' });
-        students.push({ name: 'DDD', kor: '90', eng: '76', math: '95' });
-        students.push({ name: 'EEE', kor: '90', eng: '70', math: '97' });
-        students.push({ name: 'FFF', kor: '91', eng: '95', math: '60' });
-        students.push({ name: 'GGG', kor: '80', eng: '97', math: '70' });
-        students.push({ name: 'HHH', kor: '90', eng: '60', math: '90' });
-        students.push({ name: 'III', kor: '95', eng: '70', math: '50' });
-        students.push({ name: 'JJJ', kor: '76', eng: '97', math: '91' });
-
-        /* 각 요소 객체에 메소드를 추가
-        -합을 구해서 반환하는 메소드
-        -평균 값을 구해서 반환하는 메소드 */
-
-        //반복을 통해 메소드의 속성을 추가함.
-        for (var i = 0; i < students.length; i++) {
-            //합을 구하는 메소드
-            students[i].getSum = function () {
-                return this.kor + this.eng + this.math;
-            }
-
-            //평균 값을 구하는 메소드
-            students[i].getAvg = function () {
-                return this.getSum() / 3;
-            }
-            //데이터 출력 메소드
-            students[i].print = function () {
-                return this.name + ' : ' + this.getSum() + ' : ' + this.getAvg();
-            }
-        }
-
-        //이제 print만 따로 해주면 구하려는 값이 나옴.
-
-        var html = '<table border="1">';
-        html += '   <tr>';
-        html += '       <td>이름</td>';
-        html += '       <td>총점</td>';
-        html += '       <td>평균</td>';
-        html += '   </tr>';
-            
-        for (var i = 0; i < students.length; i++) {
-                //body 태그에 요소들을 추가하기
-
+            var html = '<table border="1">';
             html += '   <tr>';
-            html += '       <td>'+students[i].name+'</td>';
-            html += '       <td>'+students[i].getSum()+'</td>';
-            html += '       <td>'+students[i].getAvg()+'</td>';
+            html += '       <td>이름</td>';
+            html += '       <td>총점</td>';
+            html += '       <td>평균</td>';
             html += '   </tr>';
 
+            for (var i = 0; i < students.length; i++) {
+                //body 태그에 요소들을 추가하기
+
+                html += '   <tr>';
+                html += '       <td>' + students[i].name + '</td>';
+                html += '       <td>' + students[i].getSum() + '</td>';
+                html += '       <td>' + students[i].getAvg() + '</td>';
+                html += '   </tr>';
+
+            }
+            html += '</table>'
+
+            document.body.innerHTML += html;
         }
-        html += '</table>'
+    </script>
 
-        document.body.innerHTML += html;
-    }
-</script> -->
-
-    <!-- 07. 생성자 함수 -->
-    <!-- <script>
+    <!-- 07. 생성자 함수 (1)-->
+    <script>
         /* 생성자 함수는 new 키워드로 객체를 생성해주는 함수이다.
         객체를생성자 함수의 이름(식별자)는 대문자로 시작한다.*/
 
@@ -282,10 +246,10 @@
 
         //이러한 방식의 위의 배열 객체에서 window 한 것보다 더 편리하다.
 
-    </script> -->
+    </script>
 
     <!-- 08. 생성자 함수(2) -->
-    <!-- <script>
+    <script>
        
         function Student(name, kor, eng, math) {
             //속성
@@ -342,10 +306,10 @@
             document.body.innerHTML += html;
         };
 
-    </script> -->
+    </script>
 
-    <!-- 09. 생성자 함수(3) - 프로토타입 -->
-    <!-- <script>
+    <!-- 09. 생성자 함수(3) - 프로토타입 ---------------------------------------------------------------------------->
+    <script>
 
         function Student(name, kor, eng, math) {
             //속성
@@ -420,11 +384,10 @@
             document.body.innerHTML += html;
         };
 
-    </script> -->
+    </script>
 
-
-    <!-- 10. 생성자 함수의 캠슐화 -->
-    <!-- <script>
+    <!-- 10. 생성자 함수의 캠슐화 ------------------------------------------------------------------------------------>
+    <script>
         /* 생성자 함수에서 캡슐화 처리
         변수들의 은닉 : 변수에 직접 참조를 하지 못하도록 하는 것. */
 
@@ -459,7 +422,7 @@
             this.getHeight = function () {
                 return height;
             }
-        }
+        }//자바에서는 setter/getter 앞에 public을 했는데 여기서는 this를 앞에 붙였다.
 
         //곱해서 반환해 주는 메소드
         Rect.prototype.getArea = function () {
@@ -470,9 +433,9 @@
         rec.width = -2;
         console.log('Rect(10,5) area : ', rec.getArea());
 
-    </script> -->
+    </script>
 
-    <!-- 11.  객체 생성-->
+    <!-- 11.  객체 생성---------------------------------------------------------------------------------------------->
     <!-- <script>
         //ppt 57p
         var num = 100;
@@ -482,10 +445,10 @@
         console.log(typeof objNum, objNum);
     </script> -->
 
-<!-- 12. 08번의 프로토타입 생성자 함수 개선하기 -->
-<!-- makeHtml을 toString으로 수정하여서 더욱 코드가 간결해지게 했다. -->
-    <!-- <script>
-
+    <!-- 12. 08번의 프로토타입 생성자 함수 개선하기 ------------------------------------------------------------------->
+    <script>
+    
+    //makeHtml을 toString으로 수정하여서 더욱 코드가 간결해지게 했다.
         function Student(name, kor, eng, math) {
             //속성
             this.name = name;
@@ -560,9 +523,9 @@
             document.body.innerHTML += html;
         };
 
-    </script> -->
+    </script>
 
-    <!-- 13. Number 객체 -->
+    <!-- 13. Number 객체 -------------------------------------------------------------------------------------------->
     <!-- <script>
         var number = 273.123456;
         console.log(typeof number);
@@ -573,8 +536,8 @@
 
     </script> -->
 
-    <!-- 14.  String 객체-->
-    <!-- <script>
+    <!-- 14.  String 객체--------------------------------------------------------------------------------------------->
+    <script>
         var str = 'hello';
         var objStr = new String(str);
 
@@ -583,9 +546,9 @@
         console.log('str == objStr ->', str==objStr);
         console.log(str.length);
         console.log(objStr.length);
-    </script> -->
+    </script>
 
-    <!-- 15. Array 객체 -->
+    <!-- 15. Array 객체 --------------------------------------------------------------------------------------------->
     <!-- <script>
         var arr = [2,5,8,9,3,4,7,6];
 

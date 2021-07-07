@@ -65,7 +65,7 @@
         alert(objectVar);
     </script> -->
     <!-- 08. 복합 연산자.  -->
-    <script>
+    <!-- <script>
         window.onload = function(){
             var list = '\n';
             list += '<ul>\n';
@@ -77,7 +77,7 @@
 
             document.body.innerHTML += list;
         }
-    </script>
+    </script> -->
     <!-- 10. typeof-->
     <!-- <script>
 
@@ -115,17 +115,55 @@
         var question = confirm('정말 나갈거니?');
         console.log('question :', question);
         console.log('confirm의 반환 타입은?'+typeof(question));
+
     </script> -->
     <!-- 12. 문자와 숫자의 자료형 변환 -->
     <!-- <script>
-        var year = prompt('태어난 년도를 입력해 주세요.');
+        var year = prompt('몇년도에 태어났어?');
         var numberVal = Number(year);
+
+        console.log(numberVal);
+        console.log(typeof numberVal); 
+        console.log(isNaN(numberVal));
+        console.log(numberVal + 9);
+
+        if(!isNaN(numberVal)){
+            alert(2021-numberVal+'살 입니다.')
+        }else{
+            alert('숫자를 입력해주세요.')
+        }
+
+        if(Boolean(numberVal)){
+            alert(2021-numberVal+'살 입니다.');
+        }else{
+            alert('숫자를 입력해 주세요.');
+        }
+
+        console.log(0==false);
+        console.log(''==false);
+        console.log(null==false);
+        console.log(''==NaN);
+        console.log(0=='');
+        
 
 
     </script> -->
 
 
+<!-- 12. 배열 -->
+    <script>
+        var arr = [3,6,8,2,6,4];
 
+        //요소 출력(1)
+        for(var i=0; i<arr.length;i++){
+            console.log(arr[i]);
+        }
+        
+        //요소 출력(2)
+        for(var e in arr){
+            console.log(arr[e]);
+        }
+    </script>
 
 
 </body>
