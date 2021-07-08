@@ -8,7 +8,7 @@
     <title>Javascript Window</title>
 
     <!-- 윈도우의 key 값들 나열하기 -->
-    <!-- <script>
+    <script>
 
         var output = '';
         
@@ -16,38 +16,39 @@
             output += '['+key+']'+window[key] + '\n';
         }
         console.log(output);
-    </script> -->
+    </script>
 
-    <!-- 02. 새로운 브라우저 띄우기 -->
-    <!-- <script>
-        open(); // 앞에 window 생략. 새 탭에서 창이 뜸.
-    </script> -->
+    <!-- 02. 새 탭 열기 -->
+    <script>
+        open(); // open앞에 window 생략 가능. 새 탭에서 창이 뜸.
+    </script>
 
-    <!-- 새 윈도우에 사이즈 주기 -->
-    <!-- <script>
+    <!-- 새 윈도우에 사이즈 설정하기 -->
+    <script>
         window.open(
             'https://www.naver.com', 
             'new window', 
             'width=300, height=400'
         );
-    </script> -->
+    </script>
 
-    <!-- 04.  window 객체를 변수에 담아 쓸 수 있다.-->
-    <!-- <script>
+    <!-- 04. 새 window 객체 생성  -->
+    <script>
+        // window 객체를 변수에 담아 쓸 수 있다.
         var child = window.open('', 'child', 'width=350, height=300'); //새 창을 띄어야 하니깐 공백 넣기
         child.document.write('<h1>부모 윈도우에서 텍스트를 추가</h1>');
-    </script> -->
+    </script>
 
     <!-- 05. onclick -->
-    <!-- <script>
+    <script>
         var child = window.open('', 'child', 'width=350, height=300'); //새 창을 띄어야 하니깐 공백 넣기
 
         var html = '<h1 onclick="self.close();">윈도우 닫기</h1>';
         child.document.write('<h1>부모 윈도우에서 텍스트를 추가</h1>' + html);
-    </script> -->
+    </script>
 
     <!-- 06. screen & location & navigator 객체-->
-    <!-- <script>
+    <script>
         //현재 스크린의 속성을 알 수 있다.
         console.log(screen);
 
@@ -67,7 +68,7 @@
 
         //navigation 객체 확인
         console.log(navigator);
-    </script> -->
+    </script>
 
     <!-- 07. onload 이벤트 속성 -->
     <!-- <script>
