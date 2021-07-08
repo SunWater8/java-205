@@ -66,7 +66,7 @@ form label {
     background-color: greenyellow;
 }
 
-/* 잘못 입력할 때 나오는 메시지 */
+/* 잘못 입력할 때 나오는 메시지 ------------------------------------------추가------------------*/
 div.msg{
     color:red;
     display:none; /*보이지 않도록 처리하기*/
