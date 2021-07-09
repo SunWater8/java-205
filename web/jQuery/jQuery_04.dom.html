@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+    
+        
+        
+    <script>
+
+        $(document).ready(function () {
+
+
+            //동적 html 요소 생성
+            $('<h1></h1>');
+            $('<h1></h1>').html('Hello!!');
+            $('<h1>Hello!! 2</h1>'); //위 문장과 같음.
+
+            //요소(element)를 추가하는 두 가지 방식
+            $('<h1></h1>').html('Soren!').appendTo('body');
+            $('<h1>Hello!! Javascript</h1>').appendTo('body');
+
+            // 02. 62p
+            // $('<img>').appendTo('body'); // src를 추가해 주어야 작동함
+            // $('<img>').attr('src', '../parkstreet.jpg').attr('width',100).appendTo('body'); 밑 문장과 결과가 같아서 주석 처리 
+            $('<img>').attr({
+                src: '../parkstreet.jpg',
+                width: 100
+            }).appendTo('body');
+
+            // 03. 문서 객체 삽입 - prependTo (잘 사용 안함.)
+            // $('<img>').attr({
+            //     src: '../parkstreet.jpg',
+            //     width: 100
+            // }).prependTo('body');
+
+            // 04.
+            var html1 = '<a href="#">test</a>';
+            var html2 = '<p>TEST</p>';
+            var html3 = '<div>DIV-0</div><div>DIV-1</div><div>DIV-3</div>';
+
+            $('body').append('<h3>Hello!! Js</h3>'); //body의 맨 끝에 넣기
+            $('body').append(html1, html2, html3, '<hr>');
+
+            //05.
+            //배열 생성
+            var links = [
+                {name:'네이버', url:'http://www.naver.com'},
+                {name:'다음', url:'http://www.daum.net'},
+                {name:'카카오', url:'http://www.kakao.com'},
+            ];
+            $('div').append(function(index){
+                return '<h3><a href="'+links[index].url+'">'+links[index].name+'</a></h3>';
+
+            }); //배열 세 개가 출력되지 않음...
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

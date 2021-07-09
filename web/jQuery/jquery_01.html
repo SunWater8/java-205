@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .title{
+            background-color: powderblue;
+            color:plum;
+            /* color: */
+            float: left;
+        }
+        #wrap{
+            overflow:hidden;
+        }
+    </style>
+    <!-- jQuery 소스 넣기 -->
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <script>
+        /* 01. jQuery 이용해서 css하기 ----------------------------------------------
+        $() -> jQuery 객체 생성 ( 메소드를 사용할 수 있게 된다.)
+        document의 객체를 jquery 객체로 변환하기 */
+        $(document).ready(function(){
+            // css 설정
+            $('h1').css('color', 'red');
+            $('p').css('backgroundColor', 'yellow');
+
+            // 02. 속성 선택자 - 후손 선택자 ---------------------------------------------- 
+            var value = $('input[type="text"]').val('hello'); //get메소드
+            // var userid = document.querySelector('#userID').value;    --내부적으로 이렇게 작동 됨.
+            console.log(value);
+
+            //03. 값 바꾸기
+            $('input[type="text"]').val('안녕');
+            //04. 필터 선택자 - 입력양식 태그들 (1)
+            $('input:text').val('ollah');
+
+            // 05. 필터 선택자 - 5초 뒤에 태그 실행
+            //5초 후에 select 의 선택 항목의 value 값을 확인
+            setTimeout(function(){
+                var selVal = $('select>option:selected').val();
+                console.log(selVal);
+
+                // 06. checkedbox 값을 확인해서 체크가 되어 있는지 아닌지를 알 수 있다.
+                var chk = $('input:checkbox:checked').val();
+                console.log(chk);
+
+            },5000);
+
+            //07. 위치 필터 선택자
+            //테이블 이용.
+
+            $('table tr:odd').css('background-color', '#DDD'); //홀수번째 선택
+            $('table tr:even').css('background-color', '#AAA'); //짝수 번째 선택
+            $('table tr:first').css('background-color', 'orange').css('color', 'white'); //첫 번째 행 선택
+            // $('table tr:last').css('background-color', 'blue'); //첫 번째 행 선택 --아래 행 실행하기 위해 주석처리
+            
+            //12 필터 이용하기
+            $('table tr').filter(':last').css({backgroundColor:'blue'}); //첫 번째 행 선택
+
+
+            //08. 배열 을 다루는 .each() 메소드
+            // $.each(배열원본, callback : 배열의 하나의 요소를 처리하는 함수, 매개변수 배열의 index 값, 요소 데이터)
+
+            // 배열 생성
+            var links = [
+                {name:'네이버', url:'http://www.naver.com'},
+                {name:'다음', url:'http://www.daum.net'},
+                {name:'카카오', url:'http://www.kakao.com'},
+            ];
+
+           /*  $.each(links, function(index, item){
+                console.log(index, item.name);
+            }); */
+           
+           
+           // 공백 문자 넣어 html 하기
+           var output = '';
+            $.each(links, function(index, item){
+                console.log(index, item.name);
+                output += '<a href="'+item.url+'">'+item.name+'</a>\n';
+            });
+            console.log(output);
+            
+            /* 기존의 html 내용 바꾸기 - 아래의 $이하 코드가 더 효율적이다.
+            document.body.innerHTML=output; */
+
+            //body 태그의 요소값 가져오기
+            console.log($('body').html()); //getter
+            // $('body').html(output);   -- 위의 innerHTML보다 효율적이다.
+            
+            //09.
+            $('#links').html(output);  
+
+            //10
+            $('h3').each(function(index, item){ //h3 태그에 해당되는 것이 객체로 만들어짐. item 은 자바스크립트의 객체.
+                console.log(index, item.innerHTML);
+                console.log(index, $(item).html()); //위와 결과는 같음.
+            });
+
+            //11. addClass 메소드 - h3태그에 title이라는 class가 추가가 됨.
+            $('h3').addClass('title');
+
+            // 13. 기본 필터 메소드 33p
+            $('h3').filter(function(index){
+                return index%3 == 0; //3 배수 마다 적용
+            }).css({
+                backgroundColor:'black',
+                color:'white'
+            });
+            // 14. end()
+            $('h2').css('background', 'yellowgreen'). filter(':even').css('color', 'white').end().filter(':odd').css('color', 'red');
+
+            //15. eq(), last(), first()
+            $('h3').eq(4).css('background', 'orange'); //해당 인덱스를 선택해 적용할 수 있다.
+            $('h3').last().css('background', 'plum');
+            $('h2').first().css('background', 'sandybrown');
+            
+            //16. 문서 객체 추가 선택
+            $('h2').css('background', 'thistle');
+            $('h2').css('background', 'thistle').add('h3').css('float', 'left');
+        });
+    </script>
+</head>
+
+<body>
+
+
+
+    <h1>안녕하세요</h1>
+    <p>Hello lunatics so</p>
+
+    <input type="text" value="hello" id="userID">
+<!-- 05 -->
+    <select>
+        <option value="21">2021</option>
+        <option>2020</option>
+        <option>2019</option>
+    </select>
+    <!-- 06 -->
+
+    개인정보 보호정책 보기 <input type="checkbox" value="ok">
+
+    <!-- 07. -->
+    <table border="1">
+        <thead>
+            <tr>
+                <td>thead 1</td>
+                <td>thead 2</td>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>tbody 1 - 1</td>
+                <td>tbody 1 - 2</td>
+            </tr>
+            <tr>
+                <td>tbody 2 - 1</td>
+                <td>tbody 2 - 2</td>
+            </tr>
+            <tr>
+                <td>111</td>
+                <td>222</td>
+            </tr>
+        </tbody>
+        <tfoot>
+            <tr>
+                <td>tfoot 1</td>
+                <td>tfoot 2</td>
+            </tr>
+        </tfoot>
+    </table>
+
+    <!-- 09 -->
+    <div id="links"></div>
+
+    <!-- 10.  -->
+    <div id="wrap">
+
+        <h3>header - 0</h3>
+        <h3>header - 1</h3>
+        <h3>header - 2</h3>
+        <h3>header - 3</h3>
+        <h3>header - 4</h3>
+        <h3>header - 5</h3>
+        <h3>header - 6</h3>
+
+    </div>
+<!-- 14. -->
+    <h2>문서객체 end()</h2>
+    <h2>head h2 - 1</h2>
+    <h2>head h2 - 2</h2>
+    <h2>head h2 - 3</h2>
+    <h2>head h2 - 4</h2>
+</body>
+
+</html>

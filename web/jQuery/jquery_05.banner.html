@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+
+    <style>
+        div>img {
+            width: 250px;
+            height: 200px;
+        }
+
+        #banner {
+            border: 10px solid steelblue;
+            width: 250px;
+            height: 200px;
+            overflow : hidden;
+        }
+    </style>
+    <script>
+        $(document).ready(function(){
+            
+            setInterval(function () {
+                $('#banner>img').first().appendTo('#banner');
+            }, 3000);
+        });
+
+    </script>
+</head>
+
+<body>
+    <div id="banner">
+        <img src="../luca.jpg">
+        <img src="../image/sea.jpg">
+        <img src="../image/stNicholas.jpg">
+        <img src="../parkstreet.jpg" >
+    </div>
+</body>
+
+</html>

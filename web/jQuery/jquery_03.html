@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
+    <!-- 02. 문서 객체 조작 -->
+    <!-- 생성, 수정, 삭제 -->
+    <style>
+        #menu {
+            list-style: none;
+            overflow: hidden;
+        }
+
+        .floatLeft {
+            float: left;
+        }
+        /* 04 */
+        h1{
+            color : lightcoral;
+        }
+    </style>
+
+
+    <script>
+        $(document).ready(function () {
+            //버튼 캐스팅 -> 이벤트 연결 (click 이벤트)
+            //변경 버튼 누르면 float left 됨.
+            $('#btn01').click(function () {
+                $('#menu>li').addClass('floatLeft');
+            });
+
+            // 초기화 버튼 누르면 float left 기능 제거 됨.
+            $('#btn02').click(function () {
+                $('#menu>li').removeClass('floatLeft');
+            });
+
+
+            // 02. 문서 객체의 속성 추가 - attr()
+            //속성의 값을 반환하는 메소드
+            var srcPath = $('.img').attr('src'); //src의 속성값을 가져옴.
+            console.log('이미지 경로', srcPath);
+
+            //속성의 값을 정의
+            // $('.img').attr('height', 200); //img의  크기를 지정해줌.
+            // $('.img').attr('height', function(){
+            //     return (index+1)*100;
+            // });
+
+            // 03. attr 메소드의 객체 형식
+            $('img').attr({
+                width: 100,
+                height: function (index) {
+                    return (1 + index) * 80;
+                }
+            });
+
+            //속성값 제거
+            $('img').removeAttr('height');
+
+            // 04. 
+            //태그의 css 속성 값 확인
+            console.log($('h1.title').css('color'));
+            // console.log(color);
+
+            //css 적용
+            // $('h1').css('background', 'blue'); --다음 문장 적용시키기 위해 주석 처리
+            var colors = ['black', 'white', 'yellow'];
+            // $('h1').css('background', function(index){
+            //     return colors[index];
+            // });
+
+
+            //객체를 활용. 여러 개 속성을 입력 할 수 있다.
+            $('h1').css({
+                color : 'powderblue',
+                backgroundColor:function(index){
+                    return colors[index];
+                }
+            });
+
+            // 05.
+            var strHtml = $('h1').html();
+            console.log('html()', strHtml);
+
+            console.log($('#menu').html());
+            console.log($('#menu').text());
+
+            // 06  57p
+            $('div').html(function(index, html){
+                console.log(index, html);
+                $(this).html(html + '!!!!!'); //html 에 문자열을 추가해줌.
+                $(this).html('<h1>'+ html + index+'!!!!!');
+            });
+
+            // 07. 58p 문서 객체 제거
+            $('#btn03').click(function(){
+                $('#menu').remove();
+            });
+            $('#btn04').click(function(){
+                $('#menu').empty(); //메뉴 안의 내용만 삭제
+            });
+        });
+
+    </script>
+</head>
+
+
+
+<body>
+    <!-- 01. -->
+    <ul id="menu">
+        <li>menu - 1</li>
+        <li>menu - 2</li>
+        <li>menu - 3</li>
+        <li>menu - 4</li>
+        <li>menu - 5</li>
+    </ul>
+
+    <button id="btn01">변경</button>
+    <button id="btn02">초기화</button>
+
+
+    <!-- 02 -->
+    <img src="../parkstreet.jpg">
+    <img src="../parkstreet.jpg">
+    <img src="../parkstreet.jpg">
+
+    <!-- 04. -->
+    <h1 class="title">header - 1</h1>
+    <h1>header - 2</h1>
+    <h1>header - 3</h1>
+
+    <!-- 06. -->
+    <div>DIV -0</div>
+    <div></div>
+    <div></div>
+    <!-- 07.  -->
+    <button id="btn01">변경</button>
+    <button id="btn02">초기화</button>
+    <button id="btn03">메뉴 삭제</button>
+    <button id="btn04">내용 삭제</button>
+</body>
+
+</html>
