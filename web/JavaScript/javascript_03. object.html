@@ -370,6 +370,13 @@
             Students.push(new Student('JJJ', 42, 80, 90));
             Students.push(new Student('KKK', 100, 80, 75));
 
+            //정렬
+            students.sort(function (left, right){
+                return right.getSum() - left.getSum();
+            });
+
+            students = students.slice(0,5);
+
             var html = '<table border="1">';
             html += '   <tr>';
             html += '       <td>이름</td>';
@@ -391,7 +398,7 @@
         /* 생성자 함수에서 캡슐화 처리
         변수들의 은닉 : 변수에 직접 참조를 하지 못하도록 하는 것. */
 
-        /*   function Rect(w,h){
+          function Rect(w,h){
               this.width = w;
               this.height= h;
           }
@@ -402,14 +409,14 @@
           }
   
           var rec = new Rect(10,5);
-          //rec.width = -2; //console 로 확인하면 -10 이 나오는데 너비가 마이너스로 나올 수가 없다. 이 것은 오류. 
+          rec.width = -2; //console 로 확인하면 -10 이 나오는데 너비가 마이너스로 나올 수가 없다. 이 것은 오류. 
           console.log('Rect(10,5) area : ', rec.getArea());
           
-          이렇식으로 하면 콘솔에 50 이 나온다. */
+//이렇식으로 하면 콘솔에 50 이 나온다.
 
 
 
-        //다른 방식 - rec.width = -2; 이 문장으로 생긴 오류를 바로 잡기 위한 방식
+        //다른 방식 - rec.width = -2; 이 문장으로 생긴 오류를 바로 잡을 수 있는 방식
 
         function Rect(w, h) {
             //함수 안에서 선언된 변수는 이 안에서만 사용할 수 있게 캡슐화 한다.
@@ -456,24 +463,6 @@
             this.eng = eng;
             this.math = math;
 
-            /*   //총점을 구하는 메소드
-              this.getSum = function () {
-                  return this.kor + this.eng + this.math;
-              }
-              //평균점수를 구하는 메소드
-              this.getAvg = function () {
-                  return this.getSum / 3;
-              }
-              html을 만들어주는 메소드
-              this.makeHtml = function(){
-                  html = '';
-                  html += '   <tr>';
-                  html += '       <td>'+this.name+'</td>';
-                  html += '       <td>'+this.getSum()+'</td>';
-                  html += '       <td>'+this.getAvg()+'</td>';
-                  html += '   </tr>';
-                  return html;
-              } */
         }
         //프로토타입을 이용한 공통 메소드 정의
         Student.prototype.getSum = function () {
