@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign-in (2)</title>
+    <link rel="stylesheet" href="cssRegistration.css">
+    <script src="JavascriptReg.js"></script>
+</head>
+
+
+<body>
+    <!-- header 시작 -->
+    <header>
+        <h1>Member Manager</h1>
+    </header>
+    <!-- header 끝 -->
+
+
+
+    <!--    [바뀐 부분]
+    라벨과 input에 속성 추가하기 
+    1. 라벨 - for
+    2. input - placeholder
+    3. div - class(msg)
+    4. reset 버튼 추가           -->
+    <div id="regFormArea">
+        <h2 class ="title_font">회원 정보 등록</h2>
+        <form id="regForm">
+            <table>
+                <tr>
+                    <td>
+                        <label for="userID">아이디</label>
+                        <input type="text" id="userID" placeholder="아이디">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="pw">비밀번호</label>
+                        <input type="password" id="pw" placeholder="비밀번호">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="repw">비밀번호 확인</label>
+                        <input type="password" id="repw" placeholder="비밀번호 재입력">
+                        <div class="msg"></div>
+                    </td>
+                    <td>
+                        <label for="userName">이름</label>
+                        <input type="text" id="userName" placeholder="이름">
+                        <div class="msg"></div>
+                    </td>
+                    <td >
+                        <input type="submit" value="등록">
+                        <input type="reset">
+                    </td>
+                </tr>
+            </table>
+        </form>
+    </div>
+
+
+</body>
+
+</html>
