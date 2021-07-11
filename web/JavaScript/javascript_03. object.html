@@ -15,11 +15,11 @@
         var obj = {
             //속성의 정의 -> 속성 이름 : 데이터(숫자, 문자, bool, 함수, 객체, undefined)
             //여러개의 속성을 정의할 때는 ,(콤마)를 이용해서 추가해주면 된다.
-            name:'손흥민', 
+            name: '손흥민',
             age: 30,
-            
+
             //함수 -> 객체 안에 존재하는 함수를 메소드라 칭한다.
-            hello:function(){ 
+            hello: function () {
                 alert('안녕하세요');
             }
         };
@@ -33,10 +33,10 @@
     <!-- 02. this 이용해보기------------------------------------------------------------------------------------ -->
     <script>
         var obj = {
-            name:'손흥민', 
+            name: '손흥민',
             age: 30,
-            hello:function(){ 
-                alert('안녕하세요. ' + this.name +'입니다. 저의 나이는 '+this.age+'세 입니다.');
+            hello: function () {
+                alert('안녕하세요. ' + this.name + '입니다. 저의 나이는 ' + this.age + '세 입니다.');
             } //this는 obj 객체를 가리킨다.
         };
         obj.hello();
@@ -50,13 +50,13 @@
         //객체의 속성을 동적으로 추가하기
         var player = {};
         console.log(player);
-        
+
         //속성 추가
-        player.name='손흥민';
-        player.age=30;
-        player.team='tot';
+        player.name = '손흥민';
+        player.age = 30;
+        player.team = 'tot';
         player.num = 7;
-        player.play = function(){
+        player.play = function () {
             alert('앞으로 달려갑니다.');
         };
 
@@ -69,15 +69,15 @@
 
     </script>
 
-</head>
 
-<body>
+
+
     <!-- 04. 배열(객체) (1)-->
     <script>
         /* 학생들의 과목점수를 저장하는 배열.
         학생들의 과목 점수들은 객체로 생성하고, 배열로 객체를 저장할 것이다. */
-        
-        
+
+
         window.onload = function () {
 
             var students = [];
@@ -250,7 +250,7 @@
 
     <!-- 08. 생성자 함수(2) -->
     <script>
-       
+
         function Student(name, kor, eng, math) {
             //속성
             this.name = name;
@@ -264,45 +264,45 @@
             }
             //평균점수를 구하는 메소드
             this.getAvg = function () {
-                return this.getSum/3;
+                return this.getSum / 3;
             }
             //html을 만들어주는 메소드
-            this.makeHtml = function(){
-                html = '';
+            this.makeHtml = function () {
+                html = '';  //요거 왜 만들어 주는거지?
                 html += '   <tr>';
-                html += '       <td>'+this.name+'</td>';
-                html += '       <td>'+this.getSum()+'</td>';
-                html += '       <td>'+this.getAvg()+'</td>';
+                html += '       <td>' + this.name + '</td>';
+                html += '       <td>' + this.getSum() + '</td>';
+                html += '       <td>' + this.getAvg() + '</td>';
                 html += '   </tr>';
                 return html;
             }
         }
-        window.onload = function(){
-        //Students  타입의 객체들을 저장하는 배열 생성
-        var Students = [];
-        Students.push(new Student('AAA', 100, 80, 90));
-        Students.push(new Student('BBB', 85, 80, 90));
-        Students.push(new Student('CCC', 100, 80, 90));
-        Students.push(new Student('DDD', 100, 80, 52));
-        Students.push(new Student('EEE', 100, 80, 90));
-        Students.push(new Student('FFF', 100, 80, 75));
-        Students.push(new Student('GGG', 96, 80, 90));
-        Students.push(new Student('HHH', 100, 93, 90));
-        Students.push(new Student('III', 100, 75, 90));
-        Students.push(new Student('JJJ', 42, 80, 90));
-        Students.push(new Student('KKK', 100, 80, 75));
-        
-        var html = '<table border="1">';
-        html += '   <tr>';
-        html += '       <td>이름</td>';
-        html += '       <td>총점</td>';
-        html += '       <td>평균</td>';
-        html += '   </tr>';
+        window.onload = function () {
+            //Students  타입의 객체들을 저장하는 배열 생성
+            var Students = [];
+            Students.push(new Student('AAA', 100, 80, 90));
+            Students.push(new Student('BBB', 85, 80, 90));
+            Students.push(new Student('CCC', 100, 80, 90));
+            Students.push(new Student('DDD', 100, 80, 52));
+            Students.push(new Student('EEE', 100, 80, 90));
+            Students.push(new Student('FFF', 100, 80, 75));
+            Students.push(new Student('GGG', 96, 80, 90));
+            Students.push(new Student('HHH', 100, 93, 90));
+            Students.push(new Student('III', 100, 75, 90));
+            Students.push(new Student('JJJ', 42, 80, 90));
+            Students.push(new Student('KKK', 100, 80, 75));
 
-        for(var i=0; i<Students.length; i++){
-            html += Students[i].makeHtml();
-        }
-        html += '</table>';
+            var html = '<table border="1">';
+            html += '   <tr>';
+            html += '       <td>이름</td>';
+            html += '       <td>총점</td>';
+            html += '       <td>평균</td>';
+            html += '   </tr>';
+
+            for (var i = 0; i < Students.length; i++) {
+                html += Students[i].makeHtml();
+            }
+            html += '</table>';
             document.body.innerHTML += html;
         };
 
@@ -318,24 +318,24 @@
             this.eng = eng;
             this.math = math;
 
-          /*   //총점을 구하는 메소드
-            this.getSum = function () {
-                return this.kor + this.eng + this.math;
-            }
-            //평균점수를 구하는 메소드
-            this.getAvg = function () {
-                return this.getSum / 3;
-            }
-            html을 만들어주는 메소드
-            this.makeHtml = function(){
-                html = '';
-                html += '   <tr>';
-                html += '       <td>'+this.name+'</td>';
-                html += '       <td>'+this.getSum()+'</td>';
-                html += '       <td>'+this.getAvg()+'</td>';
-                html += '   </tr>';
-                return html;
-            } */
+            /*   //총점을 구하는 메소드
+              this.getSum = function () {
+                  return this.kor + this.eng + this.math;
+              }
+              //평균점수를 구하는 메소드
+              this.getAvg = function () {
+                  return this.getSum / 3;
+              }
+              html을 만들어주는 메소드
+              this.makeHtml = function(){
+                  html = '';
+                  html += '   <tr>';
+                  html += '       <td>'+this.name+'</td>';
+                  html += '       <td>'+this.getSum()+'</td>';
+                  html += '       <td>'+this.getAvg()+'</td>';
+                  html += '   </tr>';
+                  return html;
+              } */
         }
         //프로토타입을 이용한 공통 메소드 정의
         Student.prototype.getSum = function () {
@@ -344,7 +344,7 @@
         Student.prototype.getAvg = function () {
             return this.getSum / 3;
         }
-        Student.prototype.makeHtml = function () {
+        Student.prototype.toString = function () {
             html = '';
             html += '   <tr>';
             html += '       <td>' + this.name + '</td>';
@@ -378,7 +378,7 @@
             html += '   </tr>';
 
             for (var i = 0; i < Students.length; i++) {
-                html += Students[i].makeHtml();
+                html += Students[i];
             }
             html += '</table>';
             document.body.innerHTML += html;
@@ -436,19 +436,19 @@
     </script>
 
     <!-- 11.  객체 생성---------------------------------------------------------------------------------------------->
-    <!-- <script>
+    <script>
         //ppt 57p
         var num = 100;
         var objNum = new Number(100);
 
         console.log(typeof num, num);
         console.log(typeof objNum, objNum);
-    </script> -->
+    </script>
 
     <!-- 12. 08번의 프로토타입 생성자 함수 개선하기 ------------------------------------------------------------------->
     <script>
-    
-    //makeHtml을 toString으로 수정하여서 더욱 코드가 간결해지게 했다.
+
+        //makeHtml을 toString으로 수정하여서 더욱 코드가 간결해지게 했다.
         function Student(name, kor, eng, math) {
             //속성
             this.name = name;
@@ -483,7 +483,7 @@
             return this.getSum / 3;
         }
         // Student.prototype.makeHtml = function () {
-         Student.prototype.toString = function () {
+        Student.prototype.toString = function () {
             html = '';
             html += '   <tr>';
             html += '       <td>' + this.name + '</td>';
@@ -526,7 +526,7 @@
     </script>
 
     <!-- 13. Number 객체 -------------------------------------------------------------------------------------------->
-    <!-- <script>
+    <script>
         var number = 273.123456;
         console.log(typeof number);
         var objNumber = new Number(number);
@@ -534,7 +534,7 @@
         console.log(objNumber.toFixed()); //부동 소수점 형식으로 표현
         console.log(objNumber.toPrecision()); //표현할 수 있는 범위까지 나옴.
 
-    </script> -->
+    </script>
 
     <!-- 14.  String 객체--------------------------------------------------------------------------------------------->
     <script>
@@ -543,58 +543,54 @@
 
         console.log(typeof str, str);
         console.log(typeof objStr, objStr);
-        console.log('str == objStr ->', str==objStr);
+        console.log('str == objStr ->', str == objStr);
         console.log(str.length);
         console.log(objStr.length);
     </script>
 
     <!-- 15. Array 객체 --------------------------------------------------------------------------------------------->
-    <!-- <script>
-        var arr = [2,5,8,9,3,4,7,6];
+    <script>
+        var arr = [2, 5, 8, 9, 3, 4, 7, 6];
 
-        arr.sort(function(left, right){
-            return right-left; // 반대로 정렬 하려면 left-right 하면 됨.
+        arr.sort(function (left, right) {
+            return right - left; // 반대로 정렬 하려면 left-right 하면 됨.
         });
-        arr.forEach(function(element){
+        arr.forEach(function (element) {
             console.log(element);
         });
 
 
         //sorting 정렬 하기
 
-       /*  var Students = [];
-            Students.push(new Student('AAA', 100, 80, 90));
-            Students.push(new Student('BBB', 85, 80, 90));
-            Students.push(new Student('CCC', 100, 80, 90));
-            Students.push(new Student('DDD', 100, 80, 52));
-            Students.push(new Student('EEE', 100, 80, 90));
-            Students.push(new Student('FFF', 100, 80, 75));
-            Students.push(new Student('GGG', 96, 80, 90));
-            Students.push(new Student('HHH', 100, 93, 90));
-            Students.push(new Student('III', 100, 75, 90));
-            Students.push(new Student('JJJ', 42, 80, 90));
-            Students.push(new Student('KKK', 100, 80, 75));
-            
-            //평균점수로 내림차순 정렬하기
-            Students.sort(function(left, right){
-                return right.getSum() - left.getSum();
-            });
-            //10명 중에서 상위 5명 까지만 출력하기.
-            students = students. slice(0,5); */
+        /*  var Students = [];
+             Students.push(new Student('AAA', 100, 80, 90));
+             Students.push(new Student('BBB', 85, 80, 90));
+             Students.push(new Student('CCC', 100, 80, 90));
+             Students.push(new Student('DDD', 100, 80, 52));
+             Students.push(new Student('EEE', 100, 80, 90));
+             Students.push(new Student('FFF', 100, 80, 75));
+             Students.push(new Student('GGG', 96, 80, 90));
+             Students.push(new Student('HHH', 100, 93, 90));
+             Students.push(new Student('III', 100, 75, 90));
+             Students.push(new Student('JJJ', 42, 80, 90));
+             Students.push(new Student('KKK', 100, 80, 75));
+             
+             //평균점수로 내림차순 정렬하기
+             Students.sort(function(left, right){
+                 return right.getSum() - left.getSum();
+             });
+             //10명 중에서 상위 5명 까지만 출력하기.
+             students = students. slice(0,5); */
 
 
         //높은 숫자 3개만 가지는 배열 생성
-        arr = arr.slice(0,3);
+        arr = arr.slice(0, 3);
         console.log(arr);
-    </script> -->
+    </script>
 
+</head>
 
-
-
-
-
-
-
+<body>
 </body>
 
 </html>
