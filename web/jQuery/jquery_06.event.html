@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,37 +11,42 @@
 
     <style>
         /* 02 */
-        h2, h3{
-            border : 1px solid #aaa;
+        h2,
+        h3 {
+            border: 1px solid #aaa;
         }
-        .reverse{
+
+        .reverse {
             background-color: black;
-            color:white;
+            color: white;
         }
+
         /* 손가락 모양으로 바뀜. */
-        h2:hover, h3:hover{
-            cursor:pointer; 
+        h2:hover,
+        h3:hover {
+            cursor: pointer;
         }
 
         /* 05 */
-        div{
-            border:3px solid blueviolet;
-            padding:20px;
+        div {
+            border: 3px solid blueviolet;
+            padding: 20px;
             border-radius: 10px;
-            margin:10px;
+            margin: 10px;
         }
     </style>
-    <script>
-        // 01. on() 메소드
-        // 클릭할 때마다 + 가 추가되는 이벤트 만들기
-        $(document).ready(function(){
+    <!-- <script>
+        $(document).ready(function () {
+
+            // 01. on() 메소드
+            // 클릭할 때마다 + 가 추가되는 이벤트 만들기
 
             //h1 태그를 캐스팅 -> click  이벤트를 연결.
-            $('h1').on('click', function(){
+            $('h1').on('click', function () {
 
                 //this는 이벤트가 발생한 element 객체를 가리킨다.
-                $(this).html(function(index, html){
-                    return html+'+';
+                $(this).html(function (index, html) {
+                    return html + '+';
                 });
             });
 
@@ -50,47 +56,90 @@
             //마우스를 갖다 대면 스타일이 변함.
             $('h2').on({
                 // click : function(){},
-                mouseenter : function(){
+                mouseenter: function () {
                     $(this).addClass('reverse')
                 },
-                mouseleave : function(){
+                mouseleave: function () {
                     $(this).removeClass('reverse')
                 }
             });
 
             // 03.
             //hover 메소드 : mouseenter, mouseleave 를 한 번에 처리해주는 메소드.
-            $('h2').hover(function(){
+            $('h2').hover(function () {
                 $(this).addClass('reverse');
-            }, function(){
+            }, function () {
                 $(this).removeClass('reverse');
             });
-            
+
             //04 이벤트 삭제 off()메소드 
-            $('h2').hover(function(){
+            $('h2').hover(function () {
                 $(this).addClass('reverse');
-            }, function(){
+            }, function () {
                 $(this).removeClass('reverse');
 
-                
+
                 // $(this).off();
                 $(this).off('mouseleave'); //mouseleave 이벤트가 종료 되어서 적용되지 않음. 처음만 적용.
             });
             // 05
             // 박스 영역만 클릭했을 때도 header1가 클릭되 것처럼 하기
 
-            $('div').click(function(){
+            $('div').click(function () {
                 //이벤트가 발생한 div -> this
                 //$('h4',this) -> 이벤트가 발생한 div 안에 위치한 h3을 선택하기
-                var h4 = $('h4',this).text();
-                var p = $('p',this).text();
+                var h4 = $('h4', this).text();
+                var p = $('p', this).text();
 
                 alert(h4 + '\n' + p);
             });
+
+            //06
+            // propagation - function 의 매개변수에  e 넣고 console에서 내용 확인해보기
+            $('div').click(function (e) {
+                //이벤트가 발생한 div -> this
+                //$('h4',this) -> 이벤트가 발생한 div 안에 위치한 h3을 선택하기
+                var h4 = $('h4', this).text();
+                var p = $('p', this).text();
+
+                alert(h4 + '\n' + p);
+                console.log(e);
+            });
         });
 
+    </script> -->
+    <script>
+        $(document).ready(function () {
+            // 07. 이벤트 강제 발생
+            //1번 가져다 쓰기
+            $('h1').on('click', function () {
+                $(this).html(function (index, html) {
+                    return html + '+';
+                });
+            });
+            //클릭하면 마지막 행에 자동으로 + 추가하기
+            setInterval(function () {
+                $('h1').last().trigger('click');
+            }, 1000);
+        });
+
+        // 08. 자동으로 + 추가 되는 것 막아주기(버블링 막아주기)
+        $('a').click(function(){
+            alert('a tag click');
+
+            //이벤트를 전달밭지 못했을 때 하는 작업
+            var e = e || window.event; //e가 null(false)일 때 window객체에 event 를 처리하도록 한다.
+            
+            //이벤트 버블링 제거
+            if(e.stopPropagation){
+                e.stopPropagation();
+            }
+            //a 태그가 가진 기본 이벤트 제거
+            e.preventDefault();
+        });
     </script>
 </head>
+
 <body>
     <!-- 01 -->
     <h1>header - 0</h1>
@@ -122,7 +171,12 @@
         <h4>header 3</h4>
         <p>paragraph</p>
     </div>
-    
-    
+    <!-- 08 -->
+    <div>
+        <!-- <h1><a onclick="alert('a tag click')">click</a></h1> -->
+        <h1><a >click</a></h1>
+    </div>
+
 </body>
+
 </html>
