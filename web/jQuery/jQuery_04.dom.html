@@ -45,7 +45,7 @@
             var html2 = '<p>TEST</p>';
             var html3 = '<div>DIV-0</div><div>DIV-1</div><div>DIV-3</div>';
 
-            $('body').append('<h3>Hello!! Js</h3>'); //body의 맨 끝에 넣기
+            $('body').append('<h3>Hello!! Js</h3>'); //body의 맨 끝에 넣기, 여러개 요소를 쓸 수 있다.
             $('body').append(html1, html2, html3, '<hr>');
 
             //05.
@@ -55,7 +55,7 @@
                 {name:'다음', url:'http://www.daum.net'},
                 {name:'카카오', url:'http://www.kakao.com'},
             ];
-            $('div').append(function(index){
+            $('div').append(function(index){  //append 로 함수 추가하기
                 return '<h3><a href="'+links[index].url+'">'+links[index].name+'</a></h3>';
 
             }); //배열 세 개가 출력되지 않음...
