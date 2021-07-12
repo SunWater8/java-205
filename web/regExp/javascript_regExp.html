@@ -31,11 +31,11 @@
         // console.log(result);
 
         // 05
-        //함수를 이용해서ㅗ 변경하고자 하는 갑을 지정
+        //함수를 이용해서 변경하고자 하는 값을 지정
         string = 'Javascript jquery Ajax';
-        // result = string.replace(regExp, function (vlaue) {
-        //     return '+' + value + '+';
-        // });
+        result = string.replace(regExp, function (vlaue) {
+            return '+' + value + '+';
+        });
         // console.log(result);
         
         //06 12p
@@ -51,24 +51,24 @@
         // console.log(result);
 
         //08 영문자(소문자)와 숫자만 가능15p 
-/*         var string = prompt('소문자와 숫자로 된 단어를 입력해 주세요.');
+        var string = prompt('소문자와 숫자로 된 단어를 입력해 주세요.');
         regExp = /([0-9|[a-z])/g;
         result = string.replace(regExp, '');// '': 아무것도 바꾸지 않고 지워나가기
         if(result.length==0){ //result는 문자열을 반환함.
             console.log(result, '패턴에 일치하는 문자열');
         }else{
             console.log(result, '패턴에 맞지 않는 문자열을 포함');
-        } */
+        }
         // console.log(result); //조건식으로 쓴다며 이 건 주석처리 해야함.
 
         // 09 한글만 가능한 패턴 16p
-/*         var string = prompt('문자를 입력하세요.');
+        var string = prompt('문자를 입력하세요.');
         regExp = /([가-힣[])/g;
         if(result.length==0){ //result는 문자열을 반환함.
             console.log(result, '패턴에 일치하는 문자열');
         }else{
             console.log(result, '패턴에 맞지 않는 문자열을 포함');
-        } */
+        }
 
         
         //10 이메일 구분 17p
