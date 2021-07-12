@@ -7,71 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <style>
-        table td{
-            padding:20px;
-            background-color: cadetblue;
-        }
-    </style>
-
-
     <script>
-        //생성자 함수
-        function Student(name, kor, eng, math) {
-            this.name = name;
-            this.kor = kor;
-            this.eng = eng;
-            this.math = math;
-        }
-        Student.prototype.getSum = function () {
-            return this.kor + this.eng + this.math;
-        }
+        window.onload = function(){
+            //book 객체생성하고 JSON으로 변경하기. 
+            // 근데 왜 JSON을 필요로 한 거지??
 
-        Student.prototype.getAvg = function () {
-            return this.getSum() / 3;
-        }
-        Student.prototype.toString = function () {
-            html = '';
-            html += '   <tr>';
-            html += '       <td>' + this.name + '</td>';
-            html += '       <td>' + this.getSum() + '</td>';
-            html += '       <td>' + Math.round(this.getAvg()) + '</td>';
-            html += '   </tr>';
-            return html;
-        }
-
-
-        window.onload = function () {
-            var students = [];
-            students.push(new Student('AAA', 84, 94, 67));
-            students.push(new Student('BBB', 85, 80, 90));
-            students.push(new Student('CCC', 100, 80, 90));
-            students.push(new Student('DDD', 100, 80, 52));
-            students.push(new Student('EEE', 100, 80, 90));
-            students.push(new Student('FFF', 100, 80, 75));
-            students.push(new Student('GGG', 96, 80, 90));
-            students.push(new Student('HHH', 100, 93, 90));
-            students.push(new Student('III', 100, 75, 90));
-            students.push(new Student('JJJ', 42, 80, 90));
-            students.push(new Student('KKK', 100, 80, 75));
-
-            students.sort(function(left, right){
-                return right.getSum()-left.getSum();
-            });
-            students = students.slice(0,5);
-            var html = '<table border="1">';
-            html += '   <tr>';
-            html += '       <td>이름</td>';
-            html += '       <td>총합</td>';
-            html += '       <td>평균</td>';
-            html += '   </tr>';
-
-            for (var i = 0; i < students.length; i++) {
-                html += students[i];
-            }
-            html += '</table>';
-
-            document.body.innerHTML += html;
         }
     </script>
 
