@@ -9,7 +9,7 @@
     <script src="https://code.jquery.com/jquery-1.12.4.js"
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous"></script>
     <!-- 02. 문서 객체 조작 -->
-    <!-- 생성, 수정, 삭제 -->
+    <!-- 캐스팅 후 요구사항에 맞게 변경(생성, 수정, 삭제) -->
     <style>
         #menu {
             list-style: none;
@@ -34,7 +34,7 @@
                 $('#menu>li').addClass('floatLeft');
             });
 
-            // 초기화 버튼 누르면 float left 기능 제거 됨.
+            // 초기화 버튼 누르면 float left 기능 제거 됨. - removeClass()
             $('#btn02').click(function () {
                 $('#menu>li').removeClass('floatLeft');
             });
@@ -46,10 +46,10 @@
             console.log('이미지 경로', srcPath);
 
             //속성의 값을 정의
-            // $('.img').attr('height', 200); //img의  크기를 지정해줌.
-            // $('.img').attr('height', function(){
-            //     return (index+1)*100;
-            // });
+            $('.img').attr('height', 200); //img의  크기를 지정해줌.
+            $('.img').attr('height', function(){
+                return (index+1)*100;
+            });
 
             // 03. attr 메소드의 객체 형식
             $('img').attr({
@@ -59,7 +59,7 @@
                 }
             });
 
-            //속성값 제거
+            //속성값 제거 - removeAttr()
             $('img').removeAttr('height');
 
             // 04. 
@@ -68,11 +68,13 @@
             // console.log(color);
 
             //css 적용
-            // $('h1').css('background', 'blue'); --다음 문장 적용시키기 위해 주석 처리
+            $('h1').css('background', 'blue'); //-다음 문장 적용시키기 위해 주석 처리
+           
             var colors = ['black', 'white', 'yellow'];
-            // $('h1').css('background', function(index){
-            //     return colors[index];
-            // });
+
+            $('h1').css('background', function(index){
+                return colors[index];
+            });
 
 
             //객체를 활용. 여러 개 속성을 입력 할 수 있다.
@@ -102,7 +104,7 @@
                 $('#menu').remove();
             });
             $('#btn04').click(function(){
-                $('#menu').empty(); //메뉴 안의 내용만 삭제
+                $('#menu').empty(); //메뉴 안의 내용만 삭제. 객체는 살아 있음.
             });
         });
 
