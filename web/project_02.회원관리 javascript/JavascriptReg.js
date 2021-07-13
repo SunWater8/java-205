@@ -25,7 +25,7 @@ window.onload = function () {
     }
     
     // 3-2 setlist 함수 호출 
-    // setList()    6-1에서 자기 영역으로 가져감.;
+    // setList()    6-1에서 자기 영역으로 가져감.
     
     //1-4. 사용자가 입력한 값
     //  2-2 onsubmit 함수 위로 이동
@@ -98,7 +98,7 @@ window.onload = function () {
 
     }
 
-    // 2-8입력박스에 클릭하면 빨간 경고문 없애기
+    // 2-8입력박스를 클릭하면 빨간 경고문 없애기
     userid.addEventListener('focus', function () {
         document.querySelector('#userID+div.msg').style.display = 'none';
         document.querySelector('#userID+div.msg').innerHTML = '';
@@ -128,7 +128,7 @@ function setList() {
 
     var tbody = '<tr>';
     tbody += '  <th>순번(index)</th>';
-    tbody += '  <th>아이디</th>';
+    tbody += '  <th>아이디(이메일)</th>';
     tbody += '  <th>비밀번호</th>';
     tbody += '  <th>이름</th>';
     tbody += '  <th>관리</th>';
