@@ -51,7 +51,7 @@ $(document).ready(function () {
             //비밀번호의 입력양식 제한
             var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[~!@#$%^&*<>?]).{8,30}$/i;
             if (!pwExp.test($(pw).val().trim())) {
-                $('#pw+div.msg').html('<p>영어, 숫자, 특 모두 포함해서 입력해 주세요.</p>')
+                $('#pw+div.msg').html('<p>영어, 숫자, 특수기호 모두를 포함해서 8~30자리 입력해 주세요.</p>')
                 $('#pw+div.msg').css('display', 'block');
                 return false;
             }
@@ -168,7 +168,7 @@ function editMember(index) {
 
         var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[~!@#$%^&*<>?]).{8,30}$/i;
         if (!pwExp.test($('#editPw').val().trim())) {
-            alert('<p>영어, 숫자, 특수기호를 모두 포함해서 입력해 주세요.</p>')
+            alert('<p>영어, 숫자, 특수기호 모두를 포함해서 8~30자리 입력해 주세요</p>')
             return false;
         }
         var nameExp = /^[가-힣]+$/;
