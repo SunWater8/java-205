@@ -49,11 +49,11 @@ $(document).ready(function () {
             return false;
         } else {
             //비밀번호의 입력양식 제한
-
-            var pwExp = /^(?=.*[a-zA-Z])((?=.*\d)|(?=.*\W)).{6,20}$/;
+            var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[~!@#$%^&*<>?]).{8,30}$/i;
             if (!pwExp.test($(pw).val().trim())) {
-                $('#pw+div.msg').html('<p>영어, 숫자, 특수기호를 모두 포함해서 입력해 주세요.</p>')
+                $('#pw+div.msg').html('<p>영어, 숫자, 특 모두 포함해서 입력해 주세요.</p>')
                 $('#pw+div.msg').css('display', 'block');
+                return false;
             }
         }
         //비밀번호(확인)의 공백문자 확인
@@ -166,7 +166,7 @@ function editMember(index) {
 
     $('#editForm').submit(function () {
 
-        var pwExp = /^(?=.*[a-zA-z])(?=.*\Wd)|(?=.*\W)).{6,20}$/;
+        var pwExp = /^(?=.*[a-zA-z])(?=.*[0-9])(?=.*[~!@#$%^&*<>?]).{8,30}$/i;
         if (!pwExp.test($('#editPw').val().trim())) {
             alert('<p>영어, 숫자, 특수기호를 모두 포함해서 입력해 주세요.</p>')
             return false;
@@ -196,7 +196,7 @@ function editMember(index) {
         editMemberClose();
         return false;
     });
-    function editMemberClose() {
-        $('#editFormArea').css('display', 'none');
-    }
+}
+function editMemberClose() {
+    $('#editFormArea').css('display', 'none');
 }
