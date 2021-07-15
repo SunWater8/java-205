@@ -1,0 +1,12 @@
+
+jsp workspace
+
+C:\Users\eheya\OneDrive\Temporary
+\GitHub
+\java-205
+\jsp_project
+\.metadata
+\.plugins
+\org.eclipse.wst.server.core
+\tmp1
+\wtpwebapps
