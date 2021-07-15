@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
+  <display-name>First_Web</display-name>
+  
+  
+  <!-- localhost:8080 -> index.jsp 가 실행되었음. 이유는 아래의 welcome file list 설정 때문임 -->
+  <welcome-file-list>
+    <welcome-file>index.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  <!-- java 파일에서 annotation으로 쓰면 이 밑의 내용이 대체가 됨   -->
+<!--   01-1. 서블릿 등록하기 
+  NowServlet 이라는 클래스를 nowServlet 이름의 서블릿으로 등록함.
+  <servlet>
+  	<servlet-name>nowServlet</servlet-name> 
+  	<servlet-class>firstweb.NowServlet</servlet-class>
+  </servlet>
+  
+  01-2. 사용자 요청 - 서블릿 클래스 연결
+  http://localhost:8080/contextPath/now
+  <servlet-mapping>
+  <servlet-name>nowServlet</servlet-name>
+  <url-pattern>/now</url-pattern>  pattern은 문자열을 말함
+  </servlet-mapping> -->
+  
+  
+  
+  
+  
+</web-app>
