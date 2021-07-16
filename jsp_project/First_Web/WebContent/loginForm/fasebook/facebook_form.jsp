@@ -1,14 +1,16 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<html lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Facebook - 로그인 또는 가입</title>
-    <link rel="stylesheet" href="facebook.css">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>facebook login</title>
+  <link rel="stylesheet" href="facebook.css">
+<style>
+</style>
+<script>
+</script>
 </head>
-
 <body>
     <!-- 본문 영역 -->
     <div class="background_grey">
@@ -22,10 +24,10 @@
             <section>
                 <div id="loginbox">
                     <!-- form 시작-->
-                    <form>
-                        <input type="text" placeholder="이메일 또는 전화번호" class="blankbox">
-                        <input type="password" placeholder="비밀번호" class="blankbox">
-                        <input type="button" value="로그인" class="width_350 background_blue font_white">
+                    <form action="facebook_result.jsp" method="get">
+                        <input type="text" placeholder="이메일 또는 전화번호" class="blankbox" name="userid">
+                        <input type="password" placeholder="비밀번호" class="blankbox" name="userpw">
+                        <input type="submit" value="로그인" class="width_350 background_blue font_white">
                     </form>
                     <!-- form 끝 -->
                     <p><a href="#" class="font_blue">비밀번호를 잊으셨나요?</a></p>
@@ -106,5 +108,4 @@
         </p>
     </footer>
 </body>
-
 </html>
