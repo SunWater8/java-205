@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://xmlns.jcp.org/xml/ns/javaee" xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd" id="WebApp_ID" version="3.1">
   <display-name>First_Web</display-name>
-  
+  <!-- 0715(3) -->
   
   <!-- localhost:8080 -> index.jsp 가 실행되었음. 이유는 아래의 welcome file list 설정 때문임 -->
   <welcome-file-list>

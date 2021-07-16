@@ -1,0 +1,178 @@
+/* 글꼴 소스 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+
+
+*{
+    margin:0;
+    padding:0;
+}
+/* body 모서리 둥글게 하기 */
+body{
+    width:1000px;
+    padding:30px;
+    border: 5px solid #ddd;
+    border-radius: 20px;
+    margin:20px auto;
+}
+
+.font_NanumPenScript{
+    font-family:'Nanum Pen Script';
+}
+
+/* 블로그 이름이 쓰여 있는 head 부분*/
+header{
+    width:900px;
+    height:90px;
+    padding:20px;
+}
+/* 블로그 메뉴 navigation 부분*/
+nav{
+    width:900px;
+    height:40px;
+    line-height:40px;
+    padding-left:20px;
+    padding-right:20px;
+    border-top:2px solid #ddd;
+    border-bottom:2px solid #ddd;
+    
+}
+/* 블로그 메뉴와 측메뉴의 목록 스타일에 가지고 있는 효과 빼기 */
+
+li{
+    list-style:none;
+}
+
+/*  링크에 공통적으로 밑줄 제거*/
+a{
+    text-decoration:none;
+}
+/* 메뉴 글자 색 */
+li>a{
+    color:peru;
+}
+/* 메뉴 글자에 마우스로 갖다 댔을 때 색 변화 */
+li>a:hover{
+    color: lightseagreen;
+    font-weight:bold;
+}
+/* 세로로 된 메뉴들 화면의 왼쪽에 가로로 진열하기 */
+nav>li{
+    float:left;
+    padding: 5px 30px;
+
+}
+/* 검색버튼을 화면오른쪽에 진열 */
+#search{
+    float:right;
+}
+/* 검색txt버튼 박스처리하기 */
+#sc{
+    border:1px solid black;
+    
+}
+
+/* 블로그의 본문을 화면의 왼쪽에 진열 */
+section{
+    padding-top:20px;
+    width:658px;
+    float:left;
+}
+/* 한 개의 포스트 아래에 구분선 넣기 */
+article{
+    border-bottom:2px solid #ddd;
+    padding-top:25px;
+    padding-bottom:25px;
+}
+/* 글의 제목 스타일 주기 */
+article>h1{
+    font-size:23px;
+    line-height:200%;
+}
+/* 날짜 스타일 */
+article>h4{
+    line-height:200%;
+}
+/* 글 안에 넣는 사진의 크기 규격 정하기 */
+img{
+    height:280px;
+    width:430px;
+    margin-top:20px;
+    margin-bottom:20px;
+}
+/* 본문 글의 스타일 */
+article>p{
+    line-height:180%;
+}
+article a{
+    text-decoration: none;
+    /* text-align: right; 적용안됨 */
+    color:royalblue;
+    border:1px solid black;
+    
+}
+/* 본문과 사이드 메뉴를 아우르는 부분의 크기 정하기 + 하단의footer가 float하지 않게 하기 */
+#wrap{
+    width: 900px;;
+    overflow:hidden;
+}
+/* 우측 사이드 메뉴 목록의 글자 스타일 지정 */
+aside{
+    width:150px;
+    float:right;
+    padding-top:20px;
+    
+}
+/* 우측 사이드메뉴에서 카테고리와 최근 글 공간 분리하기 */
+.smallmenu{
+    /* text-align: center; */
+    line-height:150%;
+    margin-bottom:30px;
+}
+#profile{
+    /* margin-bottom:20px;  적용 안됨*/
+}
+
+/* 프로필 사진 설정 */
+#picture{
+    margin:0 auto;
+    width:150px;
+    height:150px;
+    background-image: url("https://g-grafolio.pstatic.net/20210630_128/1625014027072hNsDe_JPEG/210629.jpg");
+    background-size: 100%;
+}
+/* 블로그 아이디 설정 - 적용이 안됨. */
+#nickname{
+    /* font-size: 10px; 적용이 안됨.*/
+    /* line-height: 180%; */
+    /* font-weight:bold; */
+}
+/* 이웃 추가 버튼 설정 */
+#profile>a{
+    color:  black;
+    margin-top:10px;
+    text-align:center;
+    line-height:40px;
+    width:150px;
+    height:40px;
+    display: inline-block;
+    background-color:powderblue;
+    border-radius: 20px;
+    font-size: 25px;
+}
+/* 사이드 메뉴의 큰 제목 */
+.smallmenu>h3{
+    text-align: center;
+}
+/* 사이드 메뉴의 작은 제목 */
+.smallmenu>li>a{
+    color:slategrey;
+    text-align:left;
+    font-size:16px;
+}
+/* 하단 footer 크기 지정 */
+footer{
+    height:40px;
+    line-height:40px;
+}
+
+
