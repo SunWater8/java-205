@@ -19,6 +19,11 @@
 	<%@ include file="include/news.jsp"%>
 	<%@ include file="include/shopping.jsp"%>
 </div>
+<!-- include의 특징 : 실행된 jsp 결과를 html(text)로 가져온다. -->
+	<jsp:include page="footer.jsp">
+		<jsp:param name="email" value="test@gmail.com"/>
+		<jsp:param name="tel" value="010-0000-0000"/>
+	</jsp:include>
 
 </body>
 </html>
