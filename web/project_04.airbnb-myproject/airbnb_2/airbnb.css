@@ -1,0 +1,72 @@
+*{
+    margin:0;
+    padding:0;
+}
+
+#all_wrap{
+
+}
+/* 1st Area - covid information */
+#covid{
+    background-color: rgb(26, 26, 26);
+    font-size:14.5px;
+    text-align: center;
+    padding:20px 0;
+}
+#covid a:visited{
+    color:rgb(144, 144, 144);
+}
+
+/* 2nd Area - main */
+#main_wrap{
+    /* background-image: url(../airbnb_images/wood.jpg);
+    background-position:bottom; */
+    height:100%;
+    min-height:900px;
+    width:100%;
+}
+/* second bar of 2nd Area */
+#second_bar{
+    /* background-color: turquoise; */
+    border:1px solid violet;
+    overflow:hidden;
+    padding:20px 100px;
+    /* position:absolute; */
+}
+#second_bar>h2{
+    border:1px solid black;
+    display:inline;
+}
+#second_bar>nav{
+    float:left;
+}
+#second_bar>nav h5{
+    display:block;
+    border:1px solid coral;
+    float:left;
+
+}
+#mySetting{
+    float:right;
+    border:1px solid black;
+    width:500px;
+    overflow: hidden;
+}
+#mySetting p{
+    width:150px;
+    height:30px;
+    background-color: none;
+    /* color:white; */
+    
+}
+#mySetting>input[type=button]{
+    float:left;
+    width:80px;
+    height:30px;
+    /* background-color:white; */
+    border-radius: 30px;
+    border:none;
+}
+
+
+
