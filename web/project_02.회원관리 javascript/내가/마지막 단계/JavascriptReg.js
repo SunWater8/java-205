@@ -4,7 +4,7 @@ function Member(id, pw, name) {
     this.pw = pw;
     this.userName = name;
 }
-//1-2. prototype
+//1-2. prototype - console에 이 형태로 출력 (toString 같은 역할)
 Member.prototype.makeHtml = function () {
     return '[id: ' + this.userId + ' , pw: ' + this.pw + ', name: ' + this.userName + ']'
 };
