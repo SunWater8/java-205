@@ -94,8 +94,6 @@ window.onload = function () {
         //3-3 setlist 함수 호출
         setList();
         return false;
-
-
     }
 
     // 2-8입력박스를 클릭하면 빨간 경고문 없애기
@@ -133,6 +131,8 @@ function setList() {
     tbody += '  <th>이름</th>';
     tbody += '  <th>관리</th>';
     tbody += '</tr>';
+
+    // var tbody=list.innerHTML;
 
     if (members.length < 1) {
         tbody += '<tr>';
