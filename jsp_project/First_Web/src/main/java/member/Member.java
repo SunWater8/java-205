@@ -8,7 +8,11 @@ public class Member {
 	private String pw;
 	private String name;
 	
-	public Member() {} //생성자는 기본으로 하기 - beans 클래스는 기본 생성자 필수
+	 //생성자는 기본으로 하기 - beans 클래스는 기본 생성자 필수
+	public Member() {}
+	
+	//default 생성자 없이 다른 생성자로 실행해보기 -> 오류 남
+//	public Member(String name) {}
 	
 	
 	//setter 와 getter
@@ -32,6 +36,12 @@ public class Member {
 
 	public String getName() {
 		return name;
+	}
+
+
+	@Override
+	public String toString() {
+		return "Member [id=" + id + ", pw=" + pw + ", name=" + name + "]";
 	}
 
 
