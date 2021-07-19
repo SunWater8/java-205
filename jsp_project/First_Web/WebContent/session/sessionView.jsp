@@ -16,7 +16,7 @@
 	//로그인 후 사용자(회원)의 이름을 세션 속성에 저장
 	String userName = (String) session.getAttribute("userName"); //getAttribute의 반환 타입은 object 이기 때문에 string형 변환이 필요. session.jsp에서 setAttribute에 저장된 것은 String 문자열이기 때문이다.
 
-	if (userName == null) {
+	if (userName == null) { //아직 로그인을 하지 않았을 때.
 		out.println("<script>alert('로그인이 필요한 상태입니다.')</script>");
 	}
 	%>

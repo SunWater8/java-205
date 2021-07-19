@@ -17,7 +17,7 @@
 <body>
 
 	<h1>application 속성 삭제 : name, age</h1>
-	<h3><a href="arrtView.jsp">속성 확인</a></h3>
+	<h3><a href="attrView.jsp">속성 확인</a></h3>
 
 </body>
 </html>

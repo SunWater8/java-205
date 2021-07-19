@@ -16,9 +16,10 @@
 	Enumeration e = application.getAttributeNames();
 	while(e.hasMoreElements()){
 		String name= (String)e.nextElement();
-		out.println(name +"="+"<br>");
+		/* out.println(name +"="+"<br>"); */
+		out.println(name + " = "+ application.getAttribute(name) +"<br><br>");
 	}
 %>
-<h3><a href="remAttr.jsp"></a></h3>
+<h3><a href="remAttr.jsp">속성 삭제</a></h3>
 </body>
 </html>
