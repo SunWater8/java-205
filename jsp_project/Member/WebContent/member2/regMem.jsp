@@ -9,14 +9,11 @@
 <%
 request.setCharacterEncoding("utf-8");
 
-String idx = request.getParameter("idx");
 String userId = request.getParameter("userid");
 String userPw = request.getParameter("pw");
 String userName = request.getParameter("name");
-String joinDate = request.getParameter("joindate");
 
 int resultCnt = 0;
-
 
 Connection conn = null;
 MemberDao dao = MemberDao.getInstance();
@@ -44,4 +41,7 @@ if(resultCnt >0){
 	window.history.go(-1);
 </script>
 <%
-}%>
+}
+
+%>
+
