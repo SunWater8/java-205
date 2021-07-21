@@ -1,4 +1,4 @@
-<%@page import="dept.domain.Dept"%>
+ <%@page import="dept.domain.Dept"%>
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
@@ -29,7 +29,7 @@ button {
 	<h1>부서 리스트</h1>
 	<hr>
 
-	<button>부서 정보 등록</button>
+	<button onclick="location.href='dept_regForm.jsp';">부서 정보 등록</button>
 
 	<table border=1>
 		<tr>
@@ -48,7 +48,7 @@ button {
 					<td><%=list.get(i).getDname()%></td>
 					<td><%=list.get(i).getLoc()%></td>
 					<!-- dept_editForm.jsp 로 전달하는 경로 만들기 -->
-					<td><a href="#">수정</a><a href="#"> 삭제</a></td>
+					<!-- <td><a href="#">수정</a><a href="#"> 삭제</a></td> -->
 					<td><a href="dept_editForm.jsp?deptno=<%=list.get(i).getDeptno()%>">수정</a>
 						<a href="javascript:delDept(<%=list.get(i).getDeptno()%>)"> 삭제</a>
 					</td>
@@ -64,8 +64,8 @@ button {
 	<script>
 		function delDept(deptno) {
 			if (confirm('정말 삭제하시겠습니까?')){
-				+deptno	
-			};
+				location.href = 'dept_delete.jsp?deptno='+deptno;	
+			}
 		}
 	</script>
 	<%-- 테이블 만들면서 필요 없게 됨.
