@@ -1,8 +1,8 @@
 
-<%@page import="java.sql.SQLException"%>
 <%@page import="member.domain.Member"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="member.dao.MemberDao"%>
+<%@page import="java.sql.SQLException"%>
 <%@page import="java.sql.Connection"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
