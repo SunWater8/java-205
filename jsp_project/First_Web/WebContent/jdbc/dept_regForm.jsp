@@ -20,7 +20,7 @@
 			<tr>
 				<td>부서번호</td>
 				<td><input type="number" name="deptno" required></td>
-				<!-- required : 빈칸 없음 -->
+				<!-- required : 빈칸 없다는 뜻 -->
 			</tr>
 			<tr>
 				<td>부서이름</td>
@@ -33,7 +33,7 @@
 			<tr>
 				<td></td>
 				<td><input type="submit" value="등록"> 
-				<input type="reset" value="초기화"></td>
+				<input type="reset" ></td>
 			</tr>
 		</table>
 	</form>
