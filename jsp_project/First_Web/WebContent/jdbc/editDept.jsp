@@ -31,7 +31,7 @@
 		
 	
 	//PreparedStatement 만들기
-	String sqlUdate = "update dept set dname=?, loc=?, where deptno=?";
+	String sqlUdate = "update dept set dname=?, loc=? where deptno=?";
 	pstmt = conn.prepareStatement(sqlUdate);
 	pstmt.setString(1, dname);
 	pstmt.setString(2, loc);

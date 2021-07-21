@@ -1,4 +1,4 @@
-
+<%@page import="dept.domain.Dept"%>
 <%@page import="jdbc.util.ConnectionProvider"%>
 <%@page import="dept.dao.DeptDao"%>
 <%@page import="java.sql.Connection"%>
@@ -23,23 +23,9 @@
 	DeptDao dao = DeptDao.getInstance();
 	try{
 	//연결
-	
 	conn=ConnectionProvider.getConnection();
-		
+	resultCnt = dao.insertDept(conn, new Dept(Integer.parseInt(deptno), dname, loc));
 	
-	//PreparedStatement 만들기
-	String sqlInsert = "insert into dept values(?, ?, ?)";
-	pstmt = conn.prepareStatement(sqlInsert);
-	pstmt.setInt(1, Integer.parseInt(deptno));
-	pstmt.setString(2, dname);
-	pstmt.setString(3, loc);
-	
-	//반영된 횟수
-	resultCnt = dao.insertDept(conn);
-	
-	//out.println(resultCnt);
-	
-	//insert 처리 - 결과는 int
 	
 	}catch (Exception e){
 		
@@ -51,7 +37,6 @@
 		%>
 		<script>
 			alert('등록되었습니다.');
-			
 			//이동시키기 - href 속성에 위치 넣어주기
 			location.href = 'dept_list.jsp';
 		</script>

@@ -19,7 +19,6 @@ Connection conn = null;
 DeptDao dao = DeptDao.getInstance();
 
 try {
-
 	conn = ConnectionProvider.getConnection();
 	resultCnt = dao.deleteDept(conn, Integer.parseInt(deptno));
 } catch (SQLException e) {
