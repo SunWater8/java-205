@@ -23,4 +23,4 @@
 <jsp:forward page="footer.jsp">
 	<jsp:param name="email" value="test@gmail.com" />
 	<jsp:param name="tel" value="010-0000-9999" />
-</jsp:forward>
+</jsp:forward> 
