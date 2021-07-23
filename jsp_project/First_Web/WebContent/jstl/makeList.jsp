@@ -18,4 +18,4 @@
 	members.add(new Member("cool009", "1119", "COOL00"));
 	
 	session.setAttribute("members", members);
-%>
+%> 
