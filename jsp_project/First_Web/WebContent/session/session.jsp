@@ -14,7 +14,8 @@
 </script>
 </head>
 <body>
-	<h1>세션에 사용자 이름을 저장했습니다. : <%= session.getAttribute("userName") %></h1>
+	<%-- <h1>세션에 사용자 이름을 저장했습니다. : <%= session.getAttribute("userName") %></h1>  el 학습 후 밑 문장으로 개선--%>
+	<h1>세션에 사용자 이름을 저장했습니다. : <%= session.getAttribute("userName")%> / ${userName}</h1>
 	<!-- 다른 서블릿을 가더라도 이 문서를 볼 수 있을까 -->
 	<h3><a href="sessionView.jsp">세션의 속성 정보 확인</a></h3>
 

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
     <%
-    /* 배열 타입으로 쿠키 받기 */
+    /* 배열 타입으로 쿠키 받기 - 클라이언트가 보낸 쿠키 읽기*/
     Cookie[] cookies = request.getCookies();
     %>
 <!DOCTYPE html>
@@ -23,7 +23,7 @@
 				// getVlaue() : 현재 쿠키의 값을 가져오기
 				String value = cookies[i].getValue();
 
-				//원하는 쿠키 이름을 출력하게 하기
+				//화면에 출력 되길 원하는 쿠키 이름 정하기
 				if(name.equals("cname")){
 				out.println("<h1>"+name+" = "+value+"</h1>");
 				}
