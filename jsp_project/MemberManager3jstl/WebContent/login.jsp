@@ -79,16 +79,3 @@
     <%	
     }
     %>
-
-<!-- //3. 로그인 버튼 누른 후 -->
-<!-- 로그인 된 후 -->    
-
-<%-- 
-<script>
-alert('로그인 되었습니다.');
-
-/* 아이디 기억하기 체크 누르고 로그인하면 http://localhost:8080/contextPath/ 로 이동함 */
-location.href='<%=request.getContextPath()%>';
-</script>
-
- --%>

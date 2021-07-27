@@ -52,7 +52,7 @@
 		<!-- 개선3. toLoginInfo 메소드 생성 후 수정되었기에 주석처리 -->
 		<%-- 	<%= member %> --%>
 		<!-- //toLoginInfo 메소드 생성 후 코드 개선 -->
-			<%= loginInfo %>
+			${loginInfo }
 		</h3>
 		
 	
