@@ -65,7 +65,7 @@
 	<b>아이디 값을 호출</b><br>
 	EL 방식 : ${member} / ${member.id }<br>	<!-- member.id는 member.getId() 이렇게 get 메소드를 호출하는 거와 같다. -->
 	전 방식 : <%=session.getAttribute("member") %> / <%=((Member) session.getAttribute("member")).getId() %>
-	<!-- Member 로 형변환 하기 -->
+	<!-- 기본적으로 getAttribute 메소드는 String을 반환하기 때문에 id값을 가져오기 위해서는 Member 로 형변환 하기 -->
 	
 </body>
 </html>
