@@ -10,6 +10,15 @@ import guest.jdbc.ConnectionProvider;
 import guest.jdbc.JdbcUtil;
 
 public class WriteMessageService {
+	
+	//싱글톤 패턴
+	private WriteMessageService() {}
+	private static WriteMessageService service = new WriteMessageService();
+	public static WriteMessageService getInstance() {
+		return service;
+	}
+	
+	
 	//메시지를 DB에 쓰고 처리된 결과를 생성한다. 
 	public int writeMessage(MessageRequest requestMessage) {
 		int resultCnt = 0;
@@ -20,7 +29,7 @@ public class WriteMessageService {
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			dao = new MessageDao();
+			dao = MessageDao.getInstance();
 			
 			//autoCommit의 기본값은 true이기 때문에 자동커밋이 된다. 
 			//프로그래머가 Java JDBC에서 트랜젝션을 컨트롤 하기 위해 false라고 입력한다.  

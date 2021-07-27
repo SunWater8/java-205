@@ -9,7 +9,16 @@ import guest.domain.MessageRequest;
 import guest.jdbc.JdbcUtil;
 
 public class MessageDao {
+	//싱글톤 처리
+	private MessageDao() {} 
+	private static MessageDao dao = new MessageDao();
+	//반환 메소드
+	public static MessageDao getInstance() {
+		return dao;
+	}
+	
 
+	//sql에서 insert into
 	public int writeMessage(Connection conn, Message message) throws SQLException {
 		
 		int resultCnt = 0;
