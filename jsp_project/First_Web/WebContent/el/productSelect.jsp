@@ -21,12 +21,12 @@
 		3. 첫번째 상품 ${product.productList[0] }
 		getProductList()를 호출하는 거와 같은데 그러면 배열이 반환되므로 [0]을 뒤에 써준다.
 		
-		 --%>
-		${param.select }
+	--%>
+		param.select : ${param.select }
 		<br>
-		${product.display }
+		product.display : ${product.display }
 		<br>
-		${product.productList[0] }
+		product.productList[0] : ${product.productList[0] }
 	</h3>
 
 
