@@ -14,12 +14,12 @@
 </script>
 </head>
 <body>
-	${members }
+	members : ${members }
 	<br>
-	${members[0]} 
+	members[0] : ${members[0]} 
 	<br>
-	${members[1]} / ${member[1].name }/
-	<c:out value="${member[1].name }" escapeXml="false">
+	members[1] / members[1].name : ${members[1]} / ${member[1].name }/
+	<c:out value="${members[i].name }" escapeXml="false">
 		<span style="color:red;">입력된 정보 없음</span>
 	</c:out>
 </body>

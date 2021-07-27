@@ -17,5 +17,6 @@
 	members.add(new Member("cool008", "1118", "COOL00"));
 	members.add(new Member("cool009", "1119", "COOL00"));
 	
+	//run as 하면 서버가 끊기기 전까지 이 데이터를 이용할 수 있게 된다.
 	session.setAttribute("members", members);
 %> 
