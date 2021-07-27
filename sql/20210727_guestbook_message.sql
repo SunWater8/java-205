@@ -24,4 +24,8 @@ values('king','1111','HELLO');
 -- update
 update project.guestbook_message 
 set guestname='scott', password='0000', message='안녕하세요'
-where messageid = 1;
+where messageid = 1; -- 수정할 때 기준은 pk
+
+-- delete
+delete from project.guestbook_message
+where messageid=1;
