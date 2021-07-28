@@ -45,6 +45,7 @@ public class MessageListService {
 			messageList = dao.selectMessageList(conn, firstRow, messageCountPerPage);
 			System.out.println("message List : "+ messageList);
 			
+			listView = new MessageListView(messageList, totalMessageCount, pageNumber, messageCountPerPage, firstRow, firstRow)
 			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
