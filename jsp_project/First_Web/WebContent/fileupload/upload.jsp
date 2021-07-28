@@ -1,3 +1,4 @@
+<%@page import="java.io.File"%>
 <%@page import="java.util.Iterator"%>
 <%@page import="org.apache.commons.fileupload.FileItem"%>
 <%@page import="java.util.List"%>
@@ -58,6 +59,14 @@
 			}else{
 				//type=file 일 때 처리
 				
+				//웹 경로
+				String uploadUri = "/upload";
+				//시스템 경로
+				String dir = request.getSession().getServletContext().getRealPath(uploadUri);
+				
+				//출력
+				out.println("path : "+dir); //파일이 두 개이기 때문에 두 번 출력된다.
+						
 				String paramName = item.getFieldName();
 				if(paramName.equals("photo")){
 					String userFileName = item.getName(); //파일의 이름 가져오기
@@ -68,6 +77,16 @@
 					out.println("fileName : "+userFileName+"<br>");
 					out.println("contentType : "+contentType+"<br>");
 					out.println("file size : "+fileSize+"<br>");
+					
+					//파일을 쓰기 위한 조건. 확장자 필터링하기
+					//jsp 파일은 악성코드가 많기 때문에 해킹을 피해기 위해 거르는 경우가 많다. jar파일도 마찬가지
+					if(userFileName != null && fileSize >0){
+						 File savePath = new File(dir, userFileName); //savePath는 저장경로
+						 item.write(savePath);
+						 System.out.println("데이터 저장 완료");
+						 newFile = userFileName; 
+					}
+					
 				}else if(paramName.equals("file")){
 					//..
 				}
@@ -76,12 +95,11 @@
 			}
 			
 		}
-		
-		
-		
+		request.setAttribute("title",title);
+		request.setAttribute("photo", newFile);
 		
 		
 	}
 %>
 
-<%-- <jsp:forward page="upload_view.jsp"></jsp:forward> --%>
+<jsp:forward page="upload_view.jsp"></jsp:forward> 
