@@ -77,12 +77,13 @@ public class MessageDao {
 			pstmt = conn.prepareStatement(sql);
 			pstmt.setInt(1, firstRow);
 			pstmt.setInt(2, messageCountPerPage);
-			
+
 			rs = pstmt.executeQuery();
-			
+
 			list = new ArrayList<Message>();
-			while(rs.next()) {
-				list.add(new Message(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4), rs.getTimestamp(5)));
+			while (rs.next()) {
+				list.add(new Message(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+						rs.getTimestamp(5)));
 			}
 		} finally {
 			JdbcUtil.close(rs);
@@ -90,6 +91,55 @@ public class MessageDao {
 		}
 
 		return null;
+	}
+
+	public Message selectByMid(Connection conn, int mid) throws SQLException {
+		Message message = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+
+		String sql = "select * from project.guestbook_message where messageid=?";
+
+		try {
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1, mid);
+
+			rs = pstmt.executeQuery();
+
+			if (rs.next()) {
+				message = new Message();
+				message.setMessageid(rs.getInt(1));
+				message.setGuestname(rs.getString(2));
+				message.setPassword(rs.getString(3));
+				message.setMessage(rs.getString(4));
+				message.setRegdate(rs.getTimestamp(5));
+			}
+		} finally {
+			JdbcUtil.close(pstmt);
+			JdbcUtil.close(rs);
+		}
+		return message;
+	}
+
+	public int deleteMessage(Connection conn, int mid) throws SQLException {
+
+		int resultCnt = 0;
+		PreparedStatement pstmt = null;
+
+		String sql = "delete from project.guestbook_message where messageid=?";
+
+		try {
+
+			pstmt = conn.prepareStatement(sql);
+			pstmt.setInt(1,  mid);
+			
+			resultCnt = pstmt.executeUpdate();
+		} finally {
+			JdbcUtil.close(pstmt);
+		}
+
+		return 0;
+
 	}
 
 }
