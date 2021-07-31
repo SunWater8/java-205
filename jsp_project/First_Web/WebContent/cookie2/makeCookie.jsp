@@ -8,6 +8,8 @@
     //쿠키를 브라우저로 응답 : 쿠키 굽는다!
     response.addCookie(CookieBox.makeCookie("name", "손흥민","/",5)); //name, value, path, maxAge
     response.addCookie(CookieBox.makeCookie("number1", "7")); //name, value
+   
+     
     %>
     
 <!DOCTYPE html>

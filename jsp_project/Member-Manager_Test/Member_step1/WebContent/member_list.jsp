@@ -1,4 +1,4 @@
-<%@page import="member.domain.Member"%>
+<%@page import="domain.Member"%>
 <%@page import="java.util.List"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="java.sql.DriverManager"%>

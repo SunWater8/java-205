@@ -32,7 +32,7 @@ public class CharacterEncodingFilter implements Filter {
 	
     private String encoding;
     
-    public CharacterEncoding() {
+    public void CharacterEncoding() {
     }
 
 	/**
