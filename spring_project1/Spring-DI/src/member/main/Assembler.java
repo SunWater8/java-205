@@ -1,5 +1,6 @@
 package member.main;
 
+import member.dao.GuestDao;
 import member.dao.MemberDao;
 import member.service.ChangePasswordService;
 import member.service.MemberRegService;
@@ -18,12 +19,17 @@ public class Assembler {
 	private MemberDao dao;
 	private MemberRegService regService;
 	private ChangePasswordService passwordService;
+	
+	private GuestDao gDao;
 
 	//생성자
 	public Assembler() {
 		//인스턴스 만들 때 주입해주기 위해 dao 먼저 쓴다.
 		//인스턴스를 생성 -> 의존 주입
 		dao = new MemberDao();
+		gDao = new GuestDao();
+		
+		//필요에 따라서 dao 를 gDao 를 골라 쓸 수 있다. 나머지 클래스의 코드는 바꿀 필요가 없이 여기 조립기 내부에서만 수정해도 되기에 편리하다.
 		regService = new MemberRegService(dao); //dao 주입
 		passwordService = new ChangePasswordService(dao); //dao 주입
 	}

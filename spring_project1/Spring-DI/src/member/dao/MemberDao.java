@@ -14,6 +14,12 @@ public class MemberDao implements Dao {
 	//String타입의 email과 member 객체를 저장
 	private Map<String, Member> map = new HashMap<>();
 	
+	//이 컨테이너가 생성자를 만드는지 확인해보는 생성자
+	public MemberDao() {
+		System.out.println("MemberDao 인스턴스 생성");
+	}
+	
+	
 	@Override
 	public Member selectByEmail(String email) {
 		return map.get(email);

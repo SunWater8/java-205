@@ -2,19 +2,21 @@ package member.main;
 
 import java.util.Scanner;
 
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.GenericApplicationContext;
+import org.springframework.context.support.GenericXmlApplicationContext;
+
 import member.dao.MemberDao;
 import member.domain.RegRequest;
 import member.service.ChangePasswordService;
 import member.service.MemberRegService;
 
-public class MainForMemberManager {
-	//조립기 등장으로 필요 없어진 문장
-	//static MemberDao dao = new MemberDao();
+public class SpringMain1 {
 	
-	static Assembler assembler = new Assembler(); 
-	
+	static ApplicationContext ctx;
 	public static void main(String[] args) {
 		
+		ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
 		Scanner sc = new Scanner(System.in);
 		
 		
@@ -46,7 +48,8 @@ public class MainForMemberManager {
 	private static void processChangePw(String[] values) {
 		//조립기 등장으로 필요 없어진 문장
 		//ChangePasswordService service = new ChangePasswordService(new MemberDao());
-		ChangePasswordService service = assembler.getPasswordService();
+		//ChangePasswordService service = assembler.getPasswordService();
+		ChangePasswordService service = ctx.getBean("ChangePasswordService", ChangePasswordService.class);
 		
 		try {
 			service.changePassword(values[1], values[2], values[3]);
@@ -66,7 +69,8 @@ public class MainForMemberManager {
 		//MemberRegService service = new MemberRegService(new MemberDao());
 		//이렇게 하면 의존하는 것이기 때문에 의존성이 없도록 바꿔 주어야 함. 
 		
-		MemberRegService service = assembler.getRegService();
+//		MemberRegService service = assembler.getRegService();
+		MemberRegService service = ctx.getBean("regService", MemberRegService.class);
 		
 		RegRequest request = new RegRequest();
 		request.setEmail(values[1]); //1번지에 있는 email을 매개변수로 넣기

@@ -9,6 +9,7 @@ public class ChangePasswordService {
 	
 	public ChangePasswordService(Dao dao) {
 		this.dao = dao;
+		System.out.println("ChangePasswordService 인스턴스 생성");
 	}
 	
 	//바꾸고자 하는 대상을 찾기 위해 email, 비밀번호 입력하라고 확인하기 위한 oldPw, 바꾸고자 하는 새로운 비밀번호 newPw
