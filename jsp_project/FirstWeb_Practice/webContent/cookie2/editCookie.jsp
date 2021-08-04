@@ -2,8 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <% 
-	response.addCookie(CookieBox.makeCookie("age", "12"));
-	response.addCookie(CookieBox.makeCookie("name","이강인"));
+	CookieBox cBox= new CookieBox(request);
 %>
 <!DOCTYPE html>
 <html>
@@ -16,12 +15,16 @@
 </script>
 </head>
 <body>
-<%
-
-
-%>
-<h3> 쿠키가 변경되었습니다. </h3>
-<a href="viewCookie.jsp">쿠키 보러 가기</a>
+	<%
+		if(cBox.getValue("name") == "손흥민"){
+			/* response.addCookie(cBox.makeCookie("name", "손흥민", "/", 0)); */
+			response.addCookie(CookieBox.makeCookie("name", "이강인", "/", 60*60*24));
+			//response.addCookie(CookieBox.makeCookie("name", ""))
+		}
+	
+	
+	%>
+	<h4><a href="viewCookie.jsp">쿠키 보기</a></h4>
 	
 </body>
 </html>

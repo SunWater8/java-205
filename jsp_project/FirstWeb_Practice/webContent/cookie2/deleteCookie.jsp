@@ -1,9 +1,8 @@
 <%@page import="util.CookieBox"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
 <%
-	response.addCookie(CookieBox.makeCookie("age", "12", " ", 0));
+	response.addCookie(CookieBox.makeCookie("name", "손흥민", "/", 0));
 %>
 <!DOCTYPE html>
 <html>
@@ -16,20 +15,6 @@
 </script>
 </head>
 <body>
-	<%-- 
-	<%
-	if(cookies != null && cookies.length>0){
-		for(int i=0; i<cookies.length;i++){
-			if(cookies[i].getName().equals("age")){
-				Cookie cookie = new Cookie("age","");
-				cookie.setMaxAge(0);
-				response.addCookie(cookie);
-			}
-		}
-	}	
-	%> 
-	--%>
-	<h3>age 쿠키가 삭제되었습니다.</h3>
-	<a href="viewCookie.jsp">쿠키 보러 가기</a>
+<h3><a href="viewCookie.jsp">쿠키 보기</a></h3>
 </body>
 </html>
