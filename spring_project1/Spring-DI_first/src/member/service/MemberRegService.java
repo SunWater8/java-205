@@ -17,12 +17,13 @@ public class MemberRegService {
 		System.out.println("MemberRegService 인스턴스 생성");
 	}
 	
+	//회원 가입하기.
 	public void regMember(RegRequest request) throws Exception {
+		
 		//중복 이메일을 체크하고 예외를 발생시키기
-		//기존의 멤버
 		Member member = dao.selectByEmail(request.getEmail());
 		 if(member != null) {
-			 throw new Exception("중복 이메일!");
+			 throw new Exception();
 		 }
 				
 		

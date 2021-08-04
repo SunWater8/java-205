@@ -7,6 +7,7 @@ public class ChangePasswordService {
 
 	Dao dao;
 	
+	//생성자 초기화를 통해 Dao 주입하기
 	public ChangePasswordService(Dao dao) {
 		this.dao = dao;
 		System.out.println("ChangePasswordService 인스턴스 생성");

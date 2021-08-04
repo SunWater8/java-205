@@ -19,7 +19,7 @@ public class MemberDao implements Dao {
 		System.out.println("MemberDao 인스턴스 생성");
 	}
 	
-	
+	//email로 map 가져오기
 	@Override
 	public Member selectByEmail(String email) {
 		return map.get(email);
@@ -37,7 +37,7 @@ public class MemberDao implements Dao {
 	public void update(Member member) {
 		map.put(member.getEmail(), member);
 	}
-
+	//map보다 상위 클래스인 Collection클래스를 반환타입으로 하기.
 	@Override
 	public Collection<Member> selectAll() {
 		//key, value 형식으로 그대로 출력하는 메소드

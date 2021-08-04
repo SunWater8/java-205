@@ -33,9 +33,9 @@ public class RegRequest {
 		this.name = name;
 	}
 	
-	//비밀번호와 비밀번호확인과 일치하는지에 대한 여부 확인하기
-	public boolean isPasswordEqualsToConfirmPassword() {
+	//비밀번호와 비밀번호확인과 일치하는지에 대한 여부 확인하기 (논리값을 얻을 때는 메소드 이름 앞에 get이 아닌 is을 붙인다.)
+	public boolean isPasswordEqualToConfirmPassword() {
 		
-		return password.contentEquals(confirmPassword);
+		return password.equals(confirmPassword);
 	}
 }

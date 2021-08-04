@@ -20,12 +20,13 @@ public class Assembler {
 	private MemberRegService regService;
 	private ChangePasswordService passwordService;
 	
+	//MemberDao 가 아닌 Dao 를 만들어 보기
 	private GuestDao gDao;
 
 	//생성자
 	public Assembler() {
 		//인스턴스 만들 때 주입해주기 위해 dao 먼저 쓴다.
-		//인스턴스를 생성 -> 의존 주입
+		//각각의 인스턴스를 생성 -> 의존 주입
 		dao = new MemberDao();
 		gDao = new GuestDao();
 		

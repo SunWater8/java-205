@@ -49,7 +49,8 @@ public class SpringMain1 {
 		//조립기 등장으로 필요 없어진 문장
 		//ChangePasswordService service = new ChangePasswordService(new MemberDao());
 		//ChangePasswordService service = assembler.getPasswordService();
-		ChangePasswordService service = ctx.getBean("ChangePasswordService", ChangePasswordService.class);
+		ChangePasswordService service = ctx.getBean("changePwService", ChangePasswordService.class);
+		//getBean 메소드 : 스프링 컨테이너가 만들어 놓은 객체를 반환해 준다.
 		
 		try {
 			service.changePassword(values[1], values[2], values[3]);
@@ -79,7 +80,7 @@ public class SpringMain1 {
 		request.setConfirmPassword(values[4]);
 		
 		//비밀번호가 일치하는지
-		if(!request.isPasswordEqualsToConfirmPassword()) {
+		if(!request.isPasswordEqualToConfirmPassword()) {
 			//비밀번호가 다르면
 			System.out.println("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 			return; //종료. 다시 입력하게 하기.
