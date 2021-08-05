@@ -33,7 +33,7 @@ public class MainForMemberManager {
 			if(command.startsWith("new")) {
 				//new라고 시작하며 입력을 이어 나간다면, 공백을 기준으로 배열을 만들기
 				String[] values = command.split(" ");
-				// values[0] 에는 king@gmail.com가 들어가게 됨.
+				// values[1] 에는 king@gmail.com가 들어가게 됨.
 				
 				proccessNewMember(values);
 				continue; //다시 위로 올라가서 처리하기

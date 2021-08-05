@@ -12,14 +12,21 @@ import member.service.ChangePasswordService;
 import member.service.MemberRegService;
 
 public class SpringMain1 {
-	
+	//순서6-1.
+	//ApplicationContext 인터페이스는 객체를 생성하고 보관해주는 컨테이너 역할을 한다.
+	//스프링에서는 이런식의 컨테이너는 사용되지 않는다. mvc패턴의 스프링에서는 서블릿 컨텍스트가 이 역할을 하고, 스프링이 알아서 컨테이너로 동작하게 한다.
 	static ApplicationContext ctx;
 	public static void main(String[] args) {
 		
+		//순서6-2
+		//ApplicationContext인터페이스를 GenericXmlApplicationContext 클래스 통해서  클래스로 완성 시킴 
+		//그리고 설정파일인 xml 파일을 받아서 최종적으로 컨테이너 완성시킴
 		ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
+		
+		//순서1. 
 		Scanner sc = new Scanner(System.in);
 		
-		
+		//순서3.
 		while(true) {
 			printMenu();
 			
@@ -44,7 +51,7 @@ public class SpringMain1 {
 			
 		}
 	}
-	
+	//순서5
 	private static void processChangePw(String[] values) {
 		//조립기 등장으로 필요 없어진 문장
 		//ChangePasswordService service = new ChangePasswordService(new MemberDao());
@@ -62,7 +69,7 @@ public class SpringMain1 {
 		
 		
 	}
-
+	//순서4.
 	private static void proccessNewMember(String[] values) {
 		
 		//배열타입의 values 가 들어오면 MemberRegService 를 이용해서 정보를 저장하기
@@ -93,7 +100,7 @@ public class SpringMain1 {
 			System.out.println(e.getMessage());//이메일이 중복되었다는 메시지 출력하기
 		}
 	}
-
+	//순서2
 	static void printMenu() {
 		System.out.println();
 		System.out.println("명령어 사용법");
