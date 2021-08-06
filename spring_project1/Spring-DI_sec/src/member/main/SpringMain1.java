@@ -23,7 +23,10 @@ public class SpringMain1 {
 		
 		//ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
 		// 순서7. appCtx2.xml 로 실행하기 
-		ctx = new GenericXmlApplicationContext("classpath:appCtx2.xml");
+		//ctx = new GenericXmlApplicationContext("classpath:appCtx2.xml");
+		//순서8. appCtx3.xml 로 실행하기
+		//ctx = new GenericXmlApplicationContext("classpath:appCtx3.xml");
+		
 		
 		//순서1. 
 		Scanner sc = new Scanner(System.in);
