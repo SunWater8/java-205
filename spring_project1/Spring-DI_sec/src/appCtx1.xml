@@ -27,7 +27,17 @@
 
 	<!-- ChangePasswordService bean 등록 -->
 	<bean id="changePwService" class="member.service.ChangePasswordService">
-		<constructor-arg ref="memberDao" />
+		<!-- <constructor-arg ref="memberDao" /> -->
+		
+		<!-- 또다른 constructor-arg 만들기 -->
+		<constructor-arg>
+		<!-- 이미 만들어 놓은 것을 주입해 주는 것이 아니라 익명 클래스를 쓰는 것 처럼 id가 따로 없이 (식별자가 없다)아래의 클래스를 changePwService 에 주입함. 
+			생성자를 만들 때 bean 객체 만들어서  주입해 줌.-->
+			<bean class="member.dao.MemberDao"/>
+		</constructor-arg>
 	</bean>
 
 </beans>
+
+
+

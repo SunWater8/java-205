@@ -5,7 +5,14 @@ import member.domain.Member;
 
 public class ChangePasswordService {
 
-	Dao dao;
+	private Dao dao;
+	
+	public void setDao(Dao dao) {
+		this.dao=dao;
+	}
+	
+	//setter 방식으로 주입하려면 꼭 기본 생성자가 필요하다.
+	public ChangePasswordService() {}
 	
 	//생성자 초기화를 통해 Dao 주입하기
 	public ChangePasswordService(Dao dao) {

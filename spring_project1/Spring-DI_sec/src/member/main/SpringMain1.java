@@ -20,7 +20,10 @@ public class SpringMain1 {
 		//순서6-2
 		//ApplicationContext인터페이스를 GenericXmlApplicationContext 클래스 통해서  클래스로 완성 시킴 
 		//그리고 설정파일인 xml 파일을 받아서 최종적으로 컨테이너 완성시킴
-		ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
+		
+		//ctx = new GenericXmlApplicationContext("classpath:appCtx1.xml");
+		// 순서7. appCtx2.xml 로 실행하기 
+		ctx = new GenericXmlApplicationContext("classpath:appCtx2.xml");
 		
 		//순서1. 
 		Scanner sc = new Scanner(System.in);

@@ -8,9 +8,9 @@ import member.domain.RegRequest;
 
 public class MemberRegService {
 	//1
-	Dao dao;
+	private Dao dao;
 	//dao 는 인터페이스라서 이 클래스는 컴파일이 정상적으로 될 것이다.
-	int num;
+	private int num;
 	//4.
 	//property 방식 : setter 메소드를 이용, 기본 생성자가 필요하다.
 	public void setDao(Dao dao) {
