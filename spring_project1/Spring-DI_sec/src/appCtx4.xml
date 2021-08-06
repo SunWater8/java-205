@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!-- 빈 객체 범위 -->
+	
+	<!-- MemberDao bean 등록 -->
+	<bean id="memberDao" class="member.dao.MemberDao"></bean>
+
+	<!-- MemberRegService bean 등록 -->
+	<!-- prototype으로 범위를 설정 : 객체를 생성할 때마다 싱글톤과 다르게 다른 참조값을 가진다. -->
+	<bean id="regService" class="member.service.MemberRegService" scope="prototype">
+		<!-- 참조 변수 넣어주기 - 맨 처음에 만든 bean을 주입. -->
+		<constructor-arg ref="memberDao" />
+	</bean>
+
+	<!-- ChangePasswordService bean 등록 -->
+	<bean id="changePwService"
+		class="member.service.ChangePasswordService" scope="singleton">
+		<constructor-arg ref="memberDao" />
+	</bean>
+	
+	<!-- bean 객체 생성 범위에 대해서
+	id가 memberDao, changePwService 인 객체는 인스턴스 요청 하지 않아도 컨테이너가 시작하면 바로 만들어진다.
+	반면 scope을 prototype이라고 지정한 regService는 인스턴스 요청시에만 생성하므로 생성시기를 scope을 통해 조절할 수 있다.
+	또한 prototype은 서로 다른 객체를 생성한다.
+	-->
+
+</beans>
