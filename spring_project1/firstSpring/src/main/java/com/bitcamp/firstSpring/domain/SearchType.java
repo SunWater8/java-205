@@ -6,7 +6,6 @@ public class SearchType {
 	private String label;
 	
 	public SearchType(int value, String label) {
-		super();
 		this.value = value;
 		this.label = label;
 	}

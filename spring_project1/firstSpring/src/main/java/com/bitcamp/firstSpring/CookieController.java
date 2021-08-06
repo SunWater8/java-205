@@ -3,10 +3,12 @@ package com.bitcamp.firstSpring;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletResponse;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.CookieValue;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+@Controller
 public class CookieController {
 	
 	//쿠키 생성해주는 요청 처리
@@ -25,7 +27,7 @@ public class CookieController {
 	}
 	
 	
-	@RequestMapping(value="/cookie/view")
+	@RequestMapping("/cookie/view")
 	public String viewCookie(
 			//쿠키설정1
 			//name을 String으로 받음?
@@ -37,7 +39,7 @@ public class CookieController {
 			
 			//쿠키설정3
 			//쿠키 username 이 원래 없다면 defaultvalue를 scott 이라고 기본설정을 한다.
-			@CookieValue(value = "username", defaultValue = "SCOTT") String userName,
+			@CookieValue(value = "usernames", defaultValue = "SCOTT") String userName,
 			
 			Model model
 			) {

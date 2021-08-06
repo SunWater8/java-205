@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- MemberDao bean 등록 -->
+	<!-- 기본 생성자를 가지고 처리를 해주고 있기 때문에  -->
+	<bean id="memberDao" class="member.dao.MemberDao"></bean>
+
+	<!-- MemberRegService bean 등록 -->
+	<bean id="regService" class="member.service.MemberRegService">
+		<!-- 기본생성자 처리. 참조 변수 넣어주기 - 맨 처음에 만든 bean을 주입. -->
+		<constructor-arg ref="memberDao" />
+	</bean>
+	
+	<!-- 기본형 타입의 데이터 주입 -->
+	<bean id="regService1" class="member.service.MemberRegService">
+		<constructor-arg value="10" />
+	</bean>
+	
+	<!-- 여러 데이터를 주입해야 할 때 -->
+	<bean id="regService2" class="member.service.MemberRegService">
+		<constructor-arg index="0" ref = "memberDao"/>
+		<!-- index 값으로  파라미터의 위치를 지정해 줄 수 있다.  -->
+		<constructor-arg index="1" value="10" />
+	</bean>
+
+	<!-- ChangePasswordService bean 등록 -->
+	<bean id="changePwService" class="member.service.ChangePasswordService">
+		<constructor-arg ref="memberDao" />
+	</bean>
+
+</beans>

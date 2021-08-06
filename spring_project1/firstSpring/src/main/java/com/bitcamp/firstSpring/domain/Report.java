@@ -9,7 +9,6 @@ public class Report {
 	private MultipartFile report;
 	
 	public Report(String sno, String sname, MultipartFile report) {
-		super();
 		this.sno = sno;
 		this.sname = sname;
 		this.report = report;
@@ -17,20 +16,32 @@ public class Report {
 
 	//mvc 를 이용해서 값을 넣을 것이기 때문에 기본 생성자가 필요하다.
 	public Report() {
-		super();
 	}
 
 	public String getSno() {
 		return sno;
 	}
 
+	public void setSno(String sno) {
+		this.sno = sno;
+	}
+
 	public String getSname() {
 		return sname;
+	}
+
+	public void setSname(String sname) {
+		this.sname = sname;
 	}
 
 	public MultipartFile getReport() {
 		return report;
 	}
+
+	public void setReport(MultipartFile report) {
+		this.report = report;
+	}
+
 	
 	
 	

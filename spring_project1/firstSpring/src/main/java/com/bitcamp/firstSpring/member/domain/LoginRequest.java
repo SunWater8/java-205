@@ -1,14 +1,10 @@
-package com.bitcamp.firstSpring.domain;
+package com.bitcamp.firstSpring.member.domain;
 
-public class loginRequest {
+public class LoginRequest {
 
 	private String id;
 	private String pw;
-	public loginRequest(String id, String pw) {
-		super();
-		this.id = id;
-		this.pw = pw;
-	}
+	
 	public String getId() {
 		return id;
 	}
@@ -23,7 +19,7 @@ public class loginRequest {
 	}
 	@Override
 	public String toString() {
-		return "loginRequest [id=" + id + ", pw=" + pw + "]";
+		return "LoginRequest [id=" + id + ", pw=" + pw + "]";
 	}
 	
 	

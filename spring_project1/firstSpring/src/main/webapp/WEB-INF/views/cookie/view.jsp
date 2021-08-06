@@ -17,6 +17,5 @@
 	<h3> username = ${userName}</h3>
 	
 	<a href="<c:url value='/'/>">홈으로 가기</a><br>
-	<a>쿠키 정보 보기</a>
 </body>
 </html>

@@ -17,11 +17,11 @@ import com.bitcamp.firstSpring.domain.Report;
 
 @Controller
 public class FileUploadController {
-	//순서8
+	//순서7
 	@Autowired
 	private FileUpoadService uploadService;
 	//순서3.
-	final String UPLOAD_URI = "";
+	final String UPLOAD_URI = "/uploadfile";
 	
 	//순서1
 	@RequestMapping("/upload/uploadForm")
@@ -30,7 +30,7 @@ public class FileUploadController {
 	}
 	//순서2.
 	@RequestMapping(value="upload/upload1")
-	public String upload(
+	public String upload1(
 			@RequestParam("sno") String sno, 
 			@RequestParam("sname")String sname, 
 			@RequestParam("report")MultipartFile report,
@@ -55,23 +55,21 @@ public class FileUploadController {
 		//report에 있는 메소드를 저장
 		//report.transferTo(newFile);
 		saveFile(request, report);
+		
+		uploadService.fileUpload();
 		return "upload/upload";
 	}
 	//순서5.
-	@RequestMapping(value="upload/upload1")
+	@RequestMapping(value="upload/upload2")
 	public String upload2(
-			@RequestParam("sno") String sno, 
-			@RequestParam("sname")String sname, 
-			@RequestParam("report")MultipartFile report,
-			Model model,
+			MultipartHttpServletRequest request,
+			Model model
 			
-			//경로를 위해  필요
-			HttpServletRequest  request
-			) {
+			) throws IllegalStateException, IOException {
 		
 		String sno = request.getParameter("sno");
-		String sname = request.getParameter("sno");
-		MultipartFile report = request.getParameter("sno");
+		String sname = request.getParameter("sname");
+		MultipartFile report = request.getFile("report");
 
 		System.out.println("학번 : " + sno);
 		System.out.println("이름 : " + sname);
@@ -81,17 +79,11 @@ public class FileUploadController {
 		model.addAttribute("sname", sname);
 		model.addAttribute("reportfile", report.getOriginalFilename());
 		
+		saveFile(request, report);
 		
 		return "upload/upload";
 	}
 	//순서6.
-	@RequestMapping("/upload/upload2")
-	public String upload2(
-			MultipartHttpServletRequest request
-			) {
-		return "upload/upload";
-	}
-	//순서7.
 	public String upload3(
 			
 			Report report,
@@ -111,7 +103,7 @@ public class FileUploadController {
 	}
 	//순서4
 	// 사용자 업로드한 파일을 저장하는 메소드
-	private void saveFile(HttpServletRequest request, String path, MultipartFile file) throws IllegalStateException, IOException {
+	private void saveFile(HttpServletRequest request, MultipartFile file) throws IllegalStateException, IOException {
 		//저장 경로: 시스템 경로
 		String saveDir = request.getSession().getServletContext().getRealPath(UPLOAD_URI);
 		

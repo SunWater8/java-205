@@ -17,7 +17,7 @@ public class SearchController {
 		return "search/search";
 	}
 	
-	@RequestMapping("/search/search")
+	@RequestMapping("/search/search1")
 	public String search1() {
 		return "search/search";
 	}
