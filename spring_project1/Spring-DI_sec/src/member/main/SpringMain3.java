@@ -77,7 +77,7 @@ public class SpringMain3 {
 		request.setConfirmPassword(values[4]);
 		
 		//비밀번호가 일치하는지
-		if(!request.isPasswordEqualsToConfirmPassword()) {
+		if(!request.isPasswordEqualToConfirmPassword()) {
 			//비밀번호가 다르면
 			System.out.println("비밀번호와 비밀번호 확인이 일치하지 않습니다.");
 			return; //종료. 다시 입력하게 하기.
