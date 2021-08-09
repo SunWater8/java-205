@@ -11,9 +11,42 @@
 	
 <%@ include file="/WEB-INF/views/frame/header.jsp" %>
 <%@ include file="/WEB-INF/views/frame/nav.jsp" %>
-	
-	<div >
-		<h1>Content : 로그인</h1>
+
+	<div id="content">
+
+		<h2>Login</h2>
+		<hr>
+
+		<form method="post">
+
+			<table>
+				<tr>
+					<th>ID</th>
+					<%--=reid--%>
+					<td><input type="text" name="memberid"
+						value="${cookie.reid.value}"></td>
+				</tr>
+				<tr>
+					<th>PW</th>
+					<td><input type="password" name="password"></td>
+				</tr>
+				<tr>
+					<th></th>
+					<%--=checked--%>
+					<td><input type="checkbox" name="reid" value="on"
+						${cookie.reid ne null ? 'checked' : ''}> 아이디 기억하기</td>
+						
+						<input type="text" name="redirectUri" value="${redirectUri ne null ? redirectUri : '' }">
+				</tr>
+				<tr>
+					<th></th>
+					<td><input type="submit"></td>
+				</tr>
+			</table>
+
+		</form>
 	</div>
+
+
 </body>
 </html>
