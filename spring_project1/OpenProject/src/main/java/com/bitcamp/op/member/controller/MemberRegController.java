@@ -18,8 +18,7 @@ public class MemberRegController {
 	private MemberRegService regService;
 	
 	@RequestMapping(method = RequestMethod.GET)
-	public String regForm(
-			) {
+	public String regForm() {
 		return "/member/RegForm";
 	}
 	
@@ -31,7 +30,7 @@ public class MemberRegController {
 			Model model
 			) {
 		
-		boolean reg =  regService.reg(memberid, password, membername, memberphoto);
+		int reg =  regService.reg(memberid, password, membername, memberphoto);
 		model.addAttribute("reg", reg);
 		
 		return "member/memberReg";
