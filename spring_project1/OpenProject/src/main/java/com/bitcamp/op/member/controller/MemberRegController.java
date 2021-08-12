@@ -1,17 +1,19 @@
 package com.bitcamp.op.member.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import com.bitcamp.op.member.domain.RegRequest;
 import com.bitcamp.op.member.service.MemberRegService;
 
 @Controller
-@RequestMapping("/member/Reg")
+@RequestMapping("/member/memberReg")
 public class MemberRegController {
 
 	@Autowired
@@ -19,20 +21,28 @@ public class MemberRegController {
 	
 	@RequestMapping(method = RequestMethod.GET)
 	public String regForm() {
-		return "/member/RegForm";
+		return "/member/regForm";
 	}
 	
+	@RequestMapping (method=RequestMethod.POST)
 	public String reg(
-			@RequestParam("memberid") String memberid,
-			@RequestParam("password") String password,
-			@RequestParam("membername") String membername,
-			@RequestParam("memberphoto") String memberphoto,
+//			@RequestParam("memberid") String memberid,
+//			@RequestParam("password") String password,
+//			@RequestParam("membername") String membername,
+//			@RequestParam("memberphoto") String memberphoto,
+			
+			@ModelAttribute("regRequest") RegRequest regRequest,
+			HttpServletRequest request,
 			Model model
-			) {
+			) { 
 		
-		int reg =  regService.reg(memberid, password, membername, memberphoto);
-		model.addAttribute("reg", reg);
+		boolean result =  regService.reg(regRequest, request);
 		
-		return "member/memberReg";
+		model.addAttribute("result", result);
+		String view = "member/memberReg";
+		if(result) {
+			view="redirect:/index";
+		}
+		return view;
 	}
 }

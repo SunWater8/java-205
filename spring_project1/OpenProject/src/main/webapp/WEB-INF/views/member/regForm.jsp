@@ -9,6 +9,21 @@
 <link rel="stylesheet" href="<c:url value='/css/default.css'/>">
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp" %>
 <!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
+ <style>
+.display_none {
+	display: none;
+}
+.color_blue {
+	color: blue;
+}
+.color_red {
+	color: red;
+}
+#loadingimg {
+	height: 20px;
+}
+</style>
+ 
  <script>
 	
 	$(document).ready(function(){

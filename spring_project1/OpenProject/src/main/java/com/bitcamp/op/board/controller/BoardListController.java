@@ -1,4 +1,4 @@
-package com.bitcamp.op.member.controller;
+package com.bitcamp.op.board.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;

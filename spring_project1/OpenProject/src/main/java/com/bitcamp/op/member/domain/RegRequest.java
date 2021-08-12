@@ -7,15 +7,7 @@ public class RegRequest {
 	private String memberid;
 	private String password;
 	private String membername;
-	private MultipartFile memberphoto;
-	
-	public RegRequest(String memberid, String password, String membername, MultipartFile memberphoto) {
-		super();
-		this.memberid = memberid;
-		this.password = password;
-		this.membername = membername;
-		this.memberphoto = memberphoto;
-	}
+	private MultipartFile photo;
 	
 	public String getMemberid() {
 		return memberid;
@@ -35,17 +27,20 @@ public class RegRequest {
 	public void setMembername(String membername) {
 		this.membername = membername;
 	}
-	public MultipartFile getMemberphoto() {
-		return memberphoto;
+	public MultipartFile getPhoto() {
+		return photo;
 	}
-	public void setMemberphoto(MultipartFile memberphoto) {
-		this.memberphoto = memberphoto;
+	public void setPhoto(MultipartFile photo) {
+		this.photo = photo;
 	}
 	
 	@Override
 	public String toString() {
 		return "RegRequest [memberid=" + memberid + ", password=" + password + ", membername=" + membername
-				+ ", memberphoto=" + memberphoto + "]";
+				+ ", photo=" + photo.getOriginalFilename() + "]";
 	}
 	
+	public Member toMember() {
+		return new Member(0, memberid, password, membername, photo.getOriginalFilename(),null);
+	}
 }

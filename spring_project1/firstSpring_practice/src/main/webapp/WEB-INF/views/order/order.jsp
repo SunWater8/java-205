@@ -17,7 +17,8 @@
 		<table border="1">
 		
 		<c:forEach items="${orderCommand.orderItems}" var="item" varStatus="stat">
-		
+		<!-- items는 원본, orderCommand는 생성된 객체, orderItems는 상품의 리스트 객체 - orderCommand객체의 상품들 모음객체를 원본으로 하고, 이 원본을 item이라고 이름을 붙인다.
+		카운트를 하기 위해 stat 사용하기 -->
 			<tr>
 				<td rowspan="3">상품-${stat.count}</td>
 				<td>ID</td>

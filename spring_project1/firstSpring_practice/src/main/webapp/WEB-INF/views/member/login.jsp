@@ -15,20 +15,6 @@
 <body>
 	<h1>Login Request Data</h1>
 	<hr>
-	<!--     버전1.      
-		<table>
-			<tr>
-				<td>아이디</td>
-				<td> </td>
-			</tr>
-			<tr>
-				<td>비밀번호</td>
-				<td> </td>
-			</tr>
-		</table>
-	  -->
-
-	<!-- 버전2 -->
 	<table>
 		<tr>
 			<td>아이디</td>
