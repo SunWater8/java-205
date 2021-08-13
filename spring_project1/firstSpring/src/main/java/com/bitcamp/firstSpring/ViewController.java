@@ -13,7 +13,10 @@ public class ViewController {
 
 	@RequestMapping("/view/view1")
 	public void getPage1() {}
+	//view를 지정하지 않았기 때문에 404가 뜸.
+	//자바코드를 간결하게 하기 위해 requestmapping 괄호에 써있는 대로 만들기도 한다.
 
+	//반환타입이 Model일 때 뷰 지정 방법
 	@RequestMapping("/view/view2")
 	public Model getPage2() {
 		Model model = new Model() {
@@ -62,6 +65,8 @@ public class ViewController {
 		};
 		return model;
 	}
+	
+	//반환타입이 map일 때 뷰 지정하는 방법
 	@RequestMapping("/view/view3")
 	public Map getPage3() {
 		Map<String, Object> map = new HashMap<String, Object>();

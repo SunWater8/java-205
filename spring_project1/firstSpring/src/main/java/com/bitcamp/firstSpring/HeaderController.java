@@ -14,14 +14,17 @@ public class HeaderController {
 			@RequestHeader("referer") String reString, //괄호 안에 required와 defaultValue 쓸 수도 있다.
 			Model model
 			){
+		
+		//이전페이지의 url 을 출력해 보기
 		System.out.println(reString);
+		
+		//
 		model.addAttribute("re", reString);
 		
-		return "header/headerInfo";
-		
+//		return "header/headerInfo";
 		
 		//리다이렉트 뷰로 처리 : 지정한 페이지로 리다이렉트 됨
-		//return "redirect:/member/login";
+		return "redirect:/member/login";
 	}
 	
 }
