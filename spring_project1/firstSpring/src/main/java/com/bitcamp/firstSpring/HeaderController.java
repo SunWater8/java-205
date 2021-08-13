@@ -10,15 +10,18 @@ public class HeaderController {
 
 	@RequestMapping("/header/header")
 	public String getHeader(
-			@RequestHeader("referer") String reString,
+			//이전에 있던 페이지의 경로 가지고 오기 - referer는 이전의 url을 의미함, header는 어딘가로 향한다는 뜻.
+			@RequestHeader("referer") String reString, //괄호 안에 required와 defaultValue 쓸 수도 있다.
 			Model model
 			){
 		System.out.println(reString);
 		model.addAttribute("re", reString);
 		
-		//return "header/headerInfo";
+		return "header/headerInfo";
+		
+		
 		//리다이렉트 뷰로 처리 : 지정한 페이지로 리다이렉트 됨
-		return "redirect:/member/login";
+		//return "redirect:/member/login";
 	}
 	
 }
