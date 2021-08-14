@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import com.bitcamp.firstSpring.dao.Dao;
 
 @Service
-public class FileUpoadService {
+public class FileUploadService {
 
 	@Autowired
 	Dao dao;

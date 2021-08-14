@@ -29,17 +29,21 @@
 							p:maxUploadSize="10000000"
 							>
 	</beans:bean>
-<!-- 	
+ <!-- 	FileUploadDao 클래스에 @Repository를 입력하고,
+ 		FileUploadService 클래스에  @Service 를 입력하면 이런식으로 빈등록을 하지 않아도된다.
 	<beans:bean id="fileDao" class="com.bitcamp.firstSpring.dao.FileUploadDao"/>
 	<beans:bean id="fileService" class="com.bitcamp.firstSpring.FileUploadService" />
-	 -->
 	 
-	 
-	 <!-- 로그인 체크 인터셉터 등록 -->
+ -->	 
+ 
 	 <interceptors>
+	 	<!-- 로그인 체크 인터셉터 등록 -->
 	 	<interceptor>
-	 		<mapping path="/member/mypage/**"/>
+	 		<mapping path="/member/mypage/**"/> 
+	 		<!-- member/mypage/scott 이라는 경로에서 mypage 뒤에 오는 경로를 인터셉터가 체크하게 된다. -->
+	 		
 	 		<beans:bean class="com.bitcamp.firstSpring.member.interceptor.AuthCheckInterceptor"/>
+	 		<!-- 인터셉터가 이 클래스를 가지고 체크를 하면 true/false로 결과를 반환을 한다. -->
 	 	</interceptor>
 	 </interceptors>
 	
