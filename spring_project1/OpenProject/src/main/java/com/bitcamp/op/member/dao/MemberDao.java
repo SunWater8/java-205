@@ -11,7 +11,7 @@ import com.bitcamp.op.jdbc.JdbcUtil;
 import com.bitcamp.op.member.domain.Member;
 
 
-@Repository
+@Repository //bean으로 자동 등록하기
 public class MemberDao {
 
 	//싱글톤 코드 지워도 됨. @Repository 어노테이션 추가하기

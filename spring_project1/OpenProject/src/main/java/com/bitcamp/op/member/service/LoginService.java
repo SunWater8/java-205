@@ -14,7 +14,7 @@ import com.bitcamp.op.jdbc.ConnectionProvider;
 import com.bitcamp.op.member.dao.MemberDao;
 import com.bitcamp.op.member.domain.Member;
 
-@Service
+@Service //이 서비스 클래스를 bean으로 등록하기
 public class LoginService {
 
 	@Autowired
@@ -23,7 +23,7 @@ public class LoginService {
 	public boolean login(String id, String pw, String reid, HttpSession session, HttpServletResponse response) {
 		boolean loginChk = false;
 
-		// 전달받은 id와pw로 db에서 검색하고 있다면 로그인 처리 true return, 없다면 false return
+		// 전달받은 id와pw로 db에서 검색하고(select) 있다면 로그인 처리 true return, 없다면 false return
 		Connection conn = null;
 		try {
 			conn = ConnectionProvider.getConnection();

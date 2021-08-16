@@ -24,10 +24,10 @@
 	</beans:bean>
 	
 	<beans:bean id="multipartResolver" 
-							class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
-							p:defaultEncoding="utf-8"
-							p:maxUploadSize="10000000"
-							>
+				class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
+				p:defaultEncoding="utf-8"
+				p:maxUploadSize="10000000"
+				>
 	</beans:bean>
  <!-- 	FileUploadDao 클래스에 @Repository를 입력하고,
  		FileUploadService 클래스에  @Service 를 입력하면 이런식으로 빈등록을 하지 않아도된다.

@@ -99,8 +99,8 @@ public class LoginController {
 		 return "member/login"; //   /WEB-INF/views/member/login.jsp
 	}
 }
-
 */
+
 
 /*
 //버전4.
