@@ -26,17 +26,13 @@ public class MemberRegController {
 	
 	@RequestMapping (method=RequestMethod.POST)
 	public String reg(
-//			@RequestParam("memberid") String memberid,
-//			@RequestParam("password") String password,
-//			@RequestParam("membername") String membername,
-//			@RequestParam("memberphoto") String memberphoto,
 			
 			@ModelAttribute("regRequest") RegRequest regRequest,
 			HttpServletRequest request,
 			Model model
 			) { 
 		
-		boolean result =  regService.reg(regRequest, request);
+		boolean result =  regService.memberReg(regRequest, request);
 		
 		model.addAttribute("result", result);
 		String view = "member/memberReg";

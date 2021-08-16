@@ -24,7 +24,7 @@ public class MemberRegService {
 
 	final String UPLOAD_URI = "/uploadfile";
 
-	public boolean reg(RegRequest regRequest, HttpServletRequest request) {
+	public boolean memberReg(RegRequest regRequest, HttpServletRequest request) {
 
 		boolean result = false;
 
@@ -34,9 +34,6 @@ public class MemberRegService {
 
 		try {
 			member = regRequest.toMember();
-//			member.setMemberid(regRequest.getMemberid());
-//			member.setPassword(regRequest.getPassword());
-//			member.setMembername(regRequest.getMembername());
 
 			if (regRequest.getPhoto() != null && !regRequest.getPhoto().isEmpty()) {
 

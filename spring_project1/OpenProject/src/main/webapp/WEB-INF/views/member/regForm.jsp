@@ -5,10 +5,9 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
-<link rel="stylesheet" href="<c:url value='/css/default.css'/>">
+<title>Open Project : 회원가입</title>
+
 <%@ include file="/WEB-INF/views/frame/metaheader.jsp" %>
-<!-- <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script> -->
  <style>
 .display_none {
 	display: none;
@@ -40,7 +39,7 @@
 			// ajax 비동기 통신 > id를 서버로 보내고 사용 가능 유무의 응답 코드를 받는다 -> 화면에 메시지 출력
 			
 			$.ajax({
-				url : 'idcheck.jsp',
+				url : '<c:url value="/member/idCheck"/>',
 				type : 'post',
 				data : {
 					mid : $(this).val()
@@ -93,7 +92,7 @@
 					<td>
 						<input type="text" name="memberid" id="memberid">
 						<span id="msg" class="display_none"></span>
-						<img id="loadingimg" class="display_none" alt="loading" src="<c:url value="/image/loading.gif"/>"> 
+						<img id="loadingimg" class="display_none" alt="loading" src="<c:url value="/images/loading.jpg"/>"> 
 					</td>
 				</tr>
 				<tr>
