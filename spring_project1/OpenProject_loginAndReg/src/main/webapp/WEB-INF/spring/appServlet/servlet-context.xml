@@ -34,12 +34,11 @@
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver"
 		p:defaultEncoding="utf-8" p:maxUploadSize="10000000">
 	</beans:bean>
-	<!-- 로그인 상태를 확인하는 interceptor 등록 -->
+	<!-- 로그인 상태를 확인하는 interceptor 등록 - 경로에서 board 뒤쪽으로 오든 모든 요청에는 이 인터셉터를 적용된다. -->
 	<interceptors>
 		<interceptor>
 			<mapping path="/board/**" />
-			<beans:bean
-				class="com.bitcamp.op.interceptor.AuthCheckInterceptor" />
+			<beans:bean class="com.bitcamp.op.interceptor.AuthCheckInterceptor" />
 		</interceptor>
 
 	</interceptors>
