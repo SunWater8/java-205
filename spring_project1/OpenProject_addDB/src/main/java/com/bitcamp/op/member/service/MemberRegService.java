@@ -74,6 +74,7 @@ public class MemberRegService {
 
 				regRequest.getPhoto().transferTo(newFile);
 				member.setMemberphoto(newFileName);
+				
 			} else {
 				member.setMemberphoto("photo.png");
 			}
@@ -85,7 +86,7 @@ public class MemberRegService {
 
 			resultCnt = dao.insertMember(member);
 
-			System.out.println("새롭게 등록된 idx => " + member.getIdx());
+			System.out.println("새롭게 등록된 idx => " + member.getIdx()); //holder로 자동증가하는 값을 넣었던 처리를 확인하기. 0이 아니라 이제 
 
 			// idx 값은 자식 테이블의 insert 시 외래키로 사용
 
@@ -119,12 +120,13 @@ public class MemberRegService {
 		// 파일 확장자 구하기
 		String fileName = file.getOriginalFilename();
 
+		//파일 이름에서 확장자만 제외하고 자르기
 		// String[] java.lang.String.split(String regex)
 		// : 정규식의 패턴 문자열을 전달해야하기 때문에 \\. 으로 처리
-		String[] nameTokens = fileName.split("\\."); /// tet.mini2.jpg PNG png
+		String[] nameTokens = fileName.split("\\."); /// tet.mini2.jpg PNG png (확장자가 대문자일수도 있고 소문자일 수 있다.)
 
 		// 토큰의 마지막 index의 문자열을 가져옴 : 배열의 개수-1
-		extension = nameTokens[nameTokens.length - 1].toLowerCase();
+		extension = nameTokens[nameTokens.length - 1].toLowerCase(); //nameTokens[nameTokens.length - 1]는 토큰의 가장 마지막 인덱스(마지막 글자)를 의미
 
 		// 이미지 파일 이외의 파일 업로드 금지
 		// 파일 확장자 체크
