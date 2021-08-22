@@ -20,9 +20,9 @@ public interface Dao {
 	// 회원 전체 리스트
 	List<Member> selectAll();
 	// 페이징 처리가 가능한 리스트
-	List<Member> selectList(int startRow, int count); // (0,3)
+	List<Member> selectList(int startRow, int count); // (0,3).  시작 row와 한 페이지 당 몇 개씩 가져오는지를 담고 있음.
 	// 전체 회원의 수
-	int selectTotalCount();
+	int selectTotalCount(); //전체 회원수를 알아야 페이지 수를 알 수 있다.
 	// 검색을 통한 회원 리스트
 	List<Member> selectMember(SearchType searchType);
 	

@@ -29,9 +29,11 @@ public class LoginService {
 	//@Autowired
 	//private mybatisMemberDao dao;
 	
+	//인터페이스 Dao를 이용하기 위해서는 SqlSessionTemplate의 getMapper가 필요하기에 이 객체를 주입받기.
 	@Autowired
 	private SqlSessionTemplate template;
 	
+	//인터페이스를 이용한 dao를 주입받기.
 	private Dao dao;
 	
 	public boolean login(
@@ -45,11 +47,10 @@ public class LoginService {
 		
 		//Connection conn = null;
 		
-		// 인터페이스 Dao 구현체 Mapper
+		// 인터페이스 Dao 구현체인 Mapper를 사용하기
 		dao = template.getMapper(Dao.class);
 		
-		System.out.println("인터페이스 메퍼 dao 생성");
-		
+		System.out.println("인터페이스 메퍼 dao 생성"); //확인하기 위한 용도
 		
 		// 전달받은 id와 pw 로 DB에서 검색 
 		// => 있다면 로그인 처리 true return

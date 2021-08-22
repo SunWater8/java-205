@@ -4,12 +4,12 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="com.bitcamp.op.member.dao.Dao">
-<!-- 인터페이스의 full name을 namespace로 설정해야한다!!! -->
+<!-- 인터페이스의 full name을 namespace로 설정해야한다!!! - 패키지명과 클래스 이름(인터페이스)을 써주는 것은 택배 보낼 때 없어서는 안되는 주소역할을 한다. -->
 
+<!-- id는 interface Dao의 메소드 명과 동일해야 한다. -->
 
 	<!-- Select 의 결과를 매핑하는 설정 -->
-	<resultMap 	id="memberListResult" 
-							type="com.bitcamp.op.member.domain.Member">
+	<resultMap 	id="memberListResult"  type="com.bitcamp.op.member.domain.Member">
 		<id column="idx" property="idx"/>
 		<result column="memberid" property="memberid"/>
 		<result column="membername" property="membername"/>
@@ -18,36 +18,33 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		<result column="regdate" property="regdate"/>
 	</resultMap>
 
-
-
-
-
-
 	<!-- sql tag 식별은 인터페이스의 메소드 이름과 일치 시킨다 -->
 	<!-- 로그인을 위한 select -->
-	<select id="selectByIdPw"					
-					resultType="com.bitcamp.op.member.domain.Member"
-	>
-		select * from member where memberid=#{param1} and password=#{param2} 
+	<select id="selectByIdPw" 
+			resultType="com.bitcamp.op.member.domain.Member">
+		select * from member where memberid=#{param1} and password=#{param2}
+		<!-- parameterType이 있었던 memberMapper.xml과 달리 인터페이스를 사용하게 되면서 따로 지정하지 않는 대신에, 매개변수의 순서를 가지로 param1,param2의 자리로 들어올 수 있다. --> 
 	</select>
 	
-	<select id="selectById" resultType="int">
+	<select id="selectById" 
+			resultType="int">
 		select count(*) from member where memberid=#{mid}
+		<!-- 파라미터가 하나만 들어올 수 있는 문장에서는 mid든 아무말 써도 된다. -->
 	</select>
 	
 	<insert id="insertMember"
-					parameterType="com.bitcamp.op.member.domain.Member"
-					useGeneratedKeys="true"
-					keyProperty="idx"
+			parameterType="com.bitcamp.op.member.domain.Member"
+			useGeneratedKeys="true"
+			keyProperty="idx"
 	>
 		
 		insert into Member (memberid, password, membername, memberphoto)
 		values (#{memberid}, #{password}, #{membername}, #{memberphoto})
-	
+	<!-- #{}안의 값은 getter로 읽어서 가져간다. -->
 	</insert>
 	
-	<update id="updateMember"
-					parameterType="com.bitcamp.op.member.domain.Member"
+	<update id="updateMember" 
+			parameterType="com.bitcamp.op.member.domain.Member"
 	>
 		update member
 		set membername = #{membername}, password = #{password}
@@ -61,33 +58,32 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<!-- 전체 회원의 리스트 -->
 	<!-- <select id="selectAll"
-					resultType="com.bitcamp.op.member.domain.Member"
+				 resultType="com.bitcamp.op.member.domain.Member" - 행 하나하나를 Member 객체 타입으로 받기. 그리고 그 객체들을 모아서 list 형태로 반환해서 줌.
 	> -->
 	<select id="selectAll"
-					resultMap="memberListResult"
+			resultMap="memberListResult"
 	>
 		select * from member order by idx
 	</select>
 	
 	<!-- 페이징 처리가 가능한 회원 리스트 -->
 	<select id="selectList"
-					resultType="com.bitcamp.op.member.domain.Member"
+			resultType="com.bitcamp.op.member.domain.Member"
 	>
-	select * from member
-	
-	
-	 order by memberid limit #{param1}, #{param2}
+	select * from member 
+	order by memberid limit #{param1}, #{param2} <!-- limit : 처음 입력된 param1이 start이고 다음에 입력된 param2가 count를 의미하게 된다. -->
 	</select>
 	
-	<select id="selectTotalCount" resultType="int">
+	<select id="selectTotalCount" 
+			resultType="int">
 		select count(*) from member
 	</select>
 	
 	
 	<!-- 검색을 통한 회원 리스트 -->
 	<select id="selectMember"
-					parameterType="com.bitcamp.op.member.domain.SearchType"
-					resultType="com.bitcamp.op.member.domain.Member"
+			parameterType="com.bitcamp.op.member.domain.SearchType"
+			resultType="com.bitcamp.op.member.domain.Member"
 	>
 	
 			select * from member
