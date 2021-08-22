@@ -15,14 +15,14 @@ public class IdCheckService {
 	@Autowired
 	MemberDao dao;
 	
-	public String idCheck(String id) {
+	public String idCheck(String id) { //Y 또는 N으로 반환하기 위해 이 메소드의 반환타임으로 String 사용
 		
 		String result = "Y";
 		Connection conn = null;
 		
 		try {
 			conn = ConnectionProvider.getConnection();
-			if(dao.selectById(conn, id)>0) {
+			if(dao.selectById(conn, id)>0) { //db에 아이디 값이 있으면 n을 반환하기
 				result="N";
 			}
 		} catch (SQLException e) {

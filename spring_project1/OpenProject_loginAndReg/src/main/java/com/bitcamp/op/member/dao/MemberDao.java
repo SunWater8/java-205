@@ -127,7 +127,7 @@ public class MemberDao {
 		return member;
 	}
 
-	// ID 중복여부 확인을 위한 id 값으로 검색 -> 개수 반환
+	// ID 중복여부 확인을 위한 id 값으로 검색 -> 개수 반환 (IdCheckService.java에서 필요)
 	public int selectById(Connection conn, String memberId) throws SQLException {
 		
 		int cnt = 0;

@@ -15,9 +15,9 @@ public class IdCheckController {
 	@Autowired
 	private IdCheckService checkService;
 
-	@RequestMapping(value="/member/idCheck", method =  RequestMethod.POST)
+	@RequestMapping(value = "/member/idCheck"/* , method = RequestMethod.POST */)
 	public String idCheck(
-			@RequestParam("mid") String uid,
+			@RequestParam("mid") String uid, //mid 는 regForm.jsp에 있는 ajax의 mid를 의미
 			Model model
 			) {
 		
