@@ -28,7 +28,7 @@ public class MemberRegController {
 	public String reg(
 			
 			@ModelAttribute("regRequest") MemberRegRequest regRequest, //@ModelAttribute 없이 reg.jsp가서 el로 호출할 경우 전달할 객체이름 첫 글자를 소문자로 바꾸어 ${memberRegRequest}라고 쓰면 되고, 만일 다르게 쓰고 싶다면 @ModelAttribute를 사용해서 괄호 안에 있는 이름으로 전달해 쓰면 된다.
-			HttpServletRequest request,
+			HttpServletRequest request, //request는 사용자의 사진 업로드를 처리하기 위한 수단으로 쓰임.
 			Model model
 			) { 
 		

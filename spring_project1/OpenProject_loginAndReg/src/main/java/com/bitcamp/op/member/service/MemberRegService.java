@@ -65,7 +65,7 @@ public class MemberRegService {
 															// 선언함.
 				regRequest.getPhoto().transferTo(newFile);
 				member.setMemberphoto(newFileName); // 파일 업로드 하면서 새롭게 지은 파일 이름을 db에 저장할 때 적용시키기
-				
+
 				// 파일 저장하기
 				if (regRequest.getPhoto() != null && !regRequest.getPhoto().isEmpty()) {
 					regRequest.getPhoto().transferTo(newFile);

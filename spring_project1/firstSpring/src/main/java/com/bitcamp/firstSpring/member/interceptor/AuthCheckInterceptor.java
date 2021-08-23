@@ -14,7 +14,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 	
 	@Override
 	public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-		//mypage가 포함된 경로를 들어오게 되면 다음의 문장 출력이 됨.
+		//로그인 성공 후 mypage가 포함된 경로를 들어오게 되면 다음의 문장 출력이 됨.
 		//System.out.println("AuthCheckInterceptor preHandle() 진입");
 		
 		// 1. 로그인 여부 확인
@@ -25,7 +25,7 @@ public class AuthCheckInterceptor extends HandlerInterceptorAdapter {
 		HttpSession session = request.getSession(false);
 		
 		if(session != null && session.getAttribute("loginInfo") != null) {
-			//로그인 상태일 때 true.다음 요청을 이어 나간다.- 다음의 인터셉터나 controller로 보내서 실행하도록 한다.
+			//로그인 상태일 때 true.다음 요청을 이어 나간다.- 다음의 인터셉터나 controller(여기서는 LoginController)로 보내서 실행 및 진행을 하도록 한다.
 			return true;
 		}
 		
