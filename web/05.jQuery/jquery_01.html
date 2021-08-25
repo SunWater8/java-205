@@ -25,23 +25,33 @@
 
 
     <script>
+
+
         /* 01. jQuery 이용해서 css하기 ----------------------------------------------
-        $() -> jQuery 객체 생성 ( 메소드를 사용할 수 있게 된다.)
+        $() -> jQuery 객체 생성 ( document 객체가 포함하는 메소드를 사용할 수 있게 된다.)
         document의 객체를 jquery 객체로 변환하기 */
         $(document).ready(function () {
             // css 설정
             $('h1').css('color', 'red');
             $('p').css('backgroundColor', 'yellow');
 
+
+
             // 02. 속성 선택자 - 후손 선택자 ---------------------------------------------- 
             var value = $('input[type="text"]').val('hello'); //get메소드
             // var userid = document.querySelector('#userID').value;    --내부적으로 이렇게 작동 됨.
             console.log(value);
 
+
+
             //03. 값 바꾸기
             $('input[type="text"]').val('안녕');
+
+
             //04. 필터 선택자 - 입력양식 태그들 (1)
             $('input:text').val('ollah');
+
+
 
             // 05. 필터 선택자 - 5초 뒤에 태그 실행
             //5초 후에 select 의 선택 항목의 value 값을 확인
@@ -49,12 +59,15 @@
                 var selVal = $('select>option:selected').val();
                 console.log(selVal);
 
+
                 // 06. checkedbox 값을 확인해서 체크가 되어 있는지 아닌지를 알 수 있다.
                 var chk = $('input:checkbox:checked').val();
                 console.log(chk);
 
             }, 5000);
 
+
+            
             //07. 위치 필터 선택자
             //테이블 이용.
 
@@ -62,6 +75,7 @@
             $('table tr:even').css('background-color', '#AAA'); //짝수 번째 선택
             $('table tr:first').css('background-color', 'orange').css('color', 'white'); //첫 번째 행 선택
             // $('table tr:last').css('background-color', 'blue'); //첫 번째 행 선택 --아래 행 실행하기 위해 주석처리
+
 
             //12 필터 이용하기
             $('table tr').filter(':last').css({ backgroundColor: 'blue' }); //첫 번째 행 선택
@@ -97,8 +111,10 @@
             console.log($('body').html()); //getter
             // $('body').html(output);   -- 위의 innerHTML보다 효율적이다.
 
+
             //09.
             $('#links').html(output);
+
 
             //10
             $('h3').each(function (index, item) { //h3 태그에 해당되는 것이 객체로 만들어짐. item 은 자바스크립트의 객체.
@@ -106,8 +122,10 @@
                 console.log(index, $(item).html()); //위와 결과는 같음.
             });
 
+
             //11. addClass 메소드 - h3태그에 title이라는 class가 추가가 됨.
             $('h3').addClass('title');
+
 
             // 13. 기본 필터 메소드 33p
             $('h3').filter(function (index) {
@@ -116,13 +134,20 @@
                 backgroundColor: 'black',
                 color: 'white'
             });
+
+
+
             // 14. end()
             $('h2').css('background', 'yellowgreen').filter(':even').css('color', 'white').end().filter(':odd').css('color', 'red');
+
+
 
             //15. eq(), last(), first()
             $('h3').eq(4).css('background', 'orange'); //해당 인덱스를 선택해 적용할 수 있다.
             $('h3').last().css('background', 'plum');
             $('h2').first().css('background', 'sandybrown');
+
+
 
             //16. 문서 객체 추가 선택
             $('h2').css('background', 'thistle');
