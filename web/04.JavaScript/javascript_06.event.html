@@ -7,8 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <!-- 01. onclick -->
     <style>
+        /* 01. onclick */
         h1 {
             background-color: burlywood;
         }
@@ -28,7 +28,9 @@
     <script>
         //고전방식...지금도 많이 쓰임.
         window.onload = function () {
+            
             //이벤트 적용 : 캐스팅 -> 이벤트 속성에 핸들러를 할당
+            
             //h1 태그를 먼저 캐스팅하기
             var header = document.getElementById('btm');
 
@@ -39,6 +41,7 @@
             header.addEventListener
 
             //03.이벤트 삭제
+            header.onClick=null; //header에 할당되었던 onClick 이벤트속성을 null로 지정해줌으로써 삭제하기.
         }
     </script> -->
 
@@ -108,7 +111,7 @@
             //  07. 이벤트 전달을 막는 방법 - 이벤트 버블링 막기
             var p1 = document.getElementById('p1');
             p1.onclick = function (e) {
-                var event = e || window.event;
+                var event = e || window.event; //e가 false일 때만 window의 event가 실행
                 alert('p Click');
 
                 //IE 일 때 
