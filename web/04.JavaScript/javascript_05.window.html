@@ -75,8 +75,8 @@
 
         //새로운 태그 만들어 넣어주기
         window.onload = function () {
-            /* 
-            //텍스트 추가
+             
+            //텍스트 노드를 갖는 문서 객체 (텍스트 추가)---------------------------
             //태그 생성, 텍스트 생성 -> 태그에 텍스트를 붙여준다.
             
             //h1 tag 생성
@@ -87,9 +87,10 @@
             //tag에 text node를 적용
             header.appendChild(text);          //<h1>hello</h1>
             //body 에 header 적용
-            document.body.appendChild(header); */
+            document.body.appendChild(header); 
 
 
+            //텍스트 노드를 갖지 않는 문서 객체 (속성 추가 가능)---------------------
             // 이미지 추가 (1)
             //img 태그 생성 -> 속성도 적용
             var img = document.createElement('img');
@@ -100,13 +101,13 @@
             document.body.appendChild(img);
 
 
-            // 이미지 추가 (2) - setAttribute
+            // 이미지 추가 (2) - setAttribute-------------------------------------
             var img = document.createElement('img');
             img.setAttribute('src', '../image/sea.jpg');
             img.setAttribute('width', 200);
 
 
-            //지정된 속성이 아닌 속성을 추가 - data-role
+            //지정된 속성이 아닌 속성을 추가할 때 - data-role
             img.setAttribute('data-role', 'image');
 
             document.body.appendChild(img);
@@ -114,35 +115,44 @@
         }
     </script>
 
-    <!-- 08 -->
+    <!-- 08 innerHTML -->
     <script>
         window.load = function(){
-        var img = document.createElement('img');
-        img.src = '../image/sea.jpg';
-        img.width = 500;
+            var img = document.createElement('img');
+            img.src = '../image/sea.jpg';
+            img.width = 500;
 
-        document.body.appendChild(img);
-        console.log(document.body.innerHTML);
-        console.log(document.body.innerText);
+            document.body.appendChild(img);
+            console.log(document.body.innerHTML); //body 안에 있는 html 요소(태그) 가져오기
+            console.log(document.body.innerText); //body 안에 있는 text 만 가져오기
 
-        // document.body.innerText = '<h1>test</h1>';
-        document.body.innerHTML = '<h1>test</h1>';
+            // document.body.innerText = '<h1>test</h1>'; //h1 태그 인식을 전혀 하지 않고 문자열로 보고 웹브라우저 화면에 태그를 포함해서 전체가 다 출력함.
+            document.body.innerHTML = '<h1>test</h1>'; //태그를 인식하기 때문에 웹브라우저엔 test만 출력이 됨.
         }
     </script>
 
+
+
+<!-- -----------------------------------------------정적 파일에서 생성 ------------------------------------------------------ -->
     <!-- 09. 36p-->
     <script>
         window.load = function(){
-        // 정적으로 생성된 태그
-        //HTML 문서에 작성된 태그 요소들을 캐스팅 - 문서 객체로 만드는 것
-        var header1 = document.getElementById('header1');
-        var header2 = document.getElementById('header2');
+            // 정적으로 생성되는 태그 (여태까지는 동적으로 없던 html 문서가 생성되는 것을 알아 보았다. )
+            //HTML 문서에 작성된 태그 요소들을 캐스팅 - 문서 객체로 만드는 것
+            var header1 = document.getElementById('header1');
+            var header2 = document.getElementById('header2');
 
-        console.log(typeof header1, header1.innerHTML);
-        console.log(typeof header2, header2.innerHTML);
+            console.log(typeof header1, header1.innerHTML); //object <i>안녕하세요.</i>
+            console.log(typeof header2, header2.innerHTML); //object hello.
 
-        header1. innerHTML = '안녕히계세요';
-        header2. innerHTML = '<i>다음에 만나요</i>';
+            //문서 객체의 속성을 변경하기 (텍스트노드 변경.)
+            header1. innerHTML = '안녕히계세요';
+            header2. innerHTML = '<i>다음에 만나요</i>';
+
+            //스타일 속성 추가하기
+            header1.style.backgroundColor='red';
+            header1.style.color='white';
+            header1.style.padding='10px';
         }
         
     </script>
@@ -150,23 +160,20 @@
     <!--10. 여러개의 문서 객체 가져오기  -->
     <script>
         window.load = function(){
-        var lang = document.getElementById('language');
-        console.log(typeof lang, lang)
+            var lang = document.getElementsByName('language');
+            console.log(typeof lang, lang) //nodelist타입
 
-
-        var inputs = document.getElementByIdTagName('input');
-        console.log(typeof inputs, inputs)
-    }
+            var inputs = document.getElementByIdTagName('input');
+            console.log(typeof inputs, inputs) //htmlcollection타입
+        }
     </script>
 
-    <!--11.  -->
+    <!--11.  querySelector. querySelectorAll-->
     <script>
         window.load = function(){
-            var header1 = document.getElementById('header1');
-            var header2 = document.getElementById('header2');
 
-            var checkbox = document.querySelector('#header2 + input');
-            console.log( typeof checkbox, checkbox);
+            var checkbox = document.querySelector('#header2 + input'); //id가 header2인 태그의 다음 선택자인 input를 캐스팅 (input 중에서 처음에 위치한 java라는 값을 가진 태그가 선택이 됨)
+            console.log( typeof checkbox, checkbox); //object
 
         }
     </script>
@@ -174,9 +181,11 @@
     <!-- 12. 요소의 삭제-->
     <script>
         //부모태그에서 자식태그를 삭제 - 요소삭제
-        //부모자식 각각 캐스팅을 해주어야 한다.
+        //삭제 순서1. 부모 태그를 캐스팅을 해주어야 한다.
+        //삭제 순서2. 자식 태그를 캐스팅 한다.
 
         window.load = function(){
+            //삭제 대상을 문서객체로 가져오기 (캐스팅)
             var header3 = document.getElementById('header3');
             
             //삭제할 요소를 포함하는 부모태그 캐스팅. 부모태그는  body이다.
@@ -189,12 +198,11 @@
                 1-2 text node 생성
                 1-3 tag에 text 연결
                 1-4 삽입하고자 하는 위치의 부모 태그를 casting 하고 추가
+
             2. 정적 파일(html 문서에서 이미 만들어져 있는 요소를 뜻함) 에서 생성 
                 2-1 casting 하는 method를 이용해서 문서 객체로 만들기 - getElementById()
                 2-2 수정 -> 객체가 가지는 속성들을 이용해서 수정
                 2-3 삭제 -> 부모 태그에서 삭제 대상 태그를 삭제 --현 위치
-            
-            
             */
     </script>
 
@@ -209,15 +217,15 @@
     <!-- 09. -->
     <h1 id="header1"><i>안녕하세요.</i></h1>
     <h2 id="header2">hello.</h2>
-    <!-- 12 -->
-    <h2 id="header3">제거대상</h2>
-
 
     <!-- 10. -->
     <!-- name이 같기 때문에 모두 선택할 수 있다. -->
     <input type = "checkbox" name="language" value="java" checked > java<br>
     <input type = "checkbox" name="language"value="javascript" checked> javascript<br>
     <input type = "checkbox" name="language"value="HTML5"> HTML5<br>
+
+    <!-- 12 -->
+    <h2 id="header3">제거대상</h2>
 </body>
 
 </html>
