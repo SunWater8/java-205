@@ -11,26 +11,32 @@
 
     <style>
 
-        h1{
-            color:white;
-            background-color: darkblue;
-        }
-        p{
-            color:indigo;
-            background-color: darksalmon;
-        }
     </style>
     <script>
         $(document).ready(function(){
-            $('h1').css('color', 'red');
-            $('p').css('backgroundColor', 'yellow');
+            
+            $('#allCheck').change(function(){
+                //check 선택 상태이면 true. 선택 상태 아니면 false
+                if(this.checked){
+                    // 밑에 있는 checkItem도 선택되게 하기(checkItem 안의 input type=checkbox -> checked=true)
+                    $('#checkItem').children().prop('checked', true);
+                }else{
+                    $('#checkItem').children().prop('checked', false);
+                }
+            }); //
         });
     </script>
 </head>
 
 <body>
-    <h1>친구</h1>
-    <p>가족</p>
+    <input type="checkbox" id="allCheck">
+    <label for="allCheck">all</label>
+
+    <div id="checkItem">
+        <input type="checkbox" ><label>A type</label>
+        <input type="checkbox" ><label>B type</label>
+        <input type="checkbox" ><label>C type</label>
+    </div>
 </body>
 
 </html>
