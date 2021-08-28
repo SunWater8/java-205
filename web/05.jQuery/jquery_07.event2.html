@@ -17,7 +17,7 @@
             border:3px solid darkturquoise;
         }
     </style>
-    <!-- <script>
+    <script>
         $(document).ready(function(){
             //01 header가 클릭되면 
             $('h1').click(function(){
@@ -27,7 +27,7 @@
                 $('#wrap').append('<h1>'+length+' - '+oldHtml+'</h1>');
             });
         });
-    </script> -->
+    </script>
     <script>
         $(document).ready(function(){
             //02
@@ -61,7 +61,7 @@
             $('#myForm').submit(function(){
                 alert('myForm submit1!');
                 return false;
-            })
+            });
 
             //05. 체크 속성 변경 (전체 동의할 때 쓰임) 
             $('#allCheck').change(function(){
