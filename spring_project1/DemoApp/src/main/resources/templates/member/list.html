@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+<meta charset="UTF-8">
+<title>Open Project : 로그인</title>
+
+<th:block th:replace="frame/metaheader"></th:block>
+
+</head>
+<body>
+<!-- <th:block th:replace="frame/frame/header"></th:block> -->
+	<%@ include file="/WEB-INF/views/frame/header.jsp"%>
+
+	<%@ include file="/WEB-INF/views/frame/nav.jsp"%>
+
+
+
+	<div id="content">
+		<h2>회원 리스트</h2>
+		<hr>
+			<form>
+				검색타입
+				<select name="searchType">
+					<option value="id">아이디</option>
+					<option value="name">이름</option>
+					<option value="both">아이디+이름</option>
+				</select>
+				검색 키워드<input type="text" name="keyword">
+				<input type="submit" value="검색" >
+			</form>
+		<hr>
+
+		<table class="border">
+			<tr>
+				<th>IDX</th>
+				<th>아이디</th>
+				<th>비밀번호</th>
+				<th>이름</th>
+				<th>사진</th>
+				<th>가입일</th>
+				<th>관리</th>
+			</tr>
+			
+			<tr th:each="member : ${memberList">>
+				<td th:text="${member.idx}"></td>
+				<td th:text="${member.memberid}">${member.memberid}</td>
+				<td th:text="${member.password}">${member.password}</td>
+				<td th:text="${member.membername}">${member.membername}</td>
+				<td th:text="${member.memberphoto}">${member.memberphoto}</td>
+				<td th:text="${#calendars.format(member.date, 'yyy.MM.dd. HH:mm)}"></td>
+				<td>
+					<a class="border" href="edit?idx=${member.idx}">수정</a> 
+					<a class="border" href="delete?idx=${member.idx}">삭제</a>
+				</td>
+			</tr>
+			</c:forEach>
+		</table>
+
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+
+
+</body>
+</html>
