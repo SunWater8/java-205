@@ -5,6 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://code.jquery.com/jquery-1.12.4.js"
+        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
+        </script>
     <style>
         .title {
             background-color: powderblue;
@@ -18,110 +21,29 @@
         }
     </style>
     <!-- jQuery 소스 넣기 -->
-    <script src="https://code.jquery.com/jquery-1.12.4.js"
-        integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
-        </script>
     <script>
-       /*  $(document).ready(function () {
-            // css 설정gownrl
-            $('h1').css('color', 'red');
-            $('p').css('backgroundColor', 'yellow');
-        }) */
-       /*  $(document).ready(function () {
-            var value = $('input[type="text"]').val('hello'); //get메소드
-            // var userid = document.querySelector('#userID').value;    --내부적으로 이렇게 작동 됨.
-            console.log(value);
-        }) */
-      /*   $(document).ready(function () {
-            $('input[type="text"]').val('안녕');
-        }) */
-        // $(document).ready(function () {
-        //     setTimeout(function () {
-        //         var selVal = $('select>option:selected').val();
-        //         console.log(selVal);
-
-
-        //         // 06. checkedbox 값을 확인해서 체크가 되어 있는지 아닌지를 알 수 있다.
-        //         var chk = $('input:checkbox:checked').val();
-        //         console.log(chk);
-
-        //     }, 5000);
-
-        // })
-       /*  $(document).ready(function () {
-            $('table tr:odd').css('background-color', '#DDD'); //홀수번째 선택
-            $('table tr:even').css('background-color', '#AAA'); //짝수 번째 선택
-            $('table tr:first').css('background-color', 'orange').css('color', 'white'); //첫 번째 행 선택
-            $('table tr:last').css('background-color', 'blue'); //첫 번째 행 선택 --아래 행 실행하기 위해 주석처리
-            //$('table tr').filter(':last').css({ backgroundColor: 'blue' });
-
-        }) */
-       /*  $(document).ready(function () {
-            var links = [
-                { name: '네이버', url: 'http://www.naver.com' },
-                { name: '다음', url: 'http://www.daum.net' },
-                { name: '카카오', url: 'http://www.kakao.com' },
-            ];
-
-            var output = '';
-
-            $.each(links, function (index, item) {
-                console.log(index, item.name);
-                output += '<a href="' + item.url + '">' + item.name + '</a>\n';
-            });
-            console.log(output);
-            
-
-            /* 기존의 html 내용 바꾸기 - 아래의 $이하 코드가 더 효율적이다.
-            document.body.innerHTML=output; */
-
-            //body 태그의 요소값 가져오기
-            console.log($('body').html()); //getter
-            // $('body').html(output);   -- 위의 innerHTML보다 효율적이다.
-
-        }) */
+       $(document).ready(function(){
+           $('#main').filter('h2').css('color','red');
+        
+       })
     </script>
 </head>
 <body>
-    <!-- <h1>안녕하세요</h1>
-    <p>Hello lunatics so</p> -->
-    <!-- <input type="text" value="hello" id="userID"> -->
-    <!-- <select>
-        <option value="21">2021</option>
-        <option>2020</option>
-        <option>2019</option>
-    </select>
-    개인정보 보호정책 보기 <input type="checkbox" value="ok"> -->
-    
+    <div id="main">
 
-    <!-- 07. -->
-    <table border="1">
-        <thead>
-            <tr>
-                <td>thead 1</td>
-                <td>thead 2</td>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                <td>tbody 1 - 1</td>
-                <td>tbody 1 - 2</td>
-            </tr>
-            <tr>
-                <td>tbody 2 - 1</td>
-                <td>tbody 2 - 2</td>
-            </tr>
-            <tr>
-                <td>111</td>
-                <td>222</td>
-            </tr>
-        </tbody>
-        <tfoot>
-            <tr>
-                <td>tfoot 1</td>
-                <td>tfoot 2</td>
-            </tr>
-        </tfoot>
-    </table>
+        <h1>h1 - 1</h1>
+        <h1>h1 - 2</h1>
+        <h2>h2 - 1</h2>
+        <h2>h2 - 2</h2>
+        <h1>h1 - 3</h1>
+        <h1>h1 - 4</h1>
+        <h1>h1 - 5</h1>
+        <h1>h1 - 6</h1>
+    </div>
+    
+    <div>
+        <h2>h2 - 3</h2>
+        <h2>h2 - 4</h2>
+    </div>
 </body>
 </html>

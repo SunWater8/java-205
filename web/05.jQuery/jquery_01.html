@@ -35,21 +35,27 @@
 
             // 01. jQuery 이용해서 css 설정해주기 ----------------------------------------------
             
-            $('h1').css('color', 'red');
+            $('h1').css('color', 'red'); //set 메소드 특징을 가짐
+            // $('선택자').메소드css(속성이름, 속성);
+            //선택자를 동적으로 할수도 있다. 'h1'은 'h'+1 이렇게도 표현 가능
             $('p').css('backgroundColor', 'yellow');
 
+            //두 요소 동시에 갖는 선택자
+            $('.item.select').css('color', 'blue'); //$('.item.select') : item과 selector 두 가지 클래스를 동시에 가지는 선택자를 선택할 때 띄어쓰지 않는다. 
 
+            //자손 선택자 ( 꺽쇠 사용)
+            $('.item>p').css('color', 'yellow');
+            //후손 선택자 (공백)
+            $('.item p').css('color', 'yellow');
 
             // 02. 속성 선택자 - 후손 선택자 ---------------------------------------------- 
-            var value = $('input[type="text"]').val('hello'); //get메소드
+            var value = $('input[type="text"]').val('hello'); // val() 괄호 안에 아무것도 쓰여있지 않다면 get메소드 특징을 가짐
             // var userid = document.querySelector('#userID').value;    --내부적으로 이렇게 작동 됨.
+            //hello라는 value 값을 갖는 input type="text" 인 태그 선택하기
             console.log(value);
-
-
 
             //03. 값 바꾸기
             $('input[type="text"]').val('안녕');
-
 
             //04. 필터 선택자 - 입력양식 태그들 (1)
             $('input:text').val('ollah');
@@ -57,14 +63,14 @@
 
 
             // 05. 필터 선택자 - 5초 뒤에 태그 실행
-            //5초 후에 select 의 선택 항목의 value 값을 확인
+            //5초 후에 select 의 선택 항목의 value 값을 확인   
             setTimeout(function () {
                 var selVal = $('select>option:selected').val();
                 console.log(selVal);
 
 
-                // 06. checkedbox 값을 확인해서 체크가 되어 있는지 아닌지를 알 수 있다.
-                var chk = $('input:checkbox:checked').val();
+            // 06. checkedbox 값을 확인해서 체크가 되어 있는지 아닌지를 알 수 있다.
+                var chk = $('input:checkbox:checked').val(); //type이 checkbox와 radio는 체크 되어 있는지 아닌지를 분류하는 checked 속성을 지니고 있다. 이 문장에서 선택자는 체크가 된 체크박스를 선택한 것. 
                 console.log(chk);
 
             }, 5000);
@@ -74,20 +80,22 @@
             //07. 위치 필터 선택자
             //테이블 이용.
 
+            //선택자에 콜론과 odd, even, first 등이 함께 하게 되면, 홀수와 짝수가 인덱스로 구별이 되면서 각각의 행이(tr 단위) 배열로 묶이는 형태가 된다.
             $('table tr:odd').css('background-color', '#DDD'); //홀수번째 선택
             $('table tr:even').css('background-color', '#AAA'); //짝수 번째 선택
             $('table tr:first').css('background-color', 'orange').css('color', 'white'); //첫 번째 행 선택
-            // $('table tr:last').css('background-color', 'blue'); //첫 번째 행 선택 --아래 행 실행하기 위해 주석처리
+            //css메소드를 연달아 쓰게 될 때, 처음 사용한 css메소드가 적용이 되고 jquery로 반환되면서 뒤에 연달아 붙여진 css 속성이 누적되면서 적용이 된다.
+            $('table tr:last').css('background-color', 'blue'); //첫 번째 행 선택 --아래 행 실행하기 위해 주석처리
 
 
-            //12 필터 이용하기
+            //12 기본 필터 메소드 (1)
             $('table tr').filter(':last').css({ backgroundColor: 'blue' }); //첫 번째 행 선택
+            //$('table tr').filter(':last') : table tr 선택자에서 last 선택자를 찾는다는 의미.
 
+            //08. 배열을 다루는 .each() 메소드----------------------------------------------------------------------------------------------
+            // $.each(배열원본, callback 함수: 배열의 하나의 요소를 처리하는 함수( 배열의 index 값, 요소 데이터) ) - 
 
-            //08. 배열 을 다루는 .each() 메소드
-            // $.each(배열원본, callback : 배열의 하나의 요소를 처리하는 함수, 매개변수 배열의 index 값, 요소 데이터)
-
-            // 배열 생성
+            // 배열 생성 - 배열 원본
             var links = [
                 { name: '네이버', url: 'http://www.naver.com' },
                 { name: '다음', url: 'http://www.daum.net' },
@@ -105,17 +113,23 @@
                 console.log(index, item.name);
                 output += '<a href="' + item.url + '">' + item.name + '</a>\n';
             });
+
+            //ouput을 콘솔에 출력
             console.log(output);
 
-            /* 기존의 html 내용 바꾸기 - 아래의 $이하 코드가 더 효율적이다.
-            document.body.innerHTML=output; */
-
+            //output 내용을 html에 넣어주기 (기존의 html 내용 바꾸기 )
+            document.body.innerHTML = output;
+            //jQuery방식
+            $('body').html(output);   // 위의 innerHTML보다 간결하기 때문에 더 효율적이다.
+            
+            
             //body 태그의 요소값 가져오기
-            console.log($('body').html()); //getter
-            // $('body').html(output);   -- 위의 innerHTML보다 효율적이다.
+            console.log($('body').html()); //getter - 기존에 있는 바디태그의 innerHtml 불러오기
+            
+            
 
 
-            //09.
+            //09. id가 links인 html의 태그 안에 output 내용을 추가하기
             $('#links').html(output);
 
 
@@ -123,20 +137,23 @@
             $('h3').each(function (index, item) { //h3 태그에 해당되는 것이 객체로 만들어짐. item 은 자바스크립트의 객체.
                 console.log(index, item.innerHTML);
                 console.log(index, $(item).html()); //위와 결과는 같음.
+                //매개변수로 들어오는 자바스크립트의 객체 item를 jquery로 사용하려면 그냥 item이 아니라 $(item) 형태로 만들어 주어야 한다.
             });
 
 
             //11. addClass 메소드 - h3태그에 title이라는 class가 추가가 됨.
             $('h3').addClass('title');
+            //$(선택자) 이런 모양은 선택자를 하나의 배열로 보고 각각의 요소들에게 적용할 수 있는 메소드가 그 뒤에 나오는 addClass이다.
 
 
-            // 13. 기본 필터 메소드 33p
+            // 13. 기본 필터 메소드 (2) 33p
+            //h3중에서 3번째 index에다가만 아래의 css 적용시키기
             $('h3').filter(function (index) {
                 return index % 3 == 0; //3 배수 마다 적용
             }).css({
                 backgroundColor: 'black',
                 color: 'white'
-            });
+            });//이렇게 css메소드를 객체의 형식으로 한다면 여러 css 속성을 한 번에 적어낼 수 있어서 좋다.
 
 
 
@@ -165,6 +182,8 @@
 
     <h1>안녕하세요</h1>
     <p>Hello lunatics so</p>
+    <div class="item selector"><p>식사하셨어요?</p></div>
+
 
     <input type="text" value="hello" id="userID">
     <!-- 05 -->
@@ -176,6 +195,7 @@
     <!-- 06 -->
 
     개인정보 보호정책 보기 <input type="checkbox" value="ok">
+    <!-- checkbox에서 value는 무슨 뜻일까.  -->
 
     <!-- 07. -->
     <table border="1">
