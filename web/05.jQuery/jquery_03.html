@@ -28,6 +28,7 @@
 
     <script>
         $(document).ready(function () {
+            //01 addClass(), removeClass()
             //버튼 캐스팅 -> 이벤트 연결 (click 이벤트)
             //변경 버튼 누르면 float left 됨.
             $('#btn01').click(function () {
@@ -41,13 +42,15 @@
 
 
             // 02. 문서 객체의 속성 추가 - attr()
-            //속성의 값을 반환하는 메소드
+            //속성의 값을 반환하는 메소드 - get
             var srcPath = $('.img').attr('src'); //src의 속성값을 가져옴.
             console.log('이미지 경로', srcPath);
 
-            //속성의 값을 정의
+            //속성의 값을 정의해 주기-set
             $('.img').attr('height', 200); //img의  크기를 지정해줌.
-            $('.img').attr('height', function(){
+
+            //여러 개의 img2라는 클래스를 가진 이미지에 함수로 각각의 요소에다가 조건을 달아 속성을 적용할 경우
+            $('.img2').attr('height', function(){
                 return (index+1)*100;
             });
 
@@ -65,19 +68,18 @@
             // 04. 
             //태그의 css 속성 값 확인
             console.log($('h1.title').css('color'));
-            // console.log(color);
 
             //css 적용
             $('h1').css('background', 'blue'); //-다음 문장 적용시키기 위해 주석 처리
            
+            //배열 이용해서 순서대로  css 한가지 속성 적용해주기.
             var colors = ['black', 'white', 'yellow'];
-
             $('h1').css('background', function(index){
                 return colors[index];
             });
 
 
-            //객체를 활용. 여러 개 속성을 입력 할 수 있다.
+            //객체를 활용. 여러 개 속성을 적용해주기
             $('h1').css({
                 color : 'powderblue',
                 backgroundColor:function(index){
@@ -85,26 +87,30 @@
                 }
             });
 
-            // 05.
-            var strHtml = $('h1').html();
+            // 05. html() - getter (문서 객체의 내부 검사하기)
+            var strHtml = $('h1').html(); //여기에서 h1은 모든 h1태그를 가져오는 것이 아니라, 가장 첫번째 만나는 h1 요소를 가리킨다.
             console.log('html()', strHtml);
 
             console.log($('#menu').html());
             console.log($('#menu').text());
 
-            // 06  57p
+            // 06.html 내부에 내용 추가  57p
             $('div').html(function(index, html){
                 console.log(index, html);
-                $(this).html(html + '!!!!!'); //html 에 문자열을 추가해줌.
+                $(this).html(html + '!!!!!'); //기존의 html 에 문자열을 추가해줌.
+                $(this).html('<h1>'+ html + '!!!!</h1>');
                 $(this).html('<h1>'+ html + index+'!!!!!');
             });
 
             // 07. 58p 문서 객체 제거
+            //화면에서만 삭제될 뿐 소스에서는 살아있다.
             $('#btn03').click(function(){
-                $('#menu').remove();
+                $('#menu').remove(); //#menu 가 가지고 있는 모든 내용이 화면에서 사라짐.
             });
+
+            //메뉴 안의 내용만 삭제. 객체는 살아 있음.
             $('#btn04').click(function(){
-                $('#menu').empty(); //메뉴 안의 내용만 삭제. 객체는 살아 있음.
+                $('#menu').empty(); //#menu 하위 태그 내용이 다 사라짐.
             });
         });
 
@@ -128,9 +134,9 @@
 
 
     <!-- 02 -->
-    <img src="../parkstreet.jpg">
-    <img src="../parkstreet.jpg">
-    <img src="../parkstreet.jpg">
+    <img class='img' src="../parkstreet.jpg">
+    <img class='img2' src="../parkstreet.jpg">
+    <img class='img2' src="../parkstreet.jpg">
 
     <!-- 04. -->
     <h1 class="title">header - 1</h1>
