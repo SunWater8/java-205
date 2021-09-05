@@ -16,40 +16,40 @@
 
         $(document).ready(function () {
 
-
+            //01. appendTo()
             //동적 html 요소 생성
-            $('<h1></h1>');
+            $('<h1></h1>'); //선택자가 아닌 태그 들어가기
             $('<h1></h1>').html('Hello!!');
             $('<h1>Hello!! 2</h1>'); //위 문장과 같음.
 
             //요소(element)를 추가하는 두 가지 방식
-            $('<h1></h1>').html('Soren!').appendTo('body');
-            $('<h1>Hello!! Javascript</h1>').appendTo('body');
+            $('<h1></h1>').html('Hello!!').appendTo('body'); // appendTo : $('<h1></h1>').html('Soren!') 이렇게 만든 내용을 body에 추가한다는 의미
+            $('<h1>Hello!! Javascript!!</h1>').appendTo('body');
 
-            // 02. 62p
-            // $('<img>').appendTo('body'); // src를 추가해 주어야 작동함
-            // $('<img>').attr('src', '../parkstreet.jpg').attr('width',100).appendTo('body'); 밑 문장과 결과가 같아서 주석 처리 
+            // 02. 텍스트 노드가 없는 이미지 동적 추가 62p
+            $('<img>').appendTo('body'); // src를 추가해 주어야 작동함
+            $('<img>').attr('src', '../parkstreet.jpg').attr('width',100).appendTo('body'); //밑 문장과 결과가 같아서 주석 처리 
             $('<img>').attr({
                 src: '../parkstreet.jpg',
                 width: 100
             }).appendTo('body');
 
-            // 03. 문서 객체 삽입 - prependTo (잘 사용 안함.)
-            // $('<img>').attr({
-            //     src: '../parkstreet.jpg',
-            //     width: 100
-            // }).prependTo('body');
+           // 03. prependTo() -  $(A).prependTo(B) : B를 A의 앞부분에 추가하기
+           //추가하려는 것을 가장 위로 보이게 하기 : prependTo
+            $('<img>').attr({
+                src: '../parkstreet.jpg',
+                width: 100
+            }).prependTo('body');
 
-            // 04.
+            // 04. append() 1 - $(A).append(B) : B를 A의 뒷부분에 추가하기
             var html1 = '<a href="#">test</a>';
             var html2 = '<p>TEST</p>';
             var html3 = '<div>DIV-0</div><div>DIV-1</div><div>DIV-3</div>';
 
             $('body').append('<h3>Hello!! Js</h3>'); //body의 맨 끝에 넣기, 여러개 요소를 쓸 수 있다.
-            $('body').append(html1, html2, html3, '<hr>');
+            $('body').append(html1, html2, html3, '<hr>'); //콤마를 이용해 순서대로 여러개를 추가할 수 있다.
 
-            //05.
-            //배열 생성
+            //05. append() 2 - 배열 생성하여서 append이용해서 추가할 수 있다.
             var links = [
                 {name:'네이버', url:'http://www.naver.com'},
                 {name:'다음', url:'http://www.daum.net'},
