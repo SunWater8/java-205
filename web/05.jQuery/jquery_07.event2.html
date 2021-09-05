@@ -19,10 +19,10 @@
     </style>
     <script>
         $(document).ready(function(){
-            //01 header가 클릭되면 
+            //01 h1을 클릭할 때마다 문장 증가시키기
             $('h1').click(function(){
-                var length = $('h1').length;
-                var oldHtml = $(this).html(); //this는 선택자 h1를 가리킴
+                var length = $('h1').length; // $('h1').length : h1태그를 모아놓은 배열 요소의 개수
+                var oldHtml = $(this).html(); //this는 h1중에서 이벤트가 발생한 선택자 h1를 가리킴
 
                 $('#wrap').append('<h1>'+length+' - '+oldHtml+'</h1>');
             });
@@ -30,45 +30,63 @@
     </script>
     <script>
         $(document).ready(function(){
-            //02
-            $('#wrap').on('click','h1',function(){
+            //02 이벤트 연결 범위 - delegate 방식의 on()메소드
+            $('#wrap').on('click','h1',function(){ //상위태그인 wrap을 캐스팅 하고 그 안에 해당하는 h1을 클릭했을 때 이벤트에 대한 내용.
                 var length = $('h1').length;
                 var oldHtml = $(this).html(); 
 
                 $('#wrap').append('<h1>'+length+' - '+oldHtml+'</h1>');
+
+                //이벤트 제거하기
+                $('#wrap').off('click', 'h1'); //h1 한번만 클릭하고 이벤트가 끝남. 특정시점에 이벤트를 종료하고 싶을 때 사용하기.
             });
 
-            // 03
+            // 03 키보드 이벤트 keyup : 키보드를 뗄 때 발생한다.
+            //글자 수 확인할 때 사용.
             $('textarea').keyup(function(){
-                var cnt = $(this).val().length;
-                var remain = 150 - cnt;
+                var cnt = $(this).val().length; //입력하고 있는 글 자 수
+                var remain = 150 - cnt; //150자에서 남은 글자 수 
 
                 console.log(cnt, remain);
 
-                if(remain<0){ //정해진 글자 수를 다썼다면
+                //정해진 글자 수를 다썼다면 더이상 입력되지 않게 하기.
+                if(remain<0){ 
                     alert('소개서는 150자 까지만 허용됩니다.');
-                    var str = $(this).val().substr(0,150);
+                    var str = $(this).val().substr(0,150); //substr( 0, 150) : 150자까지만 자르기
                     $(this).val(str);
                     $('span').text('150');
                     return false;
                 }
 
-                //span 캐스팅
+                //span 캐스팅 - 현재 입력되는 글자수가 실시간으로 보여짐.
                 $('span').text(cnt);
             });
 
-            // 04.
-            $('#myForm').submit(function(){
+
+            /* 입력양식 이벤트
+            change      : 입력 양식의 내용을 변경할 때 발생
+            focus       : 입력ㅇ양식에 초점을 맞추면 발생
+            focusin     : 입력 양식에 초점이 맞추어지기 바로 전에 발생
+            focusout    : 입력 양식에 초점이 사라지기 바로 전에 발생
+            blur        : 입력 양식에 초점이 사라자지면 발생
+            select      : 입력 양식을 선택할 때 발생
+            submit      : submit버튼을 누르면 발생
+            reset       : reset 버튼을 누르면 발생 
+            */
+
+            // 04. submit 이벤트
+            $('#myForm').submit(function(){ //자바스크립트의 경우 .onsubmit=function();로 했었음.
                 alert('myForm submit1!');
-                return false;
+                return false; //return false를 하면은 이벤트를 stop하는 효과가 있음.
             });
 
-            //05. 체크 속성 변경 (전체 동의할 때 쓰임) 
+
+            //05.체크 속성 변경 (전체 동의할 때 쓰임) 
             $('#allCheck').change(function(){
-                //check 선택 상태이면 true. 선택 상태 아니면 false
-                if(this.checked){
-                    // 밑에 있는 checkItem도 선택되게 하기(checkItem 안의 input type=checkbox -> checked=true)
-                    $('#checkItem').children().prop('checked', true);
+                if(this.checked){  //check 선택 상태이면 true. 선택 상태 아니면 false를 반환
+
+                    // 밑에 있는 checkItem도 선택되게 하기(checkItem 안의 input type=checkbox의  checked를 true로 만들기)
+                    $('#checkItem').children().prop('checked', true); // children말고 parent라고 하면 상위태그가 선택이 됨.
                 }else{
                     $('#checkItem').children().prop('checked', false);
                 }
@@ -88,7 +106,7 @@
 
     <!-- 04. -->
     <form id="myForm">
-        <input type="text">
+        <input type="submit">
     </form>
 
     <!-- 05 -->

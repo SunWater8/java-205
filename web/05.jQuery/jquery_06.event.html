@@ -38,21 +38,20 @@
     <script>
         $(document).ready(function () {
 
-            // 01. on() 메소드
+            // 01. on() 메소드. on(이벤트타입, 핸들러함수)로 구성
             // 클릭할 때마다 + 가 추가되는 이벤트 만들기
 
-            //h1 태그를 캐스팅 -> click  이벤트를 연결.
+            //h1 태그를 캐스팅하여서 click  이벤트를 연결.
             $('h1').on('click', function () {
-
-                //this는 이벤트가 발생한 element 객체를 가리킨다.
-                $(this).html(function (index, html) {
+                
+                $(this).html(function (index, html) { //this는 이벤트가 발생한 element 객체(h1중 클릭한 요소)를 가리킨다.
                     return html + '+';
                 });
             });
 
 
 
-            // 02. 
+            // 02. on(object)메소드
             //마우스를 갖다 대면 스타일이 변함.
             $('h2').on({
                 // click : function(){},
@@ -72,7 +71,7 @@
                 $(this).removeClass('reverse');
             });
 
-            //04 이벤트 삭제 off()메소드 
+            //04 이벤트 삭제 off()메소드 - 특정이벤트를 처음에만 적용시키고 싶을 때 사용.
             $('h2').hover(function () {
                 $(this).addClass('reverse');
             }, function () {
@@ -82,60 +81,69 @@
                 // $(this).off();
                 $(this).off('mouseleave'); //mouseleave 이벤트가 종료 되어서 적용되지 않음. 처음만 적용.
             });
+            
             // 05
             // 박스 영역만 클릭했을 때도 header1가 클릭되 것처럼 하기
 
             $('div').click(function () {
-                //이벤트가 발생한 div -> this
-                //$('h4',this) -> 이벤트가 발생한 div 안에 위치한 h3을 선택하기
-                var h4 = $('h4', this).text();
+               
+                var h4 = $('h4', this).text();   //this : 이벤트가 발생한 div , $('h4',this) : 이벤트가 발생한 div 안에서 h4을 선택하기
                 var p = $('p', this).text();
 
                 alert(h4 + '\n' + p);
             });
 
             //06
-            // propagation - function 의 매개변수에  e 넣고 console에서 내용 확인해보기
+            // propagation하기 - function 의 매개변수에  e 넣고 console에서 내용 확인해보기
             $('div').click(function (e) {
                 //이벤트가 발생한 div -> this
                 //$('h4',this) -> 이벤트가 발생한 div 안에 위치한 h3을 선택하기
                 var h4 = $('h4', this).text();
                 var p = $('p', this).text();
 
-                alert(h4 + '\n' + p);
-                console.log(e);
+                alert(h4 + '\n' + p); //3번 alert이 뜸.
+                console.log(e); //
             });
         });
 
     </script>
     <script>
         $(document).ready(function () {
-            // 07. 이벤트 강제 발생
+            // 07. trigger() 메소드 이용하여 이벤트 강제 발생
             //1번 가져다 쓰기
             $('h1').on('click', function () {
                 $(this).html(function (index, html) {
                     return html + '+';
                 });
             });
-            //클릭하면 마지막 행에 자동으로 + 추가하기
+            //h1클릭하면 1초마다 마지막 행에 자동으로 + 추가하기
             setInterval(function () {
                 $('h1').last().trigger('click');
             }, 1000);
         });
 
-        // 08. 자동으로 + 추가 되는 것 막아주기(버블링 막아주기)
-        $('a').click(function(){
+        // 08. stopPropagation() 메소드 : 자동으로 + 추가 되는 것 막아주기(버블링 막아주기)
+        $('a').click(function(e){
             alert('a tag click');
-
+            
+            // 08-2
             //이벤트를 전달밭지 못했을 때 하는 작업
             var e = e || window.event; //e가 null(false)일 때 window객체에 event 를 처리하도록 한다.
             
             //이벤트 버블링 제거
-            if(e.stopPropagation){
+            if(e.stopPropagation){ //e.stopPropagation이 null이면 객체가 없다는 뜻. 
+                //객체가 있다면(이벤트가 적용되고 있다면) 그 이벤트 적용을 멈추기(더이상 + 추가하지 않기)
                 e.stopPropagation();
             }
-            //a 태그가 가진 기본 이벤트 제거
+            //08-3. a 태그가 가진 기본 이벤트(naver.com으로 링크 건 것) 제거
             e.preventDefault();
+        });
+         // 09. return false로 이벤트 막기
+        $('a').click(function(e){
+           
+            alert('a tag click');
+            var e = e || window.event;
+            return false;
         });
     </script>
 </head>
@@ -173,8 +181,13 @@
     </div>
     <!-- 08 -->
     <div>
-        <!-- <h1><a onclick="alert('a tag click')">click</a></h1> -->
+        <!-- 08-1 -->
+        <h1><a onclick="alert('a tag click')">click</a></h1>
+        <!-- 08-2 -->
         <h1><a >click</a></h1>
+        <!-- 08-3 -->
+        <h1><a href="http://www.naver.com">click</a></h1>
+
     </div>
 
 </body>
