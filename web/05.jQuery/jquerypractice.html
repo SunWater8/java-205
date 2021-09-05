@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,36 +10,34 @@
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
         </script>
     <style>
-        .title {
-            background-color: powderblue;
-            color: plum;
-            /* color: */
-            float: left;
+        #banner{
+            width:300px;
+            height:500px;
+            overflow:hidden;
         }
-
-        #wrap {
-            overflow: hidden;
+        #banner>img{
+            width:300px;
+            height:500px;
         }
     </style>
-    <!-- jQuery 소스 넣기 -->
+
     <script>
-       $(document).ready(function(){
-          //$('#main>h1').css('backgroundColor','orange').filter(':even').css('color','red').end().filter(':odd').css('color','green');
-            $('h1').eq(3).css('color', 'red');
-            $('h1').last().css('backgroundColor','green');
-            $('h1').first().css('text-decoration','underline');
-            $('h1:odd').css('backgroundColor', 'gray');
-       })
+        $(document).ready(function () {
+            setInterval(function(){
+
+                $('#banner>img').first().appendTo('#banner');
+            },2000);
+        });
     </script>
 </head>
-<body>
 
-        <h1>h1 - 1</h1>
-        <h1>h1 - 2</h1>
-        <h1>h1 - 3</h1>
-        <h1>h1 - 4</h1>
-        <h1>h1 - 5</h1>
-        <h1>h1 - 6</h1>
-    
+<body>
+    <div id="banner">
+        <img src="../image/luca.jpg">
+        <img src="../image/sea.jpg">
+        <img src="../image/stNicholas.jpg">
+        <img src="../image/parkstreet.jpg" >
+    </div>
 </body>
+
 </html>
