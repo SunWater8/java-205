@@ -23,27 +23,22 @@
     <!-- jQuery 소스 넣기 -->
     <script>
        $(document).ready(function(){
-           $('#main').filter('h2').css('color','red');
-        
+          //$('#main>h1').css('backgroundColor','orange').filter(':even').css('color','red').end().filter(':odd').css('color','green');
+            $('h1').eq(3).css('color', 'red');
+            $('h1').last().css('backgroundColor','green');
+            $('h1').first().css('text-decoration','underline');
+            $('h1:odd').css('backgroundColor', 'gray');
        })
     </script>
 </head>
 <body>
-    <div id="main">
 
         <h1>h1 - 1</h1>
         <h1>h1 - 2</h1>
-        <h2>h2 - 1</h2>
-        <h2>h2 - 2</h2>
         <h1>h1 - 3</h1>
         <h1>h1 - 4</h1>
         <h1>h1 - 5</h1>
         <h1>h1 - 6</h1>
-    </div>
     
-    <div>
-        <h2>h2 - 3</h2>
-        <h2>h2 - 4</h2>
-    </div>
 </body>
 </html>
