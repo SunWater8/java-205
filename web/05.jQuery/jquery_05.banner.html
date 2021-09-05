@@ -25,8 +25,10 @@
     <script>
         $(document).ready(function(){
             
+            //3초마다 함수가 실행
             setInterval(function () {
                 $('#banner>img').first().appendTo('#banner');
+                //img 태그 중에 처음꺼 캐스팅을 하여서 ($('#banner>img').first()),  #banner 뒤로 보내기
             }, 3000);
         });
 
@@ -35,10 +37,10 @@
 
 <body>
     <div id="banner">
-        <img src="../luca.jpg">
+        <img src="../image/luca.jpg">
         <img src="../image/sea.jpg">
         <img src="../image/stNicholas.jpg">
-        <img src="../parkstreet.jpg" >
+        <img src="../image/parkstreet.jpg" >
     </div>
 </body>
 
