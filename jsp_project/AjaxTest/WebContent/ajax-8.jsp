@@ -9,11 +9,15 @@
 <style>
 </style>
 <script>
+
+	//serialize() : 객체의 내용을 요청 매개변수 문자열로 변환해준다.
+	//serializeArray() : 입력 양식의 내용을 객체로(배열로) 변환해 준다.
 	$(document).ready(function(){
-		$('#myform').submit(function(){
+		
+		$('#myform').submit(function(){ //submit 버튼 눌렀을 때 ajax 동작하기.
 			
-			console.log($(this).serialize());
-			console.log($(this).serializeArray()); //객체로 반환
+			//console.log($(this).serialize());
+			//console.log($(this).serializeArray()); //객체로 반환
 			
 			$.ajax({
 				url : 'parameter.jsp',

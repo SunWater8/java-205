@@ -11,11 +11,12 @@
 <script>
 //html 에서 입력한 것과 같다.
 	$(document).ready(function(){
-
-		$('body').load('data.html');
+		//load() : Ajax를 수행하고 선택자로 선택한 문서 객체 안에 데이터 삽입하기.
+		$('body').load('data.html'); //특정 태그 안에 html을 넣어주기.
 	});
 </script>
 </head>
 <body>
+	test
 </body>
 </html>

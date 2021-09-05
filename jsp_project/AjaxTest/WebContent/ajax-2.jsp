@@ -10,9 +10,8 @@
 </style>
 <script>
 	$(document).ready(function(){
-		//alert("ready");
 		
-	//전체 속성을 객체로 표현하기
+	//전체 속성을 객체로 표현하기 - ajax-1.jsp와 같은 내용. 
 		$.ajax({
 			url: 'data.html',
 			success : function(data){

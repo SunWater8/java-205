@@ -10,11 +10,15 @@
 </style>
 <script>
 	$(document).ready(function(){
-		/* 
+		
+		// get() : get 방식으로 수행
 		$.get('data.html', (function(data)){
+			//success 되었을 때 처리할 내용
 			$('body').html(data);
 		});
-		 */
+		 
+		 
+		 //post() : post 방식으로 수행
 		$.post('data.html', (function(data)){
 			$('body').html(data);
 		});

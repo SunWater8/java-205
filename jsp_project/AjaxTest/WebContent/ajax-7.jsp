@@ -9,14 +9,14 @@
 <style>
 </style>
 <script>
-	//html 에서 입력한 것과 같다.
+	//xml형식에서 파싱하여 html 에서 입력한 것과 같이 만들도록 한다.
 	$(document).ready(function() {
 
 		$.ajax({
 			url : 'data.xml',
 			success : function(data) {
-				//data를 객체로 만들면 find 메소드 쓸 수 있다.
-				$(data).find('product').each(function(){
+				
+				$(data).find('product').each(function(){  //data를 객체로 만들면 find 메소드 쓸 수 있다.
 					var pname = $(this).find('name').text();
 					var price = $(this).find('price').text();
 					var html = '<h3>이름 : '+pname+', 가격 : '+price+'</h3>';
