@@ -159,19 +159,21 @@
 
             // 14. end()
             $('h2').css('background', 'yellowgreen').filter(':even').css('color', 'white').end().filter(':odd').css('color', 'red');
-
+            //여기서 end()의 역할은 바로 앞에 사용한 filter를 해제하는 것이다. 이로써 한 줄에서 세 가지 선택자를 지정해서 속성을 부여할 수 있다.
 
 
             //15. eq(), last(), first()
-            $('h3').eq(4).css('background', 'orange'); //해당 인덱스를 선택해 적용할 수 있다.
-            $('h3').last().css('background', 'plum');
+            $('h3').eq(4).css('background', 'orange'); //해당 인덱스를 선택해 적용할 수 있다. //h3중에서 4번째에 속성 부여
+            $('h3').last().css('background', 'plum'); 
             $('h2').first().css('background', 'sandybrown');
+            //몇 번째를 찾아서 속성을 지정해 줄 수 있는 것은 내부적으로 배열 형식으로 처리하기 때문에 가능한 방식이다.
 
 
 
-            //16. 문서 객체 추가 선택
+            //16. add(). - 문서 객체 추가 선택
             $('h2').css('background', 'thistle');
             $('h2').css('background', 'thistle').add('h3').css('float', 'left');
+            //add()를 추가하게 되면 두 개 이상의 선택자에게 각각의 속성으로 적용시킬 수 있다.
         });
     </script>
 </head>
