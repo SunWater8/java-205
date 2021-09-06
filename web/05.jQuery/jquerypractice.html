@@ -10,34 +10,31 @@
         integrity="sha256-Qw82+bXyGq6MydymqBxNPYTaUXXq7c8v3CwiYwLLNXU=" crossorigin="anonymous">
         </script>
     <style>
-        #banner{
-            width:300px;
-            height:500px;
-            overflow:hidden;
+        .msg {
+            display: none;
         }
-        #banner>img{
-            width:300px;
-            height:500px;
+
+        .display_block {
+            display: block;
+            color: red;
         }
     </style>
 
     <script>
         $(document).ready(function () {
-            setInterval(function(){
 
-                $('#banner>img').first().appendTo('#banner');
-            },2000);
+            $('#myform').submit(function(){
+                alert('you submit');
+                return false; //return false를 하면은 이벤트를 stop하는 효과가 있음.
+            });
         });
     </script>
 </head>
 
 <body>
-    <div id="banner">
-        <img src="../image/luca.jpg">
-        <img src="../image/sea.jpg">
-        <img src="../image/stNicholas.jpg">
-        <img src="../image/parkstreet.jpg" >
-    </div>
+    <form id="myform">
+        <input type="submit">
+    </form>
 </body>
 
 </html>
