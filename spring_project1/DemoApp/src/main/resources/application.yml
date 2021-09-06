@@ -14,4 +14,4 @@ spring:
 mybatis:
   mapper-locations: com/bitcamp/app/member/mapper/**/*.xml
 server:
-  port: 8081
+  port: 8080
