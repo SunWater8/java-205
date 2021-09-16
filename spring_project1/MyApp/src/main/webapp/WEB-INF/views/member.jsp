@@ -51,6 +51,7 @@
 <script>
 	$(document).ready(function(){
 		
+		
 		$('#memberid').focusin(function() {
 			$('#msg').addClass('display_none');
 			$('#msg').removeClass('color_blue');
@@ -116,7 +117,7 @@
 					if(data==1){
 						alert('회원가입이 되었습니다.');
 						$('#regform').addClass('display_none');
-						memberList();
+						memberList(); //ajax 작업이 끝나면 회원 전체 리스트 갱신하기
 					}
 				}
 			});
@@ -125,7 +126,7 @@
 			
 		});
 		
-		
+		//회원가입 버튼을 누르면 입력했던 데이터가 입력란에 남아있지 않게 하기
 		$('#regBtn').click(function(){
 			
 			$('#regform').removeClass('display_none');
@@ -151,15 +152,17 @@
 		
 	});
 	
-	function memberList(){
+	//회원리스트의 <div>태그 안에 회원 리스트 모두 가지고 오기.
+	function memberList(){ //이 비동기 통신을 함수로 뺌. 필요할 때 쓰기 위해.
 		$.ajax({
-			url : 'http://localhost:8080/op/members',
+			url : 'http://localhost:8080/op/members', //open project에서 회원전체 리스트를 보여주는 경로
 			type : 'GET',
 			success : function(data){
 				console.log(data);
-				$.each(data, function(index, item){
+				$.each(data, function(index, item){ //index : 배열의 인덱스, item : 객체
 					console.log(index,item);
 					
+				// 카드형태로 회원 정보를 각각 모두  출력하기
 					var html = '<div class="card">';
 					html += 'idx : ' + item.idx + '<br>';
 					html += '아이디 : ' + item.memberid + '<br>';

@@ -10,11 +10,10 @@ public class MemberMypageController {
 
 	@RequestMapping("/member/mypage/{id}")
 	public String mypage(
-			@PathVariable("id") String uid,
+			@PathVariable("id") String userId,
 			Model model
 			) {
-		System.out.println(uid);
-		model.addAttribute("userId", uid);
+		model.addAttribute("uid", userId);
 		return "member/mypage";
 	}
 }

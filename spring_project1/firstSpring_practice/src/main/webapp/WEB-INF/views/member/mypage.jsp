@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h1>${userId }님의 Mypage 입니다.</h1>
+<h1>${id }님의 마이페이지 입니다.</h1>
 </body>
 </html>
