@@ -27,6 +27,9 @@
                 alert('you submit');
                 return false; //return false를 하면은 이벤트를 stop하는 효과가 있음.
             });
+
+            var innerHtml = $('#getEmailAddress').html();
+            console.log(innerHtml);
         });
     </script>
 </head>
@@ -35,6 +38,9 @@
     <form id="myform">
         <input type="submit">
     </form>
+    <p>안녕하세요
+        <span id="getEmailAddress">email.com</span>
+    </p>
 </body>
 
 </html>
