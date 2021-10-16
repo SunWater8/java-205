@@ -17,7 +17,7 @@ public class RestTestController {
 	
 	@RequestMapping(method=RequestMethod.POST)
 	@ResponseBody 			// @ResponseBody: 일반 문자열로 받으면 문자열로 반환해(응답해) 준다.
-	public String simple(	//반환타입이 String이 아닌 Member 객체라면 어째든 반환되는 것이 json으로(문자열) 바뀌게 된다.
+	public String simple(	//				    반환타입이 String이 아닌 Member 객체라면 어찌됐든 json(문자열) 타입으로 바뀌어 반환이 된다.
 			@RequestBody String body
 			) { 
 		// ---- @RequestBody 특징 -----
@@ -28,8 +28,10 @@ public class RestTestController {
 		System.out.println("body : "+body);
 		
 		//return null;							//@RequestBody는 사용하지만 @ResponseBody를 사용하지 않을 경우 : view에 대한 경로를 반환. return이 null일 경우 위에서 미리 정해놓았던 경로를 따라 감.
-		//return "@ResponseBody를 이용한 응답";		//@RequestBody와 @ResponseBody 둘 다 사용할 경우1 : return자리에  view를 반환하는 것이 아니라 반환하려는 것 자체를 반환. 화면에는 '@ResponseBody ? ??? ??' 라고 뜸.
+		//return "Response using with @ResponseBody";		//@RequestBody와 @ResponseBody 둘 다 사용할 경우1 : return자리에  view를 반환하는 것이 아니라 반환하려는 것 자체를 반환. 화면에는 '@ResponseBody ? ??? ??' 라고 뜸.
 		return body; 							//@RequestBody와 @ResponseBody 둘 다 사용할 경우2 : 전달받은 body의 값을 그대로 텍스트로 반환하게 된다.
 	}
 	
+	
 }
+
