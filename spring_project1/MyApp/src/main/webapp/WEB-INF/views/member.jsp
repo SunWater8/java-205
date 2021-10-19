@@ -49,7 +49,7 @@
 </style>
 <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
 <script>
-	$(document).ready(function(){
+ 	$(document).ready(function(){
 		
 		
 		$('#memberid').focusin(function() {
@@ -104,8 +104,9 @@
 			formData.append("membername", $('#membername').val());
 			formData.append("photo", file1);
 			console.log(formData);
+			
 			$.ajax({
-				url : '/op/members/reg1',
+				url : 'http://localhost:8080/op/members/reg1',
 				type : 'post',
 				data : formData,
 				enctype : 'multipart/form-data',
@@ -137,32 +138,28 @@
 			$('#photo').val('');
 			
 		});
-		
+		//회원가입입력폼 닫기 누르면 보이지 않게 하기
 		$('#formclose').click(function(){
 			$('#regform').addClass('display_none');
 		});
-		
-		
-		
-		
-		
+		//회원 전체 조회 함수 호출하기
 		memberList();
 		
 		
 		
 	});
 	
-	//회원리스트의 <div>태그 안에 회원 리스트 모두 가지고 오기.
+ 	//회원전체 조회하는 함수로 만들어 따로 빼기
 	function memberList(){ //이 비동기 통신을 함수로 뺌. 필요할 때 쓰기 위해.
 		$.ajax({
 			url : 'http://localhost:8080/op/members', //open project에서 회원전체 리스트를 보여주는 경로
 			type : 'GET',
 			success : function(data){
 				console.log(data);
-				$.each(data, function(index, item){ //index : 배열의 인덱스, item : 객체
+				$.each(data, function(index, item){ //index : 배열의 인덱스, item : 요소의 객체
 					console.log(index,item);
 					
-				// 카드형태로 회원 정보를 각각 모두  출력하기
+					// 카드형태로 회원 정보를 각각 모두  출력하기
 					var html = '<div class="card">';
 					html += 'idx : ' + item.idx + '<br>';
 					html += '아이디 : ' + item.memberid + '<br>';
@@ -172,14 +169,13 @@
 					html += '</div>';
 					
 					$('#memberlist').append(html);
-					
-					
 				});
 			}
 			
 		});
-	}
+	} 
 </script>
+
 </head>
 <body>
 
@@ -219,7 +215,7 @@
 						<input type="button" value="입력 폼 닫기" id="formclose">
 					</td>
 				</tr>
-			</table>
+			</table> 
 		
 	</div>
 	

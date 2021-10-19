@@ -13,4 +13,22 @@ public class MemberController {
 	public String page() {
 		return "member";
 	}
+	@RequestMapping("/member1")
+	public String page1() {
+		return "member1";
+	}
+	@RequestMapping("/member2")
+	public String page2() {
+		return "member2";
+	}
+	@RequestMapping("/member3")
+	public String page3() {
+		return "member3";
+	}
+	@RequestMapping("/member4")
+	public void page4() {
+	}
+	@RequestMapping("/member5")
+	public void page5() {
+	}
 }
