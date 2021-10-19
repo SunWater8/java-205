@@ -16,8 +16,8 @@ public class RestTestController {
 	}
 	
 	@RequestMapping(method=RequestMethod.POST)
-	@ResponseBody 			// @ResponseBody: 일반 문자열로 받으면 문자열로 반환해(응답해) 준다.
-	public String simple(	//				    반환타입이 String이 아닌 Member 객체라면 어찌됐든 json(문자열) 타입으로 바뀌어 반환이 된다.
+	@ResponseBody 			// @ResponseBody: 일반 문자열로 받으면 문자열로 반환해(응답해) 준다. 
+	public String simple(	//				    반환타입이 String이 아닌 Member 객체라면 어찌됐든 json(문자열) 타입으로 바뀌어 반환이 된다. (변환을 해주는 역할)
 			@RequestBody String body
 			) { 
 		// ---- @RequestBody 특징 -----
