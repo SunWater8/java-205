@@ -23,6 +23,7 @@
 		<li><a href="<c:url value="/header/header"/>">/header/header</a></li>
 		<li><a href="<c:url value="/view/view1"/>">/view/view1</a></li>
 		<li><a href="<c:url value="/search/search"/>">/search/search</a></li>
+		<li><a href="<c:url value="/search/search2"/>">/search/search2</a></li>
 		<li><a href="<c:url value="/upload/uploadForm"/>">/upload/uploadForm</a></li>
 								  	
 		
