@@ -9,7 +9,7 @@
   <!-- Servlet 등록 -->
   <servlet>
   	<servlet-name>JdbcDriverLoad</servlet-name>
-  	<servlet-class>guest.jdbc.JdbcDriverLoad.java</servlet-class>
+  	<servlet-class>guest.jdbc.JdbcDriverLoad</servlet-class>
   	<init-param>
   		<param-name>jdbcdriver</param-name>
   		<param-value>com.mysql.cj.jdbc.Driver</param-value>
