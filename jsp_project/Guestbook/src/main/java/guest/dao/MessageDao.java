@@ -23,7 +23,7 @@ public class MessageDao {
 		return dao;
 	}
 
-	// sql에서 insert into
+	// 게시물 추가 (insert)
 	public int writeMessage(Connection conn, Message message) throws SQLException {
 
 		int resultCnt = 0;
@@ -52,9 +52,9 @@ public class MessageDao {
 
 		try {
 			stmt = conn.createStatement();
-			String sql = "select count(*) from project.guestbook_message";
+			String sql = "select count(*) from guestbook_message";
 			rs = stmt.executeQuery(sql);
-			if (rs != null) {
+			if (rs.next()) {
 				totalCount = rs.getInt(1);
 			}
 		} finally {
@@ -71,7 +71,7 @@ public class MessageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from project.guestbook_message order by regdate desc limit ?, ?";
+		String sql = "select * from guestbook_message order by regdate desc limit ?, ?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -82,7 +82,11 @@ public class MessageDao {
 
 			list = new ArrayList<Message>();
 			while (rs.next()) {
-				list.add(new Message(rs.getInt(1), rs.getString(2), rs.getString(3), rs.getString(4),
+				list.add(new Message(
+						rs.getInt(1), 
+						rs.getString(2), 
+						rs.getString(3), 
+						rs.getString(4),
 						rs.getTimestamp(5)));
 			}
 		} finally {
@@ -90,7 +94,7 @@ public class MessageDao {
 			JdbcUtil.close(pstmt);
 		}
 
-		return null;
+		return list;
 	}
 
 	public Message selectByMid(Connection conn, int mid) throws SQLException {
@@ -98,7 +102,7 @@ public class MessageDao {
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 
-		String sql = "select * from project.guestbook_message where messageid=?";
+		String sql = "select * from guestbook_message where messageid=?";
 
 		try {
 			pstmt = conn.prepareStatement(sql);
@@ -126,7 +130,7 @@ public class MessageDao {
 		int resultCnt = 0;
 		PreparedStatement pstmt = null;
 
-		String sql = "delete from project.guestbook_message where messageid=?";
+		String sql = "delete from guestbook_message where messageid=?";
 
 		try {
 
