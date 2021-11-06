@@ -39,16 +39,21 @@ public class MessageListService {
 			//4. 페이지에 표현할 메시지 객체들 List<Message>
 			List<Message> messageList = null;
 			
-			//firstRow 는 0부터 시작한다. - DB의 시작행의 위치값. DB에서 limit의 index에 해당.
+			//firstRow 구하기. fistRow는 0부터 시작한다. - DB의 시작행의 위치값. DB에서 limit의 index에 해당.
 			int firstRow =  (pageNumber-1)*messageCountPerPage;
 			
 			messageList = dao.selectMessageList(conn, firstRow, messageCountPerPage);
 			System.out.println("message List : "+ messageList);
 			
-			listView = new MessageListView(messageList, totalMessageCount, pageNumber, messageCountPerPage, firstRow, firstRow)
+			listView = new MessageListView(
+					messageList, 
+					totalMessageCount, 
+					pageNumber, 
+					messageCountPerPage, 
+					firstRow, 
+					0);
 			
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
