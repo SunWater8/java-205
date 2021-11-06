@@ -6,12 +6,6 @@ import javax.servlet.http.HttpServlet;
 
 public class JdbcDriverLoad extends HttpServlet {
 
-	/*
-	 * public void init(ServletConfig config) throws ServletException) { jdbcDriver
-	 * = jdbcDriver == null? "com.mysql.cj.jdbc.Driver"; Class.forName(jdbcDriver);
-	 * System.out.println("mysql Driver load... !!"); }
-	 */
-
 	@Override
 	public void init(ServletConfig config) throws ServletException {
 		String jdbcDriver = config.getInitParameter("jdbcdriver");
@@ -21,7 +15,6 @@ public class JdbcDriverLoad extends HttpServlet {
 			Class.forName(jdbcDriver);
 			System.out.println("mysql Driver load... !!!");
 		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 			throw new RuntimeException(e);
 		}
