@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-	<!-- 2. 코어태그 만들기 -->
+<!-- 2. 코어태그 만들기 -->
 <%@
 	taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
@@ -16,7 +16,7 @@
 		margin : 5px;
 		width : 300px;
 	}
-	/* 6. 페이징에 스타일 주기 */
+/* 6. 페이징에 스타일 주기 */
 	div.paging{
 		padding : 10px;
 		margin-left : 10px;
@@ -53,8 +53,7 @@
 
 	<hr>
 <!-- 3. 작성 정보 -->
-	<c:if
-		test="${listView.messageList ne null and not empty listView.messageList}">
+	<c:if test="${listView.messageList ne null and not empty listView.messageList}">
 		<c:forEach items="${listView.messageList }" var="message">
 			<div class="message_box">
 				<table>
@@ -74,23 +73,23 @@
 						<td>작성일</td>
 						<td>${message.regdate }</td>
 					</tr>
-					<!-- 7. 삭제 기능 -->
+<!-- 7. 삭제 기능 -->
 					<tr>
 						<td></td>
-						<td><a href="#">삭제</a></td>
+						<td><a href="confirmDelete.jsp?mid=${message.messageid}">삭제</a></td>
 					</tr>
 				</table>
 			</div>
 		</c:forEach>
-	</c:if>
 
 <!-- 5. 페이징 -->
-	<c:if test="${listView.pageTotalCount>0}">
-		<div class="paging">
-			<c:forEach begin="1" end="${listView.pageTotalCount }" var="num"> <!-- count가 default로 1씩 증가함. -->
-				<span>[<a href="list.jsp?page= ${num }"></a>]</span>
-			</c:forEach>
-		</div>
+		<c:if test="${listView.pageTotalCount>0}">
+			<div class="paging">
+				<c:forEach begin="1" end="${listView.pageTotalCount }" var="num"> <!-- count가 default로 1씩 증가함. -->
+					<span>[<a href="list.jsp?page=${num}">${num}</a>]</span>
+				</c:forEach>
+			</div>
+		</c:if>
 	</c:if>
 </body>
 </html>
