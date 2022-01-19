@@ -27,8 +27,14 @@ public class MessageListView {
 	
 	
 	//생성자 - 메소드로 계산해서 쓸 pageTotalCount만 제외하고 만들기
-	public MessageListView(List<Message> messageList, int messageTotalCount, 
-			int currentPageNumber, int messageCountPerPage, int firstRow, int endRow) {
+	public MessageListView(
+			List<Message> messageList, 
+			int messageTotalCount, 
+			int currentPageNumber, 
+			int messageCountPerPage, 
+			int firstRow, 
+			int endRow
+			) {
 		this.messageList = messageList;
 		this.messageTotalCount = messageTotalCount;
 		this.currentPageNumber = currentPageNumber;
